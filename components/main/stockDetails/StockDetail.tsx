@@ -4,13 +4,16 @@ import {Text} from 'react-native-paper';
 import {styles} from './styles';
 
 import {LineChart} from 'react-native-chart-kit';
+import {useEffect} from 'react';
 
 export const StockDetails = ({navigation, route}) => {
   const stock = route.params.stock;
-  console.warn(stock);
-  navigation.setOptions({
-    title: stock.symbol,
-  });
+
+  useEffect(() => {
+    navigation.setOptions({
+      title: stock.symbol,
+    });
+  }, [stock, navigation]);
   // const chartConfig = {
   //   backgroundGradientFrom: '#1E2923',
   //   backgroundGradientFromOpacity: 0,

@@ -1,34 +1,33 @@
 import {StyleSheet} from 'react-native';
 
 export const styles = StyleSheet.create({
-  inputContainer: {
+  indicatorContainer: {
     flexDirection: 'row',
-    alignItems: 'center',
-  },
-  searchbox: {
-    flex: 1,
-    height: 40,
-    borderColor: 'gray',
-    borderWidth: 1,
-    paddingHorizontal: 10,
-    borderRadius: 5,
+    gap: 5,
     margin: 10,
-    // borderRightWidth:0,
-    backgroundColor: 'white',
   },
-  clear: {
+  indicator: {
+    borderColor: 'black',
+    borderWidth: 1,
+    borderRadius: 10,
+    overflow: 'hidden',
+    flex: 1,
+    backgroundColor: '#B0B0B040',
+    flexDirection: 'row',
+    padding: 10,
+  },
+  leftColumn: {
+    flex: 1,
+  },
+  rightColumn: {
+    flex: 2,
+    alignItems: 'flex-end',
+  },
+  addNewText: {
+    textAlign: 'right',
+    margin: 15,
     fontWeight: 'bold',
-    margin: 5,
   },
-  // searchbox: {
-  //   margin: 10,
-  //   borderBlockColor: 'black',
-  //   borderWidth: 1,
-  //   height: 40,
-  //   borderRadius: 30,
-  //   borderTopRightRadius: 30,
-  //   borderTopLeftRadius: 30,
-  // },
   scrollViewContent: {
     padding: 20,
     marginTop: 10,
@@ -55,7 +54,7 @@ export const styles = StyleSheet.create({
     opacity: 0.2,
     marginTop: 100,
   },
-  addWatchlistText: {
+  removeWatchlistText: {
     fontWeight: 'bold',
     fontSize: 30,
     margin: 10,

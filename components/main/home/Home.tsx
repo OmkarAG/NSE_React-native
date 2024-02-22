@@ -26,6 +26,7 @@ export const Home = () => {
   const handleStockPress = stock => {
     navigation.navigate('StockDetails', {stock}, navigation);
   };
+  
   return (
     <View>
       <Header componentName="Home" />

@@ -5,7 +5,8 @@ import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import Main from './components/main/Main';
 import SplashScreen from './components/splash screen/SplashScreen';
-import {StockDetails} from './components/main/home/stockDetails/StockDetail';
+import {StockDetails} from './components/main/stockDetails/StockDetail';
+import { Heatmap } from './components/main/heatmap/Heatmap';
 
 const Stack = createNativeStackNavigator();
 
@@ -30,6 +31,7 @@ function App(): React.JSX.Element {
           options={{headerShown: false}}
         />
         <Stack.Screen name="StockDetails" component={StockDetails} />
+        <Stack.Screen name="HeatMap" component={Heatmap} />
       </Stack.Navigator>
     </NavigationContainer>
   );

@@ -4,16 +4,26 @@ import {Header} from '../../header/Header';
 import {styles} from './style';
 import {useEffect, useState} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
-import {getStocks} from '../../../redux/action';
+import {getStocks, setWatchlistStocks} from '../../../redux/action';
+import {useNavigation} from '@react-navigation/native';
 
 export const Search = () => {
   const [searchInput, setSearchInput] = useState('');
   const [filterStocks, setFilterStocks] = useState([]);
   const dispatch = useDispatch();
+  const navigation = useNavigation();
 
   useEffect(() => {
     dispatch(getStocks());
-  }, []);
+  }, [dispatch, searchInput]);
+
+  const clearSearchInput = () => {
+    setSearchInput('');
+  };
+
+  const handleStockPress = stock => {
+    navigation.navigate('StockDetails', {stock});
+  };
 
   const stocks = useSelector(state => state.stocks);
   // console.warn(stocks);
@@ -29,15 +39,36 @@ export const Search = () => {
     }
   }, [searchInput, stocks]);
 
+  const addWatchlist = stock => {
+    // console.warn('adding', stock);
+    dispatch(setWatchlistStocks([stock]));
+  };
+
   return (
     <View>
       <Header componentName="Search" />
-      <View>
+      {/* <View>
         <TextInput
           placeholder="Enter Stock Name"
           style={styles.searchbox}
           onChangeText={text => setSearchInput(text)}
         />
+      </View> */}
+      <View style={styles.inputContainer}>
+        <TextInput
+          placeholder="Enter Stock Name"
+          style={styles.searchbox}
+          onChangeText={text => setSearchInput(text)}
+          value={searchInput}
+        />
+        {searchInput.length > 0 && (
+          <TouchableOpacity
+            onPress={clearSearchInput}
+            style={styles.clearButton}>
+            {/* <Icon name="times-circle" size={20} color="black" /> */}
+            <Text style={styles.clear}>Clear</Text>
+          </TouchableOpacity>
+        )}
       </View>
       <View>
         <ScrollView contentContainerStyle={styles.scrollViewContent}>
@@ -55,6 +86,15 @@ export const Search = () => {
                 <View>
                   <Text>{`${stock.price}`}</Text>
                   <Text>{`${stock.change}`}</Text>
+                </View>
+                <View>
+                  <Text
+                    style={styles.addWatchlistText}
+                    onPress={() => {
+                      addWatchlist(stock);
+                    }}>
+                    +
+                  </Text>
                 </View>
               </TouchableOpacity>
             ))

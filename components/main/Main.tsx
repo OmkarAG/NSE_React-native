@@ -8,6 +8,7 @@ import {Search} from './search/Search';
 import {Watchlist} from './watchlist/Watchlist';
 import {Portfolio} from './portfolio/Portfolio';
 import {Profile} from './profile/Profile';
+import {Menu} from './menu/Menu';
 
 const Tab = createMaterialBottomTabNavigator();
 // const Drawer = createDrawerNavigator();
@@ -18,7 +19,7 @@ export default function Main() {
     // <Drawer.Screen
     // name="Main"
     // component={() => (
-    <Tab.Navigator barStyle={{backgroundColor: '#daa520', height:65}}>
+    <Tab.Navigator barStyle={{backgroundColor: '#daa520', height: 65}}>
       <Tab.Screen
         name="Home"
         component={Home}
@@ -79,6 +80,19 @@ export default function Main() {
           tabBarIcon: ({color}) => (
             <Image
               source={require('../../assets/user.png')}
+              style={{width: 24, height: 24, tintColor: color}}
+            />
+          ),
+        }}
+      />
+      <Tab.Screen
+        name="Menu"
+        component={Menu}
+        options={{
+          tabBarLabel: 'Menu',
+          tabBarIcon: ({color}) => (
+            <Image
+              source={require('../../assets/menu1.png')}
               style={{width: 24, height: 24, tintColor: color}}
             />
           ),
