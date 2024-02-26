@@ -30,7 +30,7 @@ export const Home = () => {
   
   return (
     <View>
-      {/* <Header componentName="Home" /> */}
+      <Header componentName="Home" />
       <View style={styles.indicatorContainer}>
         <TouchableOpacity
           style={styles.indicator}

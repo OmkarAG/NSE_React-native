@@ -1,17 +1,3 @@
-// import { createDrawerNavigator } from '@react-navigation/drawer';
-// import { Home } from '../home/Home';
-
-// const Drawer = createDrawerNavigator();
-
-// export function MyDrawer() {
-//   return (
-//     <Drawer.Navigator>
-//       <Drawer.Screen name="Feed" component={Home} />
-//       <Drawer.Screen name="Article" component={Home} />
-//     </Drawer.Navigator>
-//   );
-// }
-
 
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import { Home } from '../home/Home/Home';
@@ -29,7 +15,7 @@ const Drawer = createDrawerNavigator();
 export function MyDrawer() {
   return (
     <Drawer.Navigator>
-      <Drawer.Screen name="Home" component={Main} />
+      <Drawer.Screen name="Home" component={Main} options={{ headerShown: false }} />
       <Drawer.Screen name="HeatMap" component={Heatmap} />
       <Drawer.Screen name="Indices" component={Indices} />
       <Drawer.Screen name="Equities" component={Equities} />

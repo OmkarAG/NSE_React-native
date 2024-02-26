@@ -46,7 +46,7 @@ export const Search = () => {
 
   return (
     <View>
-      {/* <Header componentName="Search" /> */}
+      <Header componentName="Search" />
       {/* <View>
         <TextInput
           placeholder="Enter Stock Name"
