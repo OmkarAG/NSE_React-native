@@ -72,7 +72,7 @@ export default function CombineHome() {
           ),
         }}
       />
-      <Tab.Screen
+      {/* <Tab.Screen
         name="Profile"
         component={Profile}
         options={{
@@ -84,7 +84,7 @@ export default function CombineHome() {
             />
           ),
         }}
-      />
+      /> */}
       {/* <Tab.Screen
         name="Menu"
         component={Menu}

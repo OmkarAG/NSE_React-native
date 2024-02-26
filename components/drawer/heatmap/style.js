@@ -11,6 +11,7 @@ export const styles = StyleSheet.create({
     justifyContent:'center',
   },
   itemText:{
-    color:'white'
+    color:'white',
+    fontWeight:'bold',
   }
 });

@@ -1,5 +1,6 @@
 import {
   ADD_TO_CART,
+  GET_PORTFOLIO_STOCKS,
   GET_STOCKS,
   GET_WATCHLIST_STOCKS,
   REMOVE_WATCHLIST_STOCK,
@@ -33,3 +34,9 @@ export function removeStock(payload) {
     stock: payload,
   };
 }
+
+// export function getportfolioStocks() {
+//   return {
+//     type: GET_PORTFOLIO_STOCKS,
+//   };
+// }

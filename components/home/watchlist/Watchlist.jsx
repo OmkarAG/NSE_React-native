@@ -29,7 +29,7 @@ export const Watchlist = () => {
 
   return (
     <View>
-      <Header componentName="Watchlist" />
+      <Header componentName="Watchlist" navigation={navigation} />
       <View style={styles.indicatorContainer}>
         <TouchableOpacity style={styles.indicator}>
           <View style={styles.leftColumn}>

@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React, { useEffect } from 'react';
 import {
   Image,
   ScrollView,
@@ -6,13 +6,13 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native';
-import {Text} from 'react-native-paper';
-import {useSelector} from 'react-redux';
-import {useDispatch} from 'react-redux';
-import {getStocks} from '../../../redux/action';
-import {styles} from './styles';
-import {useNavigation} from '@react-navigation/native';
-import {Header} from '../../header/Header';
+import { Text } from 'react-native-paper';
+import { useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
+import { getStocks } from '../../../redux/action';
+import { styles } from './styles';
+import { useNavigation } from '@react-navigation/native';
+import { Header } from '../../header/Header';
 
 export const Home = () => {
   const dispatch = useDispatch();
@@ -25,12 +25,12 @@ export const Home = () => {
   // console.warn('stocks ', stocks);
 
   const handleStockPress = stock => {
-    navigation.navigate('StockDetails', {stock}, navigation);
+    navigation.navigate('StockDetails', { stock }, navigation);
   };
-  
+
   return (
     <View>
-      <Header componentName="Home" />
+      <Header componentName="Home" navigation={navigation} />
       <View style={styles.indicatorContainer}>
         <TouchableOpacity
           style={styles.indicator}
@@ -96,17 +96,17 @@ export const Home = () => {
         </TouchableOpacity>
       </View>
       <View>
-        <Text style={{fontWeight: 'bold', marginLeft: 20}}>Trending </Text>
+        <Text style={{ fontWeight: 'bold', marginLeft: 20 }}>Trending </Text>
         <ScrollView contentContainerStyle={styles.scrollViewContent}>
           {stocks.map((stock, index) => (
             <TouchableOpacity
               key={index}
               style={styles.stockContainer}
               onPress={() => handleStockPress(stock)}>
-              <Image source={{uri: stock.icon}} style={styles.stockIcon} />
+              <Image source={{ uri: stock.icon }} style={styles.stockIcon} />
               <View style={styles.stockDetails}>
-                <Text style={{fontWeight: 'bold'}}>{`${stock.symbol}`}</Text>
-                <Text style={{color: '#B0B0B0'}}>{stock.name}</Text>
+                <Text style={{ fontWeight: 'bold' }}>{`${stock.symbol}`}</Text>
+                <Text style={{ color: '#B0B0B0' }}>{stock.name}</Text>
               </View>
               <View>
                 <Text>{`${stock.price}`}</Text>

@@ -16,7 +16,7 @@ export function MyDrawer() {
   return (
     <Drawer.Navigator>
       <Drawer.Screen name="Home" component={Main} options={{ headerShown: false }} />
-      <Drawer.Screen name="HeatMap" component={Heatmap} />
+      <Drawer.Screen name="HeatMap" component={Heatmap} options={{ headerShown: false }} />
       <Drawer.Screen name="Indices" component={Indices} />
       <Drawer.Screen name="Equities" component={Equities} />
       <Drawer.Screen name="Derivatives" component={Derivatives} />

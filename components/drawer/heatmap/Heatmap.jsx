@@ -1,4 +1,4 @@
-import {useEffect} from 'react';
+import { useEffect } from 'react';
 import {
   Dimensions,
   FlatList,
@@ -7,54 +7,85 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native';
-import {useDispatch, useSelector} from 'react-redux';
-import {getStocks} from '../../../redux/action';
-import {styles} from './style';
+import { useDispatch, useSelector } from 'react-redux';
+import { getStocks } from '../../../redux/action';
+import { styles } from './style';
+import { Header } from '../../header/Header';
+import { useNavigation } from '@react-navigation/native';
 
 export const Heatmap = () => {
   const dispatch = useDispatch();
+  const navigation = useNavigation()
 
   useEffect(() => {
     dispatch(getStocks());
   }, [dispatch]);
 
   const stocks = useSelector(state => state.stocks);
-//   console.warn('stocks', stocks);
+  //   console.warn('stocks', stocks);
 
-  const {width} = Dimensions.get('window');
+  const { width } = Dimensions.get('window');
   const itemSize = width / 3 - 16;
 
-  var backgroundColor = 'green';
+  // var backgroundColor = 'green';
+  // const backgroundColor = (change) => {
+  //   let num = parseFloat(change)
+  //   num = num*1
+  //   console.log("change",num)
+  //   if (num < 0) {
+  //     num = num*1
+  //     console.log("positive num ",num)
+  //     const lightness = 100 - (num - 1) * (100 / 19);
+  //     const color = `hsl(0, 100%, ${lightness}%)`;
+  //     return color;
+  //   }
+  //   else {
+  //     const lightness = 100 - (change - 1) * (100 / 19);
+  //     const color = `hsl(120, 100%, ${lightness}%)`;
+  //     return color;
+  //   }
+  // }
+
+  const backgroundColor = (change) => {
+    let num = parseFloat(change);
+    const hue = num < 0 ? 0 : 120;
+    const lightness = 80 - Math.abs(num - 1) * (100 / 30);
+
+    return `hsl(${hue}, 100%, ${lightness}%)`;
+  };
+
+
+
 
   const renderItem = ({ item, index }) => {
     // console.log("change", parseFloat(item.changeInPercent))
     // console.log("change", typeof(parseFloat(item.changeInPercent)))
-    let ii = parseFloat(item.changeInPercent)
+    // let ii = parseFloat(item.changeInPercent)
     // console.log("change", 
-    
+
     // if(ii<0)
     // )
-    if (item.changeInPercent>10) {
-      backgroundColor = "#00ab41"
-    }
-    else if(item.changeInPercent>5&&item.changeInPercent<10){
-        backgroundColor = "#5ced73"
-    }
-    else if(ii<0 &&ii>-5){
-        backgroundColor = "#ffb09c"
-    }
-    else if(ii<-5){
-        backgroundColor = "#ee2400"
-    }
-  
+    // if (item.changeInPercent>10) {
+    //   backgroundColor = "#00ab41"
+    // }
+    // else if(item.changeInPercent>5&&item.changeInPercent<10){
+    //     backgroundColor = "#5ced73"
+    // }
+    // else if(ii<0 &&ii>-5){
+    //     backgroundColor = "#ffb09c"
+    // }
+    // else if(ii<-5){
+    //     backgroundColor = "#ee2400"
+    // }
+
     return (
       <TouchableOpacity
         style={{
           width: itemSize,
           height: itemSize,
-          backgroundColor: backgroundColor,
+          backgroundColor: backgroundColor(item.changeInPercent),
           margin: 5,
-          borderRadius:10,
+          borderRadius: 10,
         }}>
         <View style={styles.textViewContainer}>
           <Text style={styles.itemText}>{item.symbol}</Text>
@@ -64,15 +95,16 @@ export const Heatmap = () => {
       </TouchableOpacity>
     );
   };
-  
+
   return (
-    <View style={{flex: 1}}>
+    <View style={{ flex: 1 }}>
+      <Header componentName="HeatMap" navigation={navigation}/>
       <FlatList
         data={stocks}
         renderItem={renderItem}
         keyExtractor={(item, index) => index.toString()}
         numColumns={3}
-        contentContainerStyle={{padding: 10}}
+        contentContainerStyle={{ padding: 10 }}
       />
     </View>
   );

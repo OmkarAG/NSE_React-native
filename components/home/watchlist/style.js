@@ -31,6 +31,7 @@ export const styles = StyleSheet.create({
   scrollViewContent: {
     padding: 20,
     marginTop: 10,
+    paddingBottom:112,
   },
   stockContainer: {
     flexDirection: 'row',
