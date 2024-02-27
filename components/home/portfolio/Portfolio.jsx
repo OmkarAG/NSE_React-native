@@ -140,13 +140,13 @@ export const Portfolio = () => {
             filterStocks?.map((stock, index) => (
               <TouchableOpacity
                 key={index}
-                style={styles.stockContainer}
+                style={styles.searchStockContainer}
               // onPress={() => handleStockPress(stock)}
               >
-                <Image source={{ uri: stock.icon }} style={styles.stockIcon} />
+                {/* <Image source={{ uri: stock.icon }} style={styles.stockIcon} /> */}
                 <View style={styles.stockDetails}>
                   <Text style={{ fontWeight: 'bold' }}>{`${stock.symbol}`}</Text>
-                  <Text style={{ color: '#B0B0B0' }}>{stock.name}</Text>
+                  {/* <Text style={{ color: '#B0B0B0' }}>{stock.name}</Text> */}
                 </View>
                 <View>
                   <Text>{`${stock.price}`}</Text>

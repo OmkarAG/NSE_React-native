@@ -110,4 +110,14 @@ export const styles = StyleSheet.create({
   optionText: {
     fontSize: 20,
   },
+  searchStockContainer:{
+    padding:5,
+    flexDirection: 'row',
+    width:250,
+    gap: 10,
+    alignItems: 'center',
+    marginBottom: 20,
+    borderBottomWidth: 1,
+    borderBottomColor: '#B0B0B0',
+  }
 });
