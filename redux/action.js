@@ -1,10 +1,11 @@
 import {
-  ADD_TO_CART,
-  GET_PORTFOLIO_STOCKS,
+  SET_PORTFOLIO_STOCK,
   GET_STOCKS,
   GET_WATCHLIST_STOCKS,
   REMOVE_WATCHLIST_STOCK,
   SET_WATCHLIST_STOCKS,
+  REMOVE_PORTFOLIO_STOCK,
+  SORT_PORTFOLIO_STOCKS,
 } from './constants';
 
 export function getStocks() {
@@ -35,8 +36,26 @@ export function removeStock(payload) {
   };
 }
 
-// export function getportfolioStocks() {
-//   return {
-//     type: GET_PORTFOLIO_STOCKS,
-//   };
-// }
+export function setPortfolioStock(payload) {
+  // console.warn("payload is ",payload)
+  return {
+    type: SET_PORTFOLIO_STOCK,
+    stock: payload,
+  };
+}
+
+export function removePortfolioStock(payload) {
+  // console.warn("payload is ",payload)
+  return {
+    type: REMOVE_PORTFOLIO_STOCK,
+    stock: payload,
+  };
+}
+
+export function sortPortfolioStocks(payload) {
+  // console.warn("payload is ",payload)
+  return {
+    type: SORT_PORTFOLIO_STOCKS,
+    type: payload,
+  };
+}

@@ -1,4 +1,10 @@
-import {GET_PORTFOLIO_STOCKS} from '../constants';
+import {ToastAndroid} from 'react-native';
+import {
+  GET_PORTFOLIO_STOCKS,
+  REMOVE_PORTFOLIO_STOCK,
+  SET_PORTFOLIO_STOCK,
+  SORT_PORTFOLIO_STOCKS,
+} from '../constants';
 
 const initialState = [
   {
@@ -25,8 +31,20 @@ const initialState = [
 
 export const portfolio = (state = initialState, action) => {
   switch (action.type) {
-    // case GET_PORTFOLIO_STOCKS:
-    //   return state;
+    case SET_PORTFOLIO_STOCK:
+      ToastAndroid.show('Stock Added Successfully', ToastAndroid.SHORT);
+      return [...state, action.stock];
+    case REMOVE_PORTFOLIO_STOCK:
+      state = state.filter(s => s.symbol !== action.stock.symbol);
+      ToastAndroid.show('Stock remove Successfully', ToastAndroid.SHORT);
+      return state;
+    case SORT_PORTFOLIO_STOCKS:
+      if (action.type == 'AtoZ') {
+        // state = state.filter(s => s.symbol !== action.stock.symbol);
+        state = state.slice().sort((a, b) => a.symbol.localeCompare(b.symbol));
+        co;
+        return state;
+      }
     default:
       return state;
   }

@@ -1,15 +1,17 @@
 import { useEffect, useState } from "react";
-import { Image, ScrollView, TextInput, TouchableOpacity, View } from "react-native"
+import { Button, Image, Modal, SafeAreaView, ScrollView, TextInput, TouchableOpacity, View } from "react-native"
 import { Text } from "react-native-paper";
 import { Header } from "../../header/Header";
 import { useNavigation } from "@react-navigation/native";
 import { styles } from "./style";
 import { useDispatch, useSelector } from "react-redux";
-import { getStocks } from "../../../redux/action";
+import { getStocks, setPortfolioStock, removePortfolioStock, sortPortfolioStocks } from "../../../redux/action";
 
 export const Portfolio = () => {
   const [searchInput, setSearchInput] = useState('');
   const [filterStocks, setFilterStocks] = useState([]);
+  const [showModal, setShowModal] = useState(false);
+  const [selectedOption, setSelectedOption] = useState(null);
 
   const navigation = useNavigation()
   const dispatch = useDispatch()
@@ -40,11 +42,82 @@ export const Portfolio = () => {
   //   dispatch()
   // }, [dispatch])
 
-  const portfolioStocks = useSelector(state => state.portfolioStocks);
+  var portfolioStocks = useSelector(state => state.portfolioStocks);
   console.log("portfolio stocks = ", portfolioStocks)
+
+  const addPortfolioStock = (stock) => {
+    // console.warn("clled")
+    dispatch(setPortfolioStock(stock))
+  }
+
+  const removefromPortfolio = (stock) => {
+    dispatch(removePortfolioStock(stock))
+  }
+
+  const handleOptionPress = (option) => {
+    setSelectedOption(option);
+    sortStocks(option)
+    setShowModal(!showModal)
+  };
+
+  const sortStocks = (sort) => {
+    console.warn("sorting your stock")
+    dispatch(sortPortfolioStocks(sort))
+    // if (sort == 'AtoZ') {
+    //   const sortedAtoZ = portfolioStocks.slice().sort((a, b) => a.symbol.localeCompare(b.symbol));
+    //   portfolioStocks = sortedAtoZ
+    //   console.log("port st", portfolioStocks)
+    // }
+  }
 
   return (
     <View>
+      <SafeAreaView style={{ flex: 1 }}>
+        <View style={styles.container}>
+          <Modal
+            animationType={'fade'}
+            transparent={true}
+            visible={showModal}
+          // onRequestClose={() => {
+          //   console.log('Modal has been closed.');
+          // }}
+          >
+            <View style={styles.modalContainer}>
+              <View style={styles.modalContent}>
+                <TouchableOpacity style={styles.closeModal} onPress={() => { setShowModal(!showModal); }}>
+                  <Image source={require('../../../assets/close.png')} style={styles.closeModalImg} ></Image>
+                </TouchableOpacity>
+
+                <Text style={{ position: 'absolute', top: 10, fontWeight: 'bold', fontSize: 20 }}>Sort By</Text>
+                <View >
+                  <TouchableOpacity
+                    style={[styles.option, selectedOption === 'AtoZ' && styles.selectedOption]}
+                    onPress={() => handleOptionPress('AtoZ')}
+                  >
+                    <Text style={styles.optionText}>A to Z</Text>
+                  </TouchableOpacity>
+
+                  <TouchableOpacity
+                    style={[styles.option, selectedOption === 'ZtoA' && styles.selectedOption]}
+                    onPress={() => handleOptionPress('ZtoA')}
+                  >
+                    <Text style={styles.optionText}>Z to A</Text>
+                  </TouchableOpacity>
+                </View>
+
+              </View>
+            </View>
+          </Modal>
+
+          {/* <Button
+          title="Click To Open Modal"
+          onPress={() => {
+            setShowModal(!showModal);
+          }}
+        /> */}
+        </View>
+      </SafeAreaView>
+
       <Header componentName="Portfolio" navigation={navigation} />
       <View style={styles.inputContainer}>
         <TextInput
@@ -61,8 +134,8 @@ export const Portfolio = () => {
           </TouchableOpacity>
         )}
       </View>
-      <View>
-        <ScrollView contentContainerStyle={styles.filteredStocks}>
+      <View style={styles.searchStocks}>
+        <ScrollView contentContainerStyle={{}}>
           {filterStocks?.length !== 0 ? (
             filterStocks?.map((stock, index) => (
               <TouchableOpacity
@@ -83,27 +156,48 @@ export const Portfolio = () => {
                   <Text
                     style={styles.removeWatchlistText}
                     onPress={() => {
-                      // removeWatchlistStock(stock);
+                      addPortfolioStock(stock);
                     }}>
-                    -
+                    +
                   </Text>
                 </View>
               </TouchableOpacity>
             ))
-          ) : (
-            <View style={{ alignItems: 'center' }}>
-              {/* {console.warn('Rendering "Search" text')}
-              <Text style={{textAlign: 'center'}}>Search</Text> */}
-              <Image
-                source={require('../../../assets/search.png')}
-                style={styles.image}
-              />
-            </View>
-          )}
+          ) :
+            null
+            // (
+            //   <View style={{ alignItems: 'center' }}>
+            //     {/* {console.warn('Rendering "Search" text')}
+            //     <Text style={{textAlign: 'center'}}>Search</Text> */}
+            //     <Image
+            //       source={require('../../../assets/search.png')}
+            //       style={styles.image}
+            //     />
+            //   </View>
+            // )
+          }
         </ScrollView>
       </View>
       <View>
+
         <ScrollView contentContainerStyle={styles.scrollViewContent}>
+          <View>
+            <Text style={{ fontWeight: 'bold', fontSize: 25, marginBottom: 10 }}>Holdings ({portfolioStocks.length})</Text>
+            <View style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between', marginBottom: 15, borderWidth: 1, borderBlockColor: '#B0B0B0', borderRadius: 5, padding: 10 }}>
+              <View>
+                <Text style={{ fontWeight: 'bold', color: "#B0B0B0", padding: 2 }}>Current Value: <Text style={{ color: 'black', fontWeight: 'bold' }}>200</Text></Text>
+                <Text style={{ fontWeight: 'bold', color: "#B0B0B0", padding: 2 }}>Invested Value: <Text style={{ color: 'black', fontWeight: 'bold' }}>100</Text> </Text>
+              </View>
+              <View>
+                <Text style={{ fontWeight: 'bold', color: "#B0B0B0", padding: 2 }}>Total Returns: <Text style={{ color: 'green', fontWeight: 'bold' }}>100%</Text></Text>
+                <Text style={{ fontWeight: 'bold', color: "#B0B0B0", padding: 2 }}>1 Day Returns: <Text style={{ color: 'red', fontWeight: 'bold' }}>-5%</Text></Text>
+              </View>
+            </View>
+          </View>
+          <TouchableOpacity style={{ flexDirection: 'row', gap: 5, width: 60 }} onPress={() => setShowModal(true)}>
+            <Text style={{ fontWeight: 'bold', fontSize: 15, marginBottom: 10 }}>Sort</Text>
+            <Image source={require('../../../assets/filter.png')} style={{ width: 20, height: 20 }} ></Image>
+          </TouchableOpacity>
           {portfolioStocks?.length !== 0 ? (
             portfolioStocks?.map((stock, index) => (
               <TouchableOpacity
@@ -111,20 +205,20 @@ export const Portfolio = () => {
                 style={styles.stockContainer}
               // onPress={() => handleStockPress(stock)}
               >
-                <Image source={{ uri: stock.icon }} style={styles.stockIcon} />
+                {/* <Image source={{ uri: stock.icon }} style={styles.stockIcon} /> */}
                 <View style={styles.stockDetails}>
                   <Text style={{ fontWeight: 'bold' }}>{`${stock.symbol}`}</Text>
-                  <Text style={{ color: '#B0B0B0' }}>{stock.name}</Text>
+                  <Text style={{ color: '#B0B0B0' }}>{stock.quantity||"10 shares"}</Text>
                 </View>
                 <View>
-                  <Text>{`${stock.price}`}</Text>
-                  <Text>{`${stock.change}`}</Text>
+                  <Text style={{fontWeight:'bold'}}>{`${stock.price} ₹`}</Text>
+                  <Text>{`${stock.buyingPrice||"20 ₹ "}`}</Text>
                 </View>
                 <View>
                   <Text
                     style={styles.removeWatchlistText}
                     onPress={() => {
-                      // removeWatchlistStock(stock);
+                      removefromPortfolio(stock);
                     }}>
                     -
                   </Text>

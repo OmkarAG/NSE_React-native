@@ -1,5 +1,5 @@
 import { useNavigation } from '@react-navigation/native';
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import {
   Text,
   TextInput,
@@ -8,16 +8,19 @@ import {
   Image,
   TouchableOpacity,
 } from 'react-native';
+import * as Progress from 'react-native-progress';
 
 const Login = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const [progressbar, setProgressBar] = useState(false);
 
   const navigation = useNavigation()
   const handleLogin = () => {
     if (!username || !password) {
       console.warn('Enter Username and Password');
     } else {
+      setProgressBar(true)
       console.warn('Login Successful');
       navigation.navigate("Drawer")
       navigation.reset({
@@ -58,9 +61,15 @@ const Login = () => {
         <Text style={styles.forgotPasswordText}>Forgot Password?</Text>
       </TouchableOpacity>
 
-      <TouchableOpacity style={styles.login} onPress={handleLogin}>
-        <Text style={styles.loginText}>Login</Text>
-      </TouchableOpacity>
+      {
+        progressbar ? (
+          <Progress.Circle size={30} indeterminate={true} />
+        ) : (
+          <TouchableOpacity style={styles.login} onPress={handleLogin}>
+            <Text style={styles.loginText}>Login</Text>
+          </TouchableOpacity>
+        )
+      }
     </View>
   );
 };
