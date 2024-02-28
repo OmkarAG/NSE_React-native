@@ -1,4 +1,3 @@
-// App.tsx
 import React from 'react';
 import Login from './components/auth/Login';
 import { NavigationContainer } from '@react-navigation/native';
