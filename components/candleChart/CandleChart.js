@@ -1,6 +1,4 @@
-
-
-import { CandlestickChart } from 'react-native-wagmi-charts';
+import {CandlestickChart} from 'react-native-wagmi-charts';
 
 const data = [
   {
@@ -94,7 +92,10 @@ export const SingleCandleChart = () => {
     <CandlestickChart.Provider data={data}>
       <CandlestickChart>
         <CandlestickChart.Candles />
+        <CandlestickChart.Crosshair>
+          <CandlestickChart.Tooltip />
+        </CandlestickChart.Crosshair>
       </CandlestickChart>
     </CandlestickChart.Provider>
   );
-}
+};

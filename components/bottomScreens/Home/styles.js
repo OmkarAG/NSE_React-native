@@ -34,6 +34,7 @@ export const styles = StyleSheet.create({
     marginBottom: 16,
     borderBottomWidth: 1,
     borderBottomColor: '#B0B0B0',
+    padding:10,
   },
   stockIcon: {
     width: 50,

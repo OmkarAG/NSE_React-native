@@ -1,8 +1,7 @@
 
 import { createDrawerNavigator } from '@react-navigation/drawer';
-import { Home } from '../home/Home/Home';
 import { Heatmap } from './heatmap/Heatmap';
-import Main from '../home/CombineHome';
+import Main from '../bottomScreens/CombineHome';
 import { Indices } from './indices/Indices';
 import { Equities } from './equities/Equities';
 import { Derivatives } from './derivatives/Derivatives';

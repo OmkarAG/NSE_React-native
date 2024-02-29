@@ -32,7 +32,7 @@ const data = [
   {
     timestamp: 1625948100000,
     value: 33215.25,
-  },{
+  }, {
     timestamp: 1625946300000,
     value: 33545.25,
   },
@@ -43,6 +43,12 @@ export const LineChartComponent = () => {
     <LineChart.Provider data={data}>
       <LineChart>
         <LineChart.Path />
+        <LineChart.CursorCrosshair>
+          <LineChart.Tooltip />
+          <LineChart.Tooltip position="bottom">
+            <LineChart.DatetimeText />
+          </LineChart.Tooltip>
+        </LineChart.CursorCrosshair>
       </LineChart>
     </LineChart.Provider>
   );
