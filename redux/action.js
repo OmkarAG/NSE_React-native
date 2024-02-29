@@ -6,6 +6,7 @@ import {
   SET_WATCHLIST_STOCKS,
   REMOVE_PORTFOLIO_STOCK,
   SORT_PORTFOLIO_STOCKS,
+  GET_ALL_INDICES,
 } from './constants';
 
 export function getStocks() {
@@ -58,4 +59,10 @@ export function sortPortfolioStocks(payload) {
     type: SORT_PORTFOLIO_STOCKS,
     type: payload,
   };
+}
+
+export function getAllIndices(payload){
+  return{
+    type:GET_ALL_INDICES,
+  }
 }

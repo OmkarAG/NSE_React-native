@@ -6,3 +6,4 @@ export const REMOVE_WATCHLIST_STOCK = 'remove_watchlist_stock';
 export const SET_PORTFOLIO_STOCK = 'set_portfolio_stock';
 export const REMOVE_PORTFOLIO_STOCK = 'remove_portfolio_stock';
 export const SORT_PORTFOLIO_STOCKS = 'sort_portfolio_stocks';
+export const GET_ALL_INDICES = 'get_all_indices';

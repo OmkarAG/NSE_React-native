@@ -50,7 +50,7 @@ export const StockDetails = ({ navigation, route }) => {
             )
 
             }
-            <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
+            <View style={{ flexDirection: 'row', justifyContent: 'space-around' }}>
               <Text>1H</Text>
               <Text>1D</Text>
               <Text>1M</Text>
@@ -59,9 +59,9 @@ export const StockDetails = ({ navigation, route }) => {
               <TouchableOpacity onPress={() => { setCandleChart(!candleChart); setLineChart(!lineChart) }}>
                 {
                   lineChart ? (
-                    <Image source={require('../../assets/technical.png')} style={{ width: 20, height: 20 }} ></Image>
-                  ) : (
                     <Image source={require('../../assets/line.png')} style={{ width: 20, height: 20 }} ></Image>
+                  ) : (
+                    <Image source={require('../../assets/technical.png')} style={{ width: 20, height: 20 }} ></Image>
                   )
                 }
               </TouchableOpacity>

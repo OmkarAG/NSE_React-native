@@ -1,4 +1,5 @@
 import { LineChart } from 'react-native-wagmi-charts';
+// import * as haptics from 'expo-haptics';
 
 const data = [
   {
