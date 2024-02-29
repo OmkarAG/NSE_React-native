@@ -10,13 +10,13 @@ export const styles = StyleSheet.create({
     fontWeight: 'bold',
     color: 'black',
     fontSize: 20,
-    flex:1,
+    flex: 1,
   },
   name: {
     fontWeight: 'bold',
     color: 'black',
     fontSize: 20,
-    flex:2,
+    flex: 2,
   },
   changes: {
     fontSize: 15,
@@ -53,5 +53,10 @@ export const styles = StyleSheet.create({
   },
   value: {
     marginLeft: 10,
+  },
+  activeBtn: {
+    backgroundColor: 'gray',
+    color: 'white',
+    borderRadius: 5,
   },
 });

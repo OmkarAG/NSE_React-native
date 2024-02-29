@@ -7,6 +7,8 @@ import { StockDetails } from './components/stockDetails/StockDetail';
 import { Heatmap } from './components/drawer/heatmap/Heatmap';
 import { MyDrawer } from './components/drawer/MyDrawer';
 import Home from './components/bottomScreens/CombineHome';
+import { AboutUs } from './components/aboutUs/AboutUs';
+import { HelpCenter } from './components/helpCenter/HelpCenter';
 
 const Stack = createNativeStackNavigator();
 
@@ -33,6 +35,8 @@ function App() {
         <Stack.Screen name="StockDetails" component={StockDetails} />
         <Stack.Screen name="HeatMap" component={Heatmap} />
         <Stack.Screen name="Drawer" component={MyDrawer} options={{ headerShown: false }} />
+        <Stack.Screen name="AboutUs" component={AboutUs} />
+        <Stack.Screen name="HelpCenter" component={HelpCenter} />
       </Stack.Navigator>
     </NavigationContainer>
   );

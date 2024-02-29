@@ -1,7 +1,17 @@
-import { Image, View, Text, TouchableOpacity } from "react-native"
+import { Image, View, Text, TouchableOpacity, Modal, TouchableWithoutFeedback } from "react-native"
 import { styles } from "./styles"
+import { useState } from "react";
+// import { useNavigation } from "@react-navigation/native";
 
 export const Header = ({ navigation, componentName }) => {
+    const [showModal, setShowModal] = useState(true);
+
+    // const navigation = useNavigation()
+
+    const handleSettingClick = () => {
+        // console.warn("handling")
+        setShowModal(!showModal)
+    }
 
     return (
         <View>
@@ -14,11 +24,31 @@ export const Header = ({ navigation, componentName }) => {
                         />
                     </TouchableOpacity>
                     <Text style={styles.homeText}>{componentName}</Text>
-                    <Image
-                        source={require('../../assets/settings.png')}
-                        style={styles.image}
-                    />
+                    <TouchableOpacity onPress={() => handleSettingClick()}>
+                        <Image
+                            source={require('../../assets/settings.png')}
+                            style={styles.image}
+                        />
+                    </TouchableOpacity>
                 </View>
+            </View>
+            <View>
+                <Modal
+                    animationType={'fade'}
+                    transparent={true}
+                    visible={showModal}
+                >
+                    <TouchableWithoutFeedback onPress={() => { setShowModal(false) }}>
+                        <View style={styles.modalContainer}>
+                            <View style={styles.modalContent}>
+                                <Text style={[styles.modalText,{top:20}]} onPress={() => { navigation.navigate('AboutUs') }}>About Us</Text>
+                                <Text style={styles.modalText} onPress={() => { navigation.navigate('HelpCenter')}}>Help Center</Text>
+
+
+                            </View>
+                        </View>
+                    </TouchableWithoutFeedback>
+                </Modal>
             </View>
         </View>
     )
