@@ -17,9 +17,28 @@ const data = [
     timestamp: 1625948100000,
     value: 33215.25,
   },
+  {
+    timestamp: 1625948100000,
+    value: 33215.25,
+  },
+  {
+    timestamp: 1625948100000,
+    value: 33215.25,
+  },
+  {
+    timestamp: 1625948100000,
+    value: 33215.25,
+  },
+  {
+    timestamp: 1625948100000,
+    value: 33215.25,
+  },{
+    timestamp: 1625946300000,
+    value: 33545.25,
+  },
 ];
 
-function Example() {
+export const LineChartComponent = () => {
   return (
     <LineChart.Provider data={data}>
       <LineChart>
@@ -28,5 +47,3 @@ function Example() {
     </LineChart.Provider>
   );
 }
-
-export default Example

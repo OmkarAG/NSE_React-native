@@ -1,15 +1,17 @@
 // import {useNavigation} from '@react-navigation/native';
-import { Dimensions, ScrollView, TouchableOpacity, View } from 'react-native';
+import { Dimensions, Image, ScrollView, TouchableOpacity, View } from 'react-native';
 import { Text } from 'react-native-paper';
 import { styles } from './styles';
 
-import { LineChart } from 'react-native-chart-kit';
-import { useEffect } from 'react';
-import { Wallet } from '../lineGraph';
+import { useEffect, useState } from 'react';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
-import Example from '../candleChart/CandleChart';
+import { SingleCandleChart } from '../candleChart/CandleChart';
+import { LineChartComponent } from '../lineChart/LineChart';
 
 export const StockDetails = ({ navigation, route }) => {
+  const [candleChart, setCandleChart] = useState(true)
+  const [lineChart, setLineChart] = useState(true)
+
   const stock = route.params.stock;
 
   useEffect(() => {
@@ -39,8 +41,32 @@ export const StockDetails = ({ navigation, route }) => {
             <Text style={styles.changes}>{`${stock.change} Today`}</Text>
           </View>
           <View style={{ paddingBottom: 10, paddingTop: 10 }}>
-            {/* <Example/> */}
-            <Wallet />
+            {candleChart ? (
+
+              <SingleCandleChart />
+            ) : (
+
+              <LineChartComponent />
+            )
+
+            }
+            <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
+              <Text>1H</Text>
+              <Text>1D</Text>
+              <Text>1M</Text>
+              <Text>1Y</Text>
+              <Text>All</Text>
+              <TouchableOpacity onPress={() => { setCandleChart(!candleChart); setLineChart(!lineChart) }}>
+                {
+                  lineChart ? (
+                    <Image source={require('../../assets/technical.png')} style={{ width: 20, height: 20 }} ></Image>
+                  ) : (
+                    <Image source={require('../../assets/line.png')} style={{ width: 20, height: 20 }} ></Image>
+                  )
+                }
+              </TouchableOpacity>
+            </View>
+
             {/* <LineChart
           data={{
             labels: ['9.30 AM', '11.00 AM', '12.30 AM', '2.00 AM', '3.30 AM'],
