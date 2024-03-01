@@ -4,7 +4,7 @@ import { useState } from "react";
 // import { useNavigation } from "@react-navigation/native";
 
 export const Header = ({ navigation, componentName }) => {
-    const [showModal, setShowModal] = useState(true);
+    const [showModal, setShowModal] = useState(false);
 
     // const navigation = useNavigation()
 

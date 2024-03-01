@@ -7,855 +7,31 @@ import { useEffect, useState } from 'react';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { SingleCandleChart } from '../candleChart/CandleChart';
 import { LineChartComponent } from '../lineChart/LineChart';
+import { allCandleData, allData, dailyCandleData, dailyData, hourlyCandleData, hourlyData, monthlyCandleData, monthlyData, yearlyCandleData, yearlyData } from './graphData';
+import { StockDetailsTabs } from '../Tabs/stockDetailsTabs/StockDetailsTabs';
 
-// line chart
-const hourlyData = [
-  {
-    timestamp: 1625945400000,
-    value: 33575.25,
-  },
-  {
-    timestamp: 1625946300000,
-    value: 33545.25,
-  },
-  {
-    timestamp: 1625947200000,
-    value: 33510.25,
-  },
-  {
-    timestamp: 1625948100000,
-    value: 33215.25,
-  },
-  {
-    timestamp: 1625948100000,
-    value: 33215.25,
-  },
-  {
-    timestamp: 1625948100000,
-    value: 33215.25,
-  },
-  {
-    timestamp: 1625948100000,
-    value: 33215.25,
-  },
-  {
-    timestamp: 1625948100000,
-    value: 33215.25,
-  }, {
-    timestamp: 1625946300000,
-    value: 33545.25,
-  },
-];
-const dailyData = [
-  {
-    timestamp: 1625945400000,
-    value: 33200.25,
-  },
-  {
-    timestamp: 1625946300000,
-    value: 33205.25,
-  },
-  {
-    timestamp: 1625947200000,
-    value: 33210.25,
-  },
-  {
-    timestamp: 1625948100000,
-    value: 33215.25,
-  },
-  {
-    timestamp: 1625948100000,
-    value: 33215.25,
-  },
-  {
-    timestamp: 1625948100000,
-    value: 33215.25,
-  },
-  {
-    timestamp: 1625948100000,
-    value: 33260.25,
-  },
-  {
-    timestamp: 1625948100000,
-    value: 33255.25,
-  }, {
-    timestamp: 1625946300000,
-    value: 33290.25,
-  },
-];
-const monthlyData = [
-  {
-    timestamp: 1625945400000,
-    value: 33260.25,
-  },
-  {
-    timestamp: 1625946300000,
-    value: 33205.25,
-  },
-  {
-    timestamp: 1625947200000,
-    value: 33225.25,
-  },
-  {
-    timestamp: 1625948100000,
-    value: 33215.25,
-  },
-  {
-    timestamp: 1625948100000,
-    value: 33215.25,
-  },
-  {
-    timestamp: 1625948100000,
-    value: 33250.25,
-  },
-  {
-    timestamp: 1625948100000,
-    value: 33260.25,
-  },
-  {
-    timestamp: 1625948100000,
-    value: 33255.25,
-  }, {
-    timestamp: 1625946300000,
-    value: 33290.25,
-  },
-];
-const yearlyData = [
-  {
-    timestamp: 1625945400000,
-    value: 33240.25,
-  },
-  {
-    timestamp: 1625946300000,
-    value: 33205.25,
-  },
-  {
-    timestamp: 1625947200000,
-    value: 33225.25,
-  },
-  {
-    timestamp: 1625948100000,
-    value: 33215.25,
-  },
-  {
-    timestamp: 1625948100000,
-    value: 33290.25,
-  },
-  {
-    timestamp: 1625948100000,
-    value: 33250.25,
-  },
-  {
-    timestamp: 1625948100000,
-    value: 33260.25,
-  },
-  {
-    timestamp: 1625948100000,
-    value: 33255.25,
-  }, {
-    timestamp: 1625946300000,
-    value: 33200.25,
-  },
-];
-const allData = [
-  {
-    timestamp: 1625945400000,
-    value: 33190.25,
-  },
-  {
-    timestamp: 1625946300000,
-    value: 33205.25,
-  },
-  {
-    timestamp: 1625947200000,
-    value: 33180.25,
-  },
-  {
-    timestamp: 1625948100000,
-    value: 33215.25,
-  },
-  {
-    timestamp: 1625948100000,
-    value: 33215.25,
-  },
-  {
-    timestamp: 1625948100000,
-    value: 33150.25,
-  },
-  {
-    timestamp: 1625948100000,
-    value: 33260.25,
-  },
-  {
-    timestamp: 1625948100000,
-    value: 33255.25,
-  }, {
-    timestamp: 1625946300000,
-    value: 33390.25,
-  },
-];
 
-// candle chart
-
-const hourlyCandleData = [
-  {
-    timestamp: 1625945400000,
-    open: 33575.25,
-    high: 33600.52,
-    low: 33475.12,
-    close: 33520.11,
-  },
-  {
-    timestamp: 1625946300000,
-    open: 33545.25,
-    high: 33560.52,
-    low: 33510.12,
-    close: 33520.11,
-  },
-  {
-    timestamp: 1625947200000,
-    open: 33510.25,
-    high: 33515.52,
-    low: 33250.12,
-    close: 33250.11,
-  },
-  {
-    timestamp: 1625948100000,
-    open: 33215.25,
-    high: 33430.52,
-    low: 33215.12,
-    close: 33420.11,
-  },
-  {
-    timestamp: 1625945400000,
-    open: 33575.25,
-    high: 33600.52,
-    low: 33475.12,
-    close: 33520.11,
-  },
-  {
-    timestamp: 1625946300000,
-    open: 33545.25,
-    high: 33560.52,
-    low: 33510.12,
-    close: 33520.11,
-  },
-  {
-    timestamp: 1625947200000,
-    open: 33510.25,
-    high: 33515.52,
-    low: 33250.12,
-    close: 33250.11,
-  },
-  {
-    timestamp: 1625948100000,
-    open: 33215.25,
-    high: 33430.52,
-    low: 33215.12,
-    close: 33420.11,
-  },
-  {
-    timestamp: 1625947200000,
-    open: 33510.25,
-    high: 33515.52,
-    low: 33250.12,
-    close: 33250.11,
-  },
-  {
-    timestamp: 1625948100000,
-    open: 33215.25,
-    high: 33430.52,
-    low: 33215.12,
-    close: 33420.11,
-  },
-  {
-    timestamp: 1625947200000,
-    open: 33510.25,
-    high: 33515.52,
-    low: 33250.12,
-    close: 33250.11,
-  },
-  {
-    timestamp: 1625948100000,
-    open: 33215.25,
-    high: 33430.52,
-    low: 33215.12,
-    close: 33420.11,
-  },
-];
-const dailyCandleData = [
-  
-  {
-    timestamp: 1625947200000,
-    open: 33510.25,
-    high: 33515.52,
-    low: 33250.12,
-    close: 33250.11,
-  },
-  {
-    timestamp: 1625948100000,
-    open: 33215.25,
-    high: 33430.52,
-    low: 33215.12,
-    close: 33420.11,
-  },
-  {
-    timestamp: 1625947200000,
-    open: 33510.25,
-    high: 33515.52,
-    low: 33250.12,
-    close: 33250.11,
-  },
-  {
-    timestamp: 1625948100000,
-    open: 33215.25,
-    high: 33430.52,
-    low: 33215.12,
-    close: 33420.11,
-  },
-  {
-    timestamp: 1625947200000,
-    open: 33510.25,
-    high: 33515.52,
-    low: 33250.12,
-    close: 33250.11,
-  },
-  {
-    timestamp: 1625948100000,
-    open: 33215.25,
-    high: 33430.52,
-    low: 33215.12,
-    close: 33420.11,
-  },
-];
-const monthlyCandleData = [
-  
-  {
-    timestamp: 1625947200000,
-    open: 33510.25,
-    high: 33515.52,
-    low: 33250.12,
-    close: 33250.11,
-  },
-  {
-    timestamp: 1625948100000,
-    open: 33215.25,
-    high: 33430.52,
-    low: 33215.12,
-    close: 33420.11,
-  },
-  {
-    timestamp: 1625947200000,
-    open: 33510.25,
-    high: 33515.52,
-    low: 33250.12,
-    close: 33250.11,
-  },
-  {
-    timestamp: 1625948100000,
-    open: 33215.25,
-    high: 33430.52,
-    low: 33215.12,
-    close: 33420.11,
-  },
-];
-const yearlyCandleData = [
-  
-  {
-    timestamp: 1625947200000,
-    open: 33510.25,
-    high: 33515.52,
-    low: 33250.12,
-    close: 33250.11,
-  },
-  {
-    timestamp: 1625947200000,
-    open: 33510.25,
-    high: 33515.52,
-    low: 33250.12,
-    close: 33250.11,
-  },
-  {
-    timestamp: 1625947200000,
-    open: 33510.25,
-    high: 33515.52,
-    low: 33250.12,
-    close: 33250.11,
-  },
-  {
-    timestamp: 1625948100000,
-    open: 33215.25,
-    high: 33430.52,
-    low: 33215.12,
-    close: 33420.11,
-  },
-  {
-    timestamp: 1625947200000,
-    open: 33510.25,
-    high: 33515.52,
-    low: 33250.12,
-    close: 33250.11,
-  },
-  {
-    timestamp: 1625948100000,
-    open: 33215.25,
-    high: 33430.52,
-    low: 33215.12,
-    close: 33420.11,
-  },
-  {
-    timestamp: 1625947200000,
-    open: 33510.25,
-    high: 33515.52,
-    low: 33250.12,
-    close: 33250.11,
-  },
-  {
-    timestamp: 1625948100000,
-    open: 33215.25,
-    high: 33430.52,
-    low: 33215.12,
-    close: 33420.11,
-  },
-];
-const allCandleData = [
-  
-  {
-    timestamp: 1625947200000,
-    open: 33510.25,
-    high: 33515.52,
-    low: 33250.12,
-    close: 33250.11,
-  },
-  {
-    timestamp: 1625948100000,
-    open: 33215.25,
-    high: 33430.52,
-    low: 33215.12,
-    close: 33420.11,
-  },
-  {
-    timestamp: 1625947200000,
-    open: 33510.25,
-    high: 33515.52,
-    low: 33250.12,
-    close: 33250.11,
-  },
-  {
-    timestamp: 1625948100000,
-    open: 33215.25,
-    high: 33430.52,
-    low: 33215.12,
-    close: 33420.11,
-  },
-  {
-    timestamp: 1625947200000,
-    open: 33510.25,
-    high: 33515.52,
-    low: 33250.12,
-    close: 33250.11,
-  },
-  {
-    timestamp: 1625948100000,
-    open: 33215.25,
-    high: 33430.52,
-    low: 33215.12,
-    close: 33420.11,
-  },
-  {
-    timestamp: 1625947200000,
-    open: 33510.25,
-    high: 33515.52,
-    low: 33250.12,
-    close: 33250.11,
-  },
-  {
-    timestamp: 1625948100000,
-    open: 33215.25,
-    high: 33430.52,
-    low: 33215.12,
-    close: 33420.11,
-  },
-  {
-    timestamp: 1625947200000,
-    open: 33510.25,
-    high: 33515.52,
-    low: 33250.12,
-    close: 33250.11,
-  },
-  {
-    timestamp: 1625948100000,
-    open: 33215.25,
-    high: 33430.52,
-    low: 33215.12,
-    close: 33420.11,
-  },
-  {
-    timestamp: 1625947200000,
-    open: 33510.25,
-    high: 33515.52,
-    low: 33250.12,
-    close: 33250.11,
-  },
-  {
-    timestamp: 1625948100000,
-    open: 33215.25,
-    high: 33430.52,
-    low: 33215.12,
-    close: 33420.11,
-  },
-  {
-    timestamp: 1625947200000,
-    open: 33510.25,
-    high: 33515.52,
-    low: 33250.12,
-    close: 33250.11,
-  },
-  {
-    timestamp: 1625948100000,
-    open: 33215.25,
-    high: 33430.52,
-    low: 33215.12,
-    close: 33420.11,
-  },
-  {
-    timestamp: 1625947200000,
-    open: 33510.25,
-    high: 33515.52,
-    low: 33250.12,
-    close: 33250.11,
-  },
-  {
-    timestamp: 1625948100000,
-    open: 33215.25,
-    high: 33430.52,
-    low: 33215.12,
-    close: 33420.11,
-  },
-  {
-    timestamp: 1625947200000,
-    open: 33510.25,
-    high: 33515.52,
-    low: 33250.12,
-    close: 33250.11,
-  },
-  {
-    timestamp: 1625948100000,
-    open: 33215.25,
-    high: 33430.52,
-    low: 33215.12,
-    close: 33420.11,
-  },
-  {
-    timestamp: 1625947200000,
-    open: 33510.25,
-    high: 33515.52,
-    low: 33250.12,
-    close: 33250.11,
-  },
-  {
-    timestamp: 1625948100000,
-    open: 33215.25,
-    high: 33430.52,
-    low: 33215.12,
-    close: 33420.11,
-  },
-  {
-    timestamp: 1625947200000,
-    open: 33510.25,
-    high: 33515.52,
-    low: 33250.12,
-    close: 33250.11,
-  },
-  {
-    timestamp: 1625948100000,
-    open: 33215.25,
-    high: 33430.52,
-    low: 33215.12,
-    close: 33420.11,
-  },
-  {
-    timestamp: 1625947200000,
-    open: 33510.25,
-    high: 33515.52,
-    low: 33250.12,
-    close: 33250.11,
-  },
-  {
-    timestamp: 1625948100000,
-    open: 33215.25,
-    high: 33430.52,
-    low: 33215.12,
-    close: 33420.11,
-  },
-  {
-    timestamp: 1625947200000,
-    open: 33510.25,
-    high: 33515.52,
-    low: 33250.12,
-    close: 33250.11,
-  },
-  {
-    timestamp: 1625948100000,
-    open: 33215.25,
-    high: 33430.52,
-    low: 33215.12,
-    close: 33420.11,
-  },
-  {
-    timestamp: 1625947200000,
-    open: 33510.25,
-    high: 33515.52,
-    low: 33250.12,
-    close: 33250.11,
-  },
-  {
-    timestamp: 1625948100000,
-    open: 33215.25,
-    high: 33430.52,
-    low: 33215.12,
-    close: 33420.11,
-  },
-  {
-    timestamp: 1625947200000,
-    open: 33510.25,
-    high: 33515.52,
-    low: 33250.12,
-    close: 33250.11,
-  },
-  {
-    timestamp: 1625948100000,
-    open: 33215.25,
-    high: 33430.52,
-    low: 33215.12,
-    close: 33420.11,
-  },
-  {
-    timestamp: 1625947200000,
-    open: 33510.25,
-    high: 33515.52,
-    low: 33250.12,
-    close: 33250.11,
-  },
-  {
-    timestamp: 1625948100000,
-    open: 33215.25,
-    high: 33430.52,
-    low: 33215.12,
-    close: 33420.11,
-  },
-  {
-    timestamp: 1625947200000,
-    open: 33510.25,
-    high: 33515.52,
-    low: 33250.12,
-    close: 33250.11,
-  },
-  {
-    timestamp: 1625948100000,
-    open: 33215.25,
-    high: 33430.52,
-    low: 33215.12,
-    close: 33420.11,
-  },
-  {
-    timestamp: 1625947200000,
-    open: 33510.25,
-    high: 33515.52,
-    low: 33250.12,
-    close: 33250.11,
-  },
-  {
-    timestamp: 1625948100000,
-    open: 33215.25,
-    high: 33430.52,
-    low: 33215.12,
-    close: 33420.11,
-  },
-  {
-    timestamp: 1625947200000,
-    open: 33510.25,
-    high: 33515.52,
-    low: 33250.12,
-    close: 33250.11,
-  },
-  {
-    timestamp: 1625948100000,
-    open: 33215.25,
-    high: 33430.52,
-    low: 33215.12,
-    close: 33420.11,
-  },
-  {
-    timestamp: 1625947200000,
-    open: 33510.25,
-    high: 33515.52,
-    low: 33250.12,
-    close: 33250.11,
-  },
-  {
-    timestamp: 1625948100000,
-    open: 33215.25,
-    high: 33430.52,
-    low: 33215.12,
-    close: 33420.11,
-  },
-  {
-    timestamp: 1625947200000,
-    open: 33510.25,
-    high: 33515.52,
-    low: 33250.12,
-    close: 33250.11,
-  },
-  {
-    timestamp: 1625948100000,
-    open: 33215.25,
-    high: 33430.52,
-    low: 33215.12,
-    close: 33420.11,
-  },
-  {
-    timestamp: 1625947200000,
-    open: 33510.25,
-    high: 33515.52,
-    low: 33250.12,
-    close: 33250.11,
-  },
-  {
-    timestamp: 1625948100000,
-    open: 33215.25,
-    high: 33430.52,
-    low: 33215.12,
-    close: 33420.11,
-  },
-  {
-    timestamp: 1625947200000,
-    open: 33510.25,
-    high: 33515.52,
-    low: 33250.12,
-    close: 33250.11,
-  },
-  {
-    timestamp: 1625948100000,
-    open: 33215.25,
-    high: 33430.52,
-    low: 33215.12,
-    close: 33420.11,
-  },
-  {
-    timestamp: 1625947200000,
-    open: 33510.25,
-    high: 33515.52,
-    low: 33250.12,
-    close: 33250.11,
-  },
-  {
-    timestamp: 1625948100000,
-    open: 33215.25,
-    high: 33430.52,
-    low: 33215.12,
-    close: 33420.11,
-  },
-  {
-    timestamp: 1625947200000,
-    open: 33510.25,
-    high: 33515.52,
-    low: 33250.12,
-    close: 33250.11,
-  },
-  {
-    timestamp: 1625948100000,
-    open: 33215.25,
-    high: 33430.52,
-    low: 33215.12,
-    close: 33420.11,
-  },
-  {
-    timestamp: 1625947200000,
-    open: 33510.25,
-    high: 33515.52,
-    low: 33250.12,
-    close: 33250.11,
-  },
-  {
-    timestamp: 1625948100000,
-    open: 33215.25,
-    high: 33430.52,
-    low: 33215.12,
-    close: 33420.11,
-  },
-  {
-    timestamp: 1625947200000,
-    open: 33510.25,
-    high: 33515.52,
-    low: 33250.12,
-    close: 33250.11,
-  },
-  {
-    timestamp: 1625948100000,
-    open: 33215.25,
-    high: 33430.52,
-    low: 33215.12,
-    close: 33420.11,
-  },
-  {
-    timestamp: 1625947200000,
-    open: 33510.25,
-    high: 33515.52,
-    low: 33250.12,
-    close: 33250.11,
-  },
-  {
-    timestamp: 1625948100000,
-    open: 33215.25,
-    high: 33430.52,
-    low: 33215.12,
-    close: 33420.11,
-  },
-  {
-    timestamp: 1625947200000,
-    open: 33510.25,
-    high: 33515.52,
-    low: 33250.12,
-    close: 33250.11,
-  },
-  {
-    timestamp: 1625948100000,
-    open: 33215.25,
-    high: 33430.52,
-    low: 33215.12,
-    close: 33420.11,
-  },
-  {
-    timestamp: 1625947200000,
-    open: 33510.25,
-    high: 33515.52,
-    low: 33250.12,
-    close: 33250.11,
-  },
-  {
-    timestamp: 1625948100000,
-    open: 33215.25,
-    high: 33430.52,
-    low: 33215.12,
-    close: 33420.11,
-  },
-];
 
 export const StockDetails = ({ navigation, route }) => {
-  const [candleChart, setCandleChart] = useState(true)
-  const [lineChart, setLineChart] = useState(true)
+  const [candleChart, setCandleChart] = useState(false)
+  const [lineChart, setLineChart] = useState(false)
   const [activeBtn, setActiveBtn] = useState('1H')
   const [chartData, setChartData] = useState(hourlyData)
   const [candleChartData, setCandleChartData] = useState(hourlyCandleData)
+  const [isPositive, setIsPositive] = useState(true)
 
   const stock = route.params.stock;
 
   useEffect(() => {
     navigation.setOptions({
       title: stock.symbol,
+      headerTintColor: '#daa520',
+      headerTitleStyle: {
+        fontWeight: 'bold',
+      },
     });
   }, [stock, navigation]);
+
   // const chartConfig = {
   //   backgroundGradientFrom: '#1E2923',
   //   backgroundGradientFromOpacity: 0,
@@ -867,18 +43,72 @@ export const StockDetails = ({ navigation, route }) => {
   //   useShadowColorFromDataset: false, // optional
   // };
   return (
-    <GestureHandlerRootView>
+    // <GestureHandlerRootView>
+    <>
       <ScrollView>
-        <View style={{ padding: 10 }}>
-          <View style={styles.head}>
-            <Text style={styles.name}>{`${stock.name}`}</Text>
-            <Text style={styles.price}>{`RS. ${stock.price}`}</Text>
+        <View style={{ padding: 10, flex: 1, }}>
+          <View style={styles.stockNameWrapper}>
+            <Text style={styles.stockName}>{`${stock.name}`}</Text>
+            {/* <Text style={styles.price}>{`RS. ${stock.price}`}</Text> */}
           </View>
-          <View>
+
+          <View style={styles.stockDetailsWrapper}>
+            <View style={styles.stockPriceWrapper}>
+              <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+                <Text style={{ color: 'white', fontWeight: 'bold', fontSize: 38 }} onPress={() => setIsPositive(!isPositive)}>4782.25</Text>
+                {
+                  isPositive ?
+                    (
+                      <Image source={require('../../assets/uptriangle.png')} style={{ width: 20, height: 20 }}></Image>
+                    ) : (
+                      <Image source={require('../../assets/downTrangle.png')} style={{ width: 20, height: 20 }}></Image>
+                    )
+                }
+              </View>
+              <View>
+                <Text style={{ color: 'green', fontSize: 25 }}>95.66 (2.05%)</Text>
+              </View>
+            </View>
+            <View>
+              <View style={styles.stockDetailTextWrapper}>
+                <Text style={{ color: 'white' }}>PREV. CLOSE</Text>
+                <Text style={{ color: '#F7C783' }}>4687.50</Text>
+              </View>
+              <View style={styles.stockDetailTextWrapper}>
+                <Text style={{ color: 'white' }}>OPEN</Text>
+                <Text style={{ color: '#F7C783' }}>4687.50</Text>
+              </View>
+              <View style={styles.stockDetailTextWrapper}>
+                <Text style={{ color: 'white' }}>HIGH</Text>
+                <Text style={{ color: '#F7C783' }}>4687.50</Text>
+              </View>
+              <View style={styles.stockDetailTextWrapper}>
+                <Text style={{ color: 'white' }}>LOW</Text>
+                <Text style={{ color: '#F7C783' }}>4687.50</Text>
+              </View>
+              <View style={styles.stockDetailTextWrapper}>
+                <Text style={{ color: 'white' }}>CLOSE</Text>
+                <Text style={{ color: '#F7C783' }}>4687.50</Text>
+              </View>
+              <View style={styles.stockDetailTextWrapper}>
+                <Text style={{ color: 'white' }}>VWAP</Text>
+                <Text style={{ color: '#F7C783' }}>4687.50</Text>
+              </View>
+              <View style={styles.stockDetailTextWrapper}>
+                <Text style={{ color: 'white' }}>ADJUSTED PRICE</Text>
+                <Text style={{ color: '#F7C783' }}>4687.50</Text>
+              </View>
+            </View>
+          </View>
+
+
+
+
+          {/* <View>
             <Text style={styles.changes}>{`${stock.change} Today`}</Text>
-          </View>
+          </View> */}
           <View style={{ paddingBottom: 10, paddingTop: 10 }}>
-            {candleChart ? (
+            {/* {candleChart ? (
 
               <SingleCandleChart data={candleChartData} />
             ) : (
@@ -888,11 +118,11 @@ export const StockDetails = ({ navigation, route }) => {
 
             }
             <View style={{ flexDirection: 'row', justifyContent: 'space-around', padding: 5, marginTop: 20 }}>
-              <Text style={[activeBtn == "1H" ? styles.activeBtn : null, { width: 35, textAlign: 'center' }]} onPress={() => { setActiveBtn("1H"), setChartData(hourlyData),setCandleChartData(hourlyCandleData) }}>1H</Text>
-              <Text style={[activeBtn == "1D" ? styles.activeBtn : null, { width: 35, textAlign: 'center' }]} onPress={() => { setActiveBtn("1D"), setChartData(dailyData),setCandleChartData(dailyCandleData) }}>1D</Text>
+              <Text style={[activeBtn == "1H" ? styles.activeBtn : null, { width: 35, textAlign: 'center' }]} onPress={() => { setActiveBtn("1H"), setChartData(hourlyData), setCandleChartData(hourlyCandleData) }}>1H</Text>
+              <Text style={[activeBtn == "1D" ? styles.activeBtn : null, { width: 35, textAlign: 'center' }]} onPress={() => { setActiveBtn("1D"), setChartData(dailyData), setCandleChartData(dailyCandleData) }}>1D</Text>
               <Text style={[activeBtn == "1M" ? styles.activeBtn : null, { width: 35, textAlign: 'center' }]} onPress={() => { setActiveBtn("1M"), setChartData(monthlyData), setCandleChartData(monthlyCandleData) }}>1M</Text>
-              <Text style={[activeBtn == "1Y" ? styles.activeBtn : null, { width: 35, textAlign: 'center' }]} onPress={() => { setActiveBtn("1Y"), setChartData(yearlyData),setCandleChartData(yearlyCandleData) }}>1Y</Text>
-              <Text style={[activeBtn == "All" ? styles.activeBtn : null, { width: 35, textAlign: 'center' }]} onPress={() => { setActiveBtn("All"), setChartData(allData),setCandleChartData(allCandleData) }}>All</Text>
+              <Text style={[activeBtn == "1Y" ? styles.activeBtn : null, { width: 35, textAlign: 'center' }]} onPress={() => { setActiveBtn("1Y"), setChartData(yearlyData), setCandleChartData(yearlyCandleData) }}>1Y</Text>
+              <Text style={[activeBtn == "All" ? styles.activeBtn : null, { width: 35, textAlign: 'center' }]} onPress={() => { setActiveBtn("All"), setChartData(allData), setCandleChartData(allCandleData) }}>All</Text>
               <TouchableOpacity onPress={() => { setCandleChart(!candleChart); setLineChart(!lineChart) }}>
                 {
                   lineChart ? (
@@ -902,7 +132,7 @@ export const StockDetails = ({ navigation, route }) => {
                   )
                 }
               </TouchableOpacity>
-            </View>
+            </View> */}
 
             {/* <LineChart
           data={{
@@ -948,15 +178,15 @@ export const StockDetails = ({ navigation, route }) => {
           }}
         /> */}
           </View>
-          <View style={styles.buttonContainer}>
+          {/* <View style={styles.buttonContainer}>
             <TouchableOpacity style={styles.buy}>
               <Text style={{ color: 'white' }}>ADD WATCHLIST</Text>
             </TouchableOpacity>
             <TouchableOpacity style={styles.sell}>
               <Text style={{ color: 'white' }}>ADD PORTFOLIO</Text>
             </TouchableOpacity>
-          </View>
-          <View style={styles.container}>
+          </View> */}
+          {/* <View style={styles.container}>
             <View style={styles.row}>
               <Text style={styles.label}>Market Cap</Text>
               <Text style={styles.value}>{stock.fundamentals.market_cap}</Text>
@@ -997,9 +227,25 @@ export const StockDetails = ({ navigation, route }) => {
               <Text style={styles.label}>Face Value</Text>
               <Text style={styles.value}>{stock.fundamentals.Face_value}</Text>
             </View>
+          </View> */}
+
+
+
+          <View style={{ height: 300 }}>
+            <StockDetailsTabs />
           </View>
+
         </View>
       </ScrollView>
-    </GestureHandlerRootView>
+      <View style={styles.BottomButtonsWrapper}>
+        <TouchableOpacity style={[styles.bottomButton, { flex: 1 }]}>
+          <Text style={styles.buttonText} onPress={() => navigation.navigate('LineChart')}>Graph</Text>
+        </TouchableOpacity>
+        <TouchableOpacity style={[styles.bottomButton, { flex: 1 }]}>
+          <Text style={styles.buttonText}>Option Chain</Text>
+        </TouchableOpacity>
+      </View>
+      {/* </GestureHandlerRootView> */}
+    </>
   );
 };

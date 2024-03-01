@@ -25,16 +25,16 @@ export const styles = StyleSheet.create({
   },
   scrollViewContent: {
     padding: 20,
-    marginTop: 10,
-    paddingBottom:64,
+    // marginTop: 10,
+    // paddingBottom:64,
   },
   stockContainer: {
     flexDirection: 'row',
     alignItems: 'center',
-    marginBottom: 16,
+    // marginBottom: 16,
     borderBottomWidth: 1,
     borderBottomColor: '#B0B0B0',
-    padding:10,
+    padding: 10,
   },
   stockIcon: {
     width: 50,
@@ -44,5 +44,22 @@ export const styles = StyleSheet.create({
   },
   stockDetails: {
     flex: 1,
+  },
+  shadowContainer: {
+    backgroundColor: 'white',
+    elevation: 5,
+    borderRadius: 5,
+    // padding: 10,
+    // margin: 10,
+  },
+  stockPriceWrapper: {
+    // flex: 1,
+    // backgroundColor: '#231B4B',
+    alignItems: 'center',
+    height: 100,
+  },
+  highCloseWrapper: {
+    flexDirection:'row',
+    justifyContent:'space-around'
   },
 });

@@ -13,6 +13,8 @@ import { getStocks } from '../../../redux/action';
 import { styles } from './styles';
 import { useNavigation } from '@react-navigation/native';
 import { Header } from '../../header/Header';
+import { GainerLosers } from '../../Tabs/gainerLoser/GainerLoser';
+import { LineChartComponent } from '../../lineChart/LineChart';
 
 export const Home = () => {
   const dispatch = useDispatch();
@@ -95,31 +97,66 @@ export const Home = () => {
           </View>
         </TouchableOpacity>
       </View>
-      <View>
-        <Text style={{ fontWeight: 'bold', marginLeft: 20 }}>Trending </Text>
+
+      <View style={styles.highCloseWrapper}>
+        <View style={styles.stockPriceWrapper}>
+          <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+            <Text style={{ color: 'white', fontWeight: 'bold', fontSize: 25, color: 'black' }} >4782.25</Text>
+
+          </View>
+          <View>
+            <Text style={{ color: 'green', fontSize: 15 }}>95.66 (2.05%)</Text>
+          </View>
+        </View>
+        <View style={styles.stockPriceWrapper}>
+          <Text style={{ color: 'white', fontWeight: 'bold', fontSize: 25, color: 'black' }}>Open</Text>
+          <Text style={{ color: 'green', fontSize: 15 }}>22048</Text>
+        </View>
+        <View style={styles.stockPriceWrapper}>
+          <Text style={{ color: 'white', fontWeight: 'bold', fontSize: 25, color: 'black' }}>High</Text>
+          <Text style={{ color: 'green', fontSize: 15 }}>22210</Text>
+        </View>
+        <View style={styles.stockPriceWrapper}>
+          <Text style={{ color: 'white', fontWeight: 'bold', fontSize: 25, color: 'black' }}>Low</Text>
+          <Text style={{ color: 'green', fontSize: 15 }}>22047</Text>
+        </View>
+      </View>
+      {/* <View>
+        <LineChartComponent />
+      </View> */}
+
+      <View style={{ height: 250 }}>
+        <Text style={{ fontWeight: 'bold', fontSize: 25, color: '#3A2D7D', marginLeft: 20 }}>Trending </Text>
         <ScrollView contentContainerStyle={styles.scrollViewContent}>
-          {stocks.map((stock, index) => (
-            <TouchableOpacity
-              key={index}
-              style={styles.stockContainer}
-              onPress={() => handleStockPress(stock)}>
-              <Image source={{ uri: stock.icon }} style={styles.stockIcon} />
-              <View style={styles.stockDetails}>
-                <Text style={{ fontWeight: 'bold' }}>{`${stock.symbol}`}</Text>
-                <Text style={{ color: '#B0B0B0' }}>{stock.name}</Text>
-              </View>
-              <View>
-                <Text>{`${stock.price}`}</Text>
-                <Text>{`${stock.change}`}</Text>
-              </View>
-            </TouchableOpacity>
-          ))}
+          <View style={styles.shadowContainer}>
+            {stocks.map((stock, index) => (
+              <TouchableOpacity
+                key={index}
+                style={styles.stockContainer}
+                onPress={() => handleStockPress(stock)}>
+                <Image source={{ uri: stock.icon }} style={styles.stockIcon} />
+                <View style={styles.stockDetails}>
+                  <Text style={{ fontWeight: 'bold' }}>{`${stock.symbol}`}</Text>
+                  <Text style={{ color: '#B0B0B0' }}>{stock.name}</Text>
+                </View>
+                <View>
+                  <Text>{`${stock.price}`}</Text>
+                  <Text>{`${stock.change}`}</Text>
+                </View>
+              </TouchableOpacity>
+            ))}
+          </View>
           {/* <Text>Hello</Text> */}
         </ScrollView>
       </View>
-      {/* <View>
-        <Text>Last Text</Text>
-      </View> */}
+      <View style={{ paddingHorizontal: 20 }}>
+        <ScrollView>
+          <Text style={{ fontWeight: 'bold', fontSize: 25, color: '#3A2D7D', marginVertical: 5 }}>Gainers / Losers</Text>
+          <View style={{ height: 300 }}>
+            <GainerLosers />
+          </View>
+        </ScrollView>
+      </View>
     </View>
   );
 };

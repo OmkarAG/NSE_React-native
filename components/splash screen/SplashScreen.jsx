@@ -5,7 +5,12 @@ import { View, Image, StyleSheet } from 'react-native';
 const SplashScreen = ({ navigation }) => {
   useEffect(() => {
     const timer = setTimeout(() => {
-      navigation.replace('Login');
+      navigation.replace('Drawer');
+      // navigation.navigate("Drawer")
+      navigation.reset({
+        index: 0,
+        routes: [{ name: 'Drawer' }],
+      });
     }, 2000);
 
     return () => clearTimeout(timer);

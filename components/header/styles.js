@@ -20,8 +20,8 @@ export const styles = StyleSheet.create({
     marginTop: 8,
   },
   image: {
-    width: 20,
-    height: 20,
+    width: 25,
+    height: 25,
     resizeMode: 'contain',
     marginTop: 20,
     tintColor: '#daa520',

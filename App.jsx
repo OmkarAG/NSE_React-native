@@ -9,6 +9,7 @@ import { MyDrawer } from './components/drawer/MyDrawer';
 import Home from './components/bottomScreens/CombineHome';
 import { AboutUs } from './components/aboutUs/AboutUs';
 import { HelpCenter } from './components/helpCenter/HelpCenter';
+import { LineChartComponent } from './components/lineChart/LineChart';
 
 const Stack = createNativeStackNavigator();
 
@@ -37,6 +38,7 @@ function App() {
         <Stack.Screen name="Drawer" component={MyDrawer} options={{ headerShown: false }} />
         <Stack.Screen name="AboutUs" component={AboutUs} />
         <Stack.Screen name="HelpCenter" component={HelpCenter} />
+        <Stack.Screen name="LineChart" component={LineChartComponent} />
       </Stack.Navigator>
     </NavigationContainer>
   );
