@@ -61,8 +61,8 @@ export const Home = () => {
             <Text>NIFTY 50</Text>
           </View>
           <View style={styles.rightColumn}>
-            <Text>27,000</Text>
-            <Text>-500(0.12%)</Text>
+            <Text style={{color:'green'}}>27,000</Text>
+            <Text style={{color:'green'}}>500(0.12%)</Text>
           </View>
         </TouchableOpacity>
         <TouchableOpacity
@@ -92,13 +92,13 @@ export const Home = () => {
             <Text>NIFTY BANK</Text>
           </View>
           <View style={styles.rightColumn}>
-            <Text>20,000</Text>
-            <Text>-988(0.12%)</Text>
+            <Text style={{color:'red'}}>20,000</Text>
+            <Text style={{color:'red'}}>-988(0.12%)</Text>
           </View>
         </TouchableOpacity>
       </View>
 
-      <View style={styles.highCloseWrapper}>
+      {/* <View style={styles.highCloseWrapper}>
         <View style={styles.stockPriceWrapper}>
           <View style={{ flexDirection: 'row', alignItems: 'center' }}>
             <Text style={{ color: 'white', fontWeight: 'bold', fontSize: 25, color: 'black' }} >4782.25</Text>
@@ -120,7 +120,7 @@ export const Home = () => {
           <Text style={{ color: 'white', fontWeight: 'bold', fontSize: 25, color: 'black' }}>Low</Text>
           <Text style={{ color: 'green', fontSize: 15 }}>22047</Text>
         </View>
-      </View>
+      </View> */}
       {/* <View>
         <LineChartComponent />
       </View> */}
@@ -151,7 +151,11 @@ export const Home = () => {
       </View>
       <View style={{ paddingHorizontal: 20 }}>
         <ScrollView>
-          <Text style={{ fontWeight: 'bold', fontSize: 25, color: '#3A2D7D', marginVertical: 5 }}>Gainers / Losers</Text>
+          <View style={{flexDirection:'row'}}>
+            <Text style={{ fontWeight: 'bold', fontSize: 25, color: 'green', marginVertical: 5 }}>Gainers</Text>
+            <Text style={{ fontWeight: 'bold', fontSize: 25, marginVertical: 5 }}> / </Text>
+            <Text style={{ fontWeight: 'bold', fontSize: 25, color: 'red', marginVertical: 5 }}>Losers </Text>
+          </View>
           <View style={{ height: 300 }}>
             <GainerLosers />
           </View>
