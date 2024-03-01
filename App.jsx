@@ -10,6 +10,7 @@ import Home from './components/bottomScreens/CombineHome';
 import { AboutUs } from './components/aboutUs/AboutUs';
 import { HelpCenter } from './components/helpCenter/HelpCenter';
 import { LineChartComponent } from './components/lineChart/LineChart';
+import { OptionChain } from './components/optionChain/OptionChain';
 
 const Stack = createNativeStackNavigator();
 
@@ -39,6 +40,7 @@ function App() {
         <Stack.Screen name="AboutUs" component={AboutUs} />
         <Stack.Screen name="HelpCenter" component={HelpCenter} />
         <Stack.Screen name="LineChart" component={LineChartComponent} />
+        <Stack.Screen name="OptionChain" component={OptionChain} />
       </Stack.Navigator>
     </NavigationContainer>
   );

@@ -3,11 +3,18 @@ import { Text, View } from "react-native";
 import { useSelector } from "react-redux";
 import { styles } from "../bottomScreens/Home/styles";
 import { Image } from "react-native";
+import { useNavigation } from "@react-navigation/native";
 
 
 export const Gainers = () => {
 
+    const navigation = useNavigation()
+
     const stocks = useSelector(state => state.stocks);
+
+    const handleStockPress = stock => {
+        navigation.navigate('StockDetails', { stock }, navigation);
+    };
 
     return (
         <View>
@@ -21,12 +28,12 @@ export const Gainers = () => {
                             onPress={() => handleStockPress(stock)}>
                             <Image source={{ uri: stock.icon }} style={styles.stockIcon} />
                             <View style={styles.stockDetails}>
-                                <Text style={{ fontWeight: 'bold', color:'green'}}>{`${stock.symbol}`}</Text>
+                                <Text style={{ fontWeight: 'bold', color: 'green' }}>{`${stock.symbol}`}</Text>
                                 <Text style={{ color: '#B0B0B0' }}>{stock.name}</Text>
                             </View>
                             <View>
-                                <Text style={{color:'green', fontWeight:'bold'}}>{`${stock.price}`}</Text>
-                                <Text style={{color:'green'}}>{`${stock.change}`}</Text>
+                                <Text style={{ color: 'green', fontWeight: 'bold' }}>{`${stock.price}`}</Text>
+                                <Text style={{ color: 'green' }}>{`${stock.change}`}</Text>
                             </View>
                         </TouchableOpacity>
                     ))}

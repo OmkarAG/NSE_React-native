@@ -242,7 +242,7 @@ export const StockDetails = ({ navigation, route }) => {
           <Text style={styles.buttonText} onPress={() => navigation.navigate('LineChart')}>Graph</Text>
         </TouchableOpacity>
         <TouchableOpacity style={[styles.bottomButton, { flex: 1 }]}>
-          <Text style={styles.buttonText}>Option Chain</Text>
+          <Text style={styles.buttonText} onPress={() => navigation.navigate('OptionChain')}>Option Chain</Text>
         </TouchableOpacity>
       </View>
       {/* </GestureHandlerRootView> */}
