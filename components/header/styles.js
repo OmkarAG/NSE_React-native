@@ -12,6 +12,7 @@ export const styles = StyleSheet.create({
     alignItems: 'center',
     width: '100%',
     paddingHorizontal: 16,
+    marginBottom:10
   },
   homeText: {
     fontWeight: 'bold',
@@ -33,7 +34,7 @@ export const styles = StyleSheet.create({
   //   backgroundColor: 'rgba(0, 0, 0, 0.1)',
   // },
   modalContainer: {
-    flex:1,
+    flex: 1,
     position: 'absolute',
     // top: 35,
     // right: 35,
@@ -64,5 +65,8 @@ export const styles = StyleSheet.create({
     fontSize: 20,
     // color: '#daa520',
     color: 'white',
+  },
+  switch: {
+    marginTop: 100,
   },
 });

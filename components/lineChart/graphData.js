@@ -1,0 +1,666 @@
+// line chart
+export const hourlyData = [
+    {
+      timestamp: 1625945400000,
+      value: 33575.25,
+    },
+    {
+      timestamp: 1625946300000,
+      value: 33545.25,
+    },
+    {
+      timestamp: 1625947200000,
+      value: 33510.25,
+    },
+    {
+      timestamp: 1625948100000,
+      value: 33215.25,
+    },
+    {
+      timestamp: 1625948100000,
+      value: 33400.25,
+    },
+    {
+      timestamp: 1625948100000,
+      value: 33350.25,
+    },
+    {
+      timestamp: 1625948100000,
+      value: 33300.25,
+    },
+    {
+      timestamp: 1625948100000,
+      value: 33215.25,
+    }, {
+      timestamp: 1625946300000,
+      value: 33545.25,
+    },
+  ];
+  export const dailyData = [
+    {
+      timestamp: 1625945400000,
+      value: 33200.25,
+    },
+    {
+      timestamp: 1625946300000,
+      value: 33205.25,
+    },
+    {
+      timestamp: 1625947200000,
+      value: 33210.25,
+    },
+    {
+      timestamp: 1625948100000,
+      value: 33215.25,
+    },
+    {
+      timestamp: 1625948100000,
+      value: 33215.25,
+    },
+    {
+      timestamp: 1625948100000,
+      value: 33215.25,
+    },
+    {
+      timestamp: 1625948100000,
+      value: 33260.25,
+    },
+    {
+      timestamp: 1625948100000,
+      value: 33255.25,
+    }, {
+      timestamp: 1625946300000,
+      value: 33290.25,
+    },
+  ];
+  export const monthlyData = [
+    {
+      timestamp: 1625945400000,
+      value: 33260.25,
+    },
+    {
+      timestamp: 1625946300000,
+      value: 33205.25,
+    },
+    {
+      timestamp: 1625947200000,
+      value: 33225.25,
+    },
+    {
+      timestamp: 1625948100000,
+      value: 33215.25,
+    },
+    {
+      timestamp: 1625948100000,
+      value: 33215.25,
+    },
+    {
+      timestamp: 1625948100000,
+      value: 33250.25,
+    },
+    {
+      timestamp: 1625948100000,
+      value: 33260.25,
+    },
+    {
+      timestamp: 1625948100000,
+      value: 33255.25,
+    }, {
+      timestamp: 1625946300000,
+      value: 33290.25,
+    },
+  ];
+  export const yearlyData = [
+    {
+      timestamp: 1625945400000,
+      value: 33240.25,
+    },
+    {
+      timestamp: 1625946300000,
+      value: 33205.25,
+    },
+    {
+      timestamp: 1625947200000,
+      value: 33225.25,
+    },
+    {
+      timestamp: 1625948100000,
+      value: 33215.25,
+    },
+    {
+      timestamp: 1625948100000,
+      value: 33290.25,
+    },
+    {
+      timestamp: 1625948100000,
+      value: 33250.25,
+    },
+    {
+      timestamp: 1625948100000,
+      value: 33260.25,
+    },
+    {
+      timestamp: 1625948100000,
+      value: 33255.25,
+    }, {
+      timestamp: 1625946300000,
+      value: 33200.25,
+    },
+  ];
+  export const allData = [
+    {
+      timestamp: 1625945400000,
+      value: 33190.25,
+    },
+    {
+      timestamp: 1625946300000,
+      value: 33205.25,
+    },
+    {
+      timestamp: 1625947200000,
+      value: 33180.25,
+    },
+    {
+      timestamp: 1625948100000,
+      value: 33215.25,
+    },
+    {
+      timestamp: 1625948100000,
+      value: 33215.25,
+    },
+    {
+      timestamp: 1625948100000,
+      value: 33150.25,
+    },
+    {
+      timestamp: 1625948100000,
+      value: 33260.25,
+    },
+    {
+      timestamp: 1625948100000,
+      value: 33255.25,
+    }, {
+      timestamp: 1625946300000,
+      value: 33390.25,
+    },
+  ];
+  
+  // candle chart
+  
+  export const hourlyCandleData = [
+    {
+      timestamp: 1625945400000,
+      open: 33575.25,
+      high: 33600.52,
+      low: 33475.12,
+      close: 33520.11,
+    },
+    {
+      timestamp: 1625946300000,
+      open: 33545.25,
+      high: 33560.52,
+      low: 33510.12,
+      close: 33520.11,
+    },
+    {
+      timestamp: 1625947200000,
+      open: 33510.25,
+      high: 33515.52,
+      low: 33250.12,
+      close: 33250.11,
+    },
+    {
+      timestamp: 1625948100000,
+      open: 33215.25,
+      high: 33430.52,
+      low: 33215.12,
+      close: 33420.11,
+    },
+    {
+      timestamp: 1625945400000,
+      open: 33575.25,
+      high: 33600.52,
+      low: 33475.12,
+      close: 33520.11,
+    },
+    {
+      timestamp: 1625946300000,
+      open: 33545.25,
+      high: 33560.52,
+      low: 33510.12,
+      close: 33520.11,
+    },
+    {
+      timestamp: 1625947200000,
+      open: 33510.25,
+      high: 33515.52,
+      low: 33250.12,
+      close: 33250.11,
+    },
+    {
+      timestamp: 1625948100000,
+      open: 33215.25,
+      high: 33430.52,
+      low: 33215.12,
+      close: 33420.11,
+    },
+    {
+      timestamp: 1625947200000,
+      open: 33510.25,
+      high: 33515.52,
+      low: 33250.12,
+      close: 33250.11,
+    },
+    {
+      timestamp: 1625948100000,
+      open: 33215.25,
+      high: 33430.52,
+      low: 33215.12,
+      close: 33420.11,
+    },
+    {
+      timestamp: 1625947200000,
+      open: 33510.25,
+      high: 33515.52,
+      low: 33250.12,
+      close: 33250.11,
+    },
+    {
+      timestamp: 1625948100000,
+      open: 33215.25,
+      high: 33430.52,
+      low: 33215.12,
+      close: 33420.11,
+    },
+  ];
+  export const dailyCandleData = [
+    
+    {
+      timestamp: 1625947200000,
+      open: 33510.25,
+      high: 33515.52,
+      low: 33250.12,
+      close: 33250.11,
+    },
+    {
+      timestamp: 1625948100000,
+      open: 33215.25,
+      high: 33430.52,
+      low: 33215.12,
+      close: 33420.11,
+    },
+    {
+      timestamp: 1625947200000,
+      open: 33510.25,
+      high: 33515.52,
+      low: 33250.12,
+      close: 33250.11,
+    },
+    {
+      timestamp: 1625948100000,
+      open: 33215.25,
+      high: 33430.52,
+      low: 33215.12,
+      close: 33420.11,
+    },
+    {
+      timestamp: 1625947200000,
+      open: 33510.25,
+      high: 33515.52,
+      low: 33250.12,
+      close: 33250.11,
+    },
+    {
+      timestamp: 1625948100000,
+      open: 33215.25,
+      high: 33430.52,
+      low: 33215.12,
+      close: 33420.11,
+    },
+  ];
+  export const monthlyCandleData = [
+    
+    {
+      timestamp: 1625947200000,
+      open: 33510.25,
+      high: 33515.52,
+      low: 33250.12,
+      close: 33250.11,
+    },
+    {
+      timestamp: 1625948100000,
+      open: 33215.25,
+      high: 33430.52,
+      low: 33215.12,
+      close: 33420.11,
+    },
+    {
+      timestamp: 1625947200000,
+      open: 33510.25,
+      high: 33515.52,
+      low: 33250.12,
+      close: 33250.11,
+    },
+    {
+      timestamp: 1625948100000,
+      open: 33215.25,
+      high: 33430.52,
+      low: 33215.12,
+      close: 33420.11,
+    },
+  ];
+  export const yearlyCandleData = [
+    
+    {
+      timestamp: 1625947200000,
+      open: 33510.25,
+      high: 33515.52,
+      low: 33250.12,
+      close: 33250.11,
+    },
+    {
+      timestamp: 1625947200000,
+      open: 33510.25,
+      high: 33515.52,
+      low: 33250.12,
+      close: 33250.11,
+    },
+    {
+      timestamp: 1625947200000,
+      open: 33510.25,
+      high: 33515.52,
+      low: 33250.12,
+      close: 33250.11,
+    },
+    {
+      timestamp: 1625948100000,
+      open: 33215.25,
+      high: 33430.52,
+      low: 33215.12,
+      close: 33420.11,
+    },
+    {
+      timestamp: 1625947200000,
+      open: 33510.25,
+      high: 33515.52,
+      low: 33250.12,
+      close: 33250.11,
+    },
+    {
+      timestamp: 1625948100000,
+      open: 33215.25,
+      high: 33430.52,
+      low: 33215.12,
+      close: 33420.11,
+    },
+    {
+      timestamp: 1625947200000,
+      open: 33510.25,
+      high: 33515.52,
+      low: 33250.12,
+      close: 33250.11,
+    },
+    {
+      timestamp: 1625948100000,
+      open: 33215.25,
+      high: 33430.52,
+      low: 33215.12,
+      close: 33420.11,
+    },
+  ];
+  export const allCandleData = [
+    
+    
+    {
+      timestamp: 1625947200000,
+      open: 33510.25,
+      high: 33515.52,
+      low: 33250.12,
+      close: 33250.11,
+    },
+    {
+      timestamp: 1625948100000,
+      open: 33215.25,
+      high: 33430.52,
+      low: 33215.12,
+      close: 33420.11,
+    },
+    {
+      timestamp: 1625947200000,
+      open: 33510.25,
+      high: 33515.52,
+      low: 33250.12,
+      close: 33250.11,
+    },
+    {
+      timestamp: 1625948100000,
+      open: 33215.25,
+      high: 33430.52,
+      low: 33215.12,
+      close: 33420.11,
+    },
+    {
+      timestamp: 1625947200000,
+      open: 33510.25,
+      high: 33515.52,
+      low: 33250.12,
+      close: 33250.11,
+    },
+    {
+      timestamp: 1625948100000,
+      open: 33215.25,
+      high: 33430.52,
+      low: 33215.12,
+      close: 33420.11,
+    },
+    {
+      timestamp: 1625947200000,
+      open: 33510.25,
+      high: 33515.52,
+      low: 33250.12,
+      close: 33250.11,
+    },
+    {
+      timestamp: 1625948100000,
+      open: 33215.25,
+      high: 33430.52,
+      low: 33215.12,
+      close: 33420.11,
+    },
+    {
+      timestamp: 1625947200000,
+      open: 33510.25,
+      high: 33515.52,
+      low: 33250.12,
+      close: 33250.11,
+    },
+    {
+      timestamp: 1625948100000,
+      open: 33215.25,
+      high: 33430.52,
+      low: 33215.12,
+      close: 33420.11,
+    },
+    {
+      timestamp: 1625947200000,
+      open: 33510.25,
+      high: 33515.52,
+      low: 33250.12,
+      close: 33250.11,
+    },
+    {
+      timestamp: 1625948100000,
+      open: 33215.25,
+      high: 33430.52,
+      low: 33215.12,
+      close: 33420.11,
+    },
+    {
+      timestamp: 1625947200000,
+      open: 33510.25,
+      high: 33515.52,
+      low: 33250.12,
+      close: 33250.11,
+    },
+    {
+      timestamp: 1625948100000,
+      open: 33215.25,
+      high: 33430.52,
+      low: 33215.12,
+      close: 33420.11,
+    },
+    {
+      timestamp: 1625947200000,
+      open: 33510.25,
+      high: 33515.52,
+      low: 33250.12,
+      close: 33250.11,
+    },
+    {
+      timestamp: 1625948100000,
+      open: 33215.25,
+      high: 33430.52,
+      low: 33215.12,
+      close: 33420.11,
+    },
+    {
+      timestamp: 1625947200000,
+      open: 33510.25,
+      high: 33515.52,
+      low: 33250.12,
+      close: 33250.11,
+    },
+    {
+      timestamp: 1625948100000,
+      open: 33215.25,
+      high: 33430.52,
+      low: 33215.12,
+      close: 33420.11,
+    },
+    {
+      timestamp: 1625947200000,
+      open: 33510.25,
+      high: 33515.52,
+      low: 33250.12,
+      close: 33250.11,
+    },
+    {
+      timestamp: 1625948100000,
+      open: 33215.25,
+      high: 33430.52,
+      low: 33215.12,
+      close: 33420.11,
+    },
+    {
+      timestamp: 1625947200000,
+      open: 33510.25,
+      high: 33515.52,
+      low: 33250.12,
+      close: 33250.11,
+    },
+    {
+      timestamp: 1625948100000,
+      open: 33215.25,
+      high: 33430.52,
+      low: 33215.12,
+      close: 33420.11,
+    },
+    {
+      timestamp: 1625947200000,
+      open: 33510.25,
+      high: 33515.52,
+      low: 33250.12,
+      close: 33250.11,
+    },
+    {
+      timestamp: 1625948100000,
+      open: 33215.25,
+      high: 33430.52,
+      low: 33215.12,
+      close: 33420.11,
+    },
+    {
+      timestamp: 1625947200000,
+      open: 33510.25,
+      high: 33515.52,
+      low: 33250.12,
+      close: 33250.11,
+    },
+    {
+      timestamp: 1625948100000,
+      open: 33215.25,
+      high: 33430.52,
+      low: 33215.12,
+      close: 33420.11,
+    },
+    {
+      timestamp: 1625947200000,
+      open: 33510.25,
+      high: 33515.52,
+      low: 33250.12,
+      close: 33250.11,
+    },
+    {
+      timestamp: 1625948100000,
+      open: 33215.25,
+      high: 33430.52,
+      low: 33215.12,
+      close: 33420.11,
+    },
+    {
+      timestamp: 1625947200000,
+      open: 33510.25,
+      high: 33515.52,
+      low: 33250.12,
+      close: 33250.11,
+    },
+    {
+      timestamp: 1625948100000,
+      open: 33215.25,
+      high: 33430.52,
+      low: 33215.12,
+      close: 33420.11,
+    },
+    {
+      timestamp: 1625947200000,
+      open: 33510.25,
+      high: 33515.52,
+      low: 33250.12,
+      close: 33250.11,
+    },
+    {
+      timestamp: 1625948100000,
+      open: 33215.25,
+      high: 33430.52,
+      low: 33215.12,
+      close: 33420.11,
+    },
+    {
+      timestamp: 1625947200000,
+      open: 33510.25,
+      high: 33515.52,
+      low: 33250.12,
+      close: 33250.11,
+    },
+    {
+      timestamp: 1625948100000,
+      open: 33215.25,
+      high: 33430.52,
+      low: 33215.12,
+      close: 33420.11,
+    },
+    {
+      timestamp: 1625947200000,
+      open: 33510.25,
+      high: 33515.52,
+      low: 33250.12,
+      close: 33250.11,
+    },
+    {
+      timestamp: 1625948100000,
+      open: 33215.25,
+      high: 33430.52,
+      low: 33215.12,
+      close: 33420.11,
+    },
+  ];

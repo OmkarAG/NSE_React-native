@@ -16,8 +16,8 @@ export function MyDrawer() {
     <Drawer.Navigator>
       <Drawer.Screen name="Home" component={Main} options={{ headerShown: false }} />
       <Drawer.Screen name="HeatMap" component={Heatmap} options={{ headerShown: false }} />
-      <Drawer.Screen name="Indices" component={Indices} />
-      <Drawer.Screen name="Equities" component={Equities} />
+      <Drawer.Screen name="Indices" component={Indices} options={{ headerShown: false }} />
+      <Drawer.Screen name="Equities" component={Equities} options={{ headerShown: false }} />
       <Drawer.Screen name="Derivatives" component={Derivatives} />
       <Drawer.Screen name="Reference Rates" component={ReferenceRates} />
       <Drawer.Screen name="MarketTurnOver" component={MarketTurnOver} />

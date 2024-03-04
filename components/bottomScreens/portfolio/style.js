@@ -23,7 +23,7 @@ export const styles = StyleSheet.create({
   scrollViewContent: {
     padding: 20,
     // marginTop: 10,
-    paddingBottom: 112,
+    paddingBottom: 210,
   },
   stockContainer: {
     flexDirection: 'row',
@@ -111,12 +111,13 @@ export const styles = StyleSheet.create({
     fontSize: 20,
   },
   searchStockContainer:{
-    padding:5,
+    // padding:5,
+    paddingLeft:15,
     flexDirection: 'row',
     width:250,
     gap: 10,
     alignItems: 'center',
-    marginBottom: 20,
+    // marginBottom: 20,
     borderBottomWidth: 1,
     borderBottomColor: '#B0B0B0',
   }

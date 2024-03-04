@@ -1,12 +1,15 @@
-import { Image, View, Text, TouchableOpacity, Modal, TouchableWithoutFeedback } from "react-native"
+import { Image, View, Text, TouchableOpacity, Modal, TouchableWithoutFeedback, Switch } from "react-native"
 import { styles } from "./styles"
 import { useState } from "react";
 // import { useNavigation } from "@react-navigation/native";
 
 export const Header = ({ navigation, componentName }) => {
     const [showModal, setShowModal] = useState(false);
+    const [isEnabled, setIsEnabled] = useState(true);
 
     // const navigation = useNavigation()
+
+    const toggleSwitch = () => setIsEnabled(previousState => !previousState);
 
     const handleSettingClick = () => {
         // console.warn("handling")
@@ -41,9 +44,15 @@ export const Header = ({ navigation, componentName }) => {
                     <TouchableWithoutFeedback onPress={() => { setShowModal(false) }}>
                         <View style={styles.modalContainer}>
                             <View style={styles.modalContent}>
-                                <Text style={[styles.modalText,{top:20}]} onPress={() => { navigation.navigate('AboutUs') }}>About Us</Text>
-                                <Text style={styles.modalText} onPress={() => { navigation.navigate('HelpCenter')}}>Help Center</Text>
-
+                                <Switch
+                                    style={styles.switch}
+                                    trackColor={{ false: '#767577', true: '#81b0ff' }}
+                                    thumbColor={isEnabled ? '#f5dd4b' : '#f4f3f4'}
+                                    onValueChange={toggleSwitch}
+                                    value={isEnabled}
+                                />
+                                <Text style={[styles.modalText, { top: 20 }]} onPress={() => { navigation.navigate('AboutUs') }}>About Us</Text>
+                                <Text style={styles.modalText} onPress={() => { navigation.navigate('HelpCenter') }}>Help Center</Text>
 
                             </View>
                         </View>

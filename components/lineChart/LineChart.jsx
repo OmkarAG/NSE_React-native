@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { LineChart } from 'react-native-wagmi-charts';
-import { allCandleData, allData, dailyCandleData, dailyData, hourlyCandleData, hourlyData, monthlyCandleData, monthlyData, yearlyCandleData, yearlyData } from '../stockDetails/graphData';
+import { allCandleData, allData, dailyCandleData, dailyData, hourlyCandleData, hourlyData, monthlyCandleData, monthlyData, yearlyCandleData, yearlyData } from './graphData';
 import { Text, View, TouchableOpacity, Image } from 'react-native';
 import { styles } from './styles';
 import { SingleCandleChart } from '../candleChart/CandleChart';

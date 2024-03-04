@@ -1,11 +1,11 @@
-import {View, ScrollView, TouchableOpacity, Text, Image} from 'react-native';
-import {TextInput} from 'react-native-paper';
-import {Header} from '../../header/Header';
-import {styles} from './style';
-import {useEffect, useState} from 'react';
-import {useDispatch, useSelector} from 'react-redux';
-import {getStocks, setWatchlistStocks} from '../../../redux/action';
-import {useNavigation} from '@react-navigation/native';
+import { View, ScrollView, TouchableOpacity, Text, Image } from 'react-native';
+import { TextInput } from 'react-native-paper';
+import { Header } from '../../header/Header';
+import { styles } from './style';
+import { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { getStocks, setWatchlistStocks } from '../../../redux/action';
+import { useNavigation } from '@react-navigation/native';
 
 export const Search = () => {
   const [searchInput, setSearchInput] = useState('');
@@ -22,7 +22,7 @@ export const Search = () => {
   };
 
   const handleStockPress = stock => {
-    navigation.navigate('StockDetails', {stock});
+    navigation.navigate('StockDetails', { stock });
   };
 
   const stocks = useSelector(state => state.stocks);
@@ -46,7 +46,7 @@ export const Search = () => {
 
   return (
     <View>
-      <Header componentName="Search" navigation={navigation}/>
+      <Header componentName="Search" navigation={navigation} />
       {/* <View>
         <TextInput
           placeholder="Enter Stock Name"
@@ -69,7 +69,24 @@ export const Search = () => {
             <Text style={styles.clear}>Clear</Text>
           </TouchableOpacity>
         )}
+
+
       </View>
+
+      <View>
+        {searchInput.length > 0 && (
+          <TouchableOpacity
+            // onPress={clearSearchInput}
+            style={{ flexDirection: 'row', alignItems: 'baseline', gap: 10, paddingLeft:15 }}>
+            {/* <Icon name="times-circle" size={20} color="black" /> */}
+            <Text style={{ fontSize: 20 }}>Select Segment</Text>
+            <TouchableOpacity>
+              <Image source={require('../../../assets/triangleDown.png')} style={{ width: 15, height: 15, tintColor: 'black' }} ></Image>
+            </TouchableOpacity>
+          </TouchableOpacity>
+        )}
+      </View>
+
       <View>
         <ScrollView contentContainerStyle={styles.scrollViewContent}>
           {filterStocks.length !== 0 ? (
@@ -78,10 +95,10 @@ export const Search = () => {
                 key={index}
                 style={styles.stockContainer}
                 onPress={() => handleStockPress(stock)}>
-                <Image source={{uri: stock.icon}} style={styles.stockIcon} />
+                <Image source={{ uri: stock.icon }} style={styles.stockIcon} />
                 <View style={styles.stockDetails}>
-                  <Text style={{fontWeight: 'bold'}}>{`${stock.symbol}`}</Text>
-                  <Text style={{color: '#B0B0B0'}}>{stock.name}</Text>
+                  <Text style={{ fontWeight: 'bold' }}>{`${stock.symbol}`}</Text>
+                  <Text style={{ color: '#B0B0B0' }}>{stock.name}</Text>
                 </View>
                 <View>
                   <Text>{`${stock.price}`}</Text>
@@ -99,7 +116,7 @@ export const Search = () => {
               </TouchableOpacity>
             ))
           ) : (
-            <View style={{alignItems: 'center'}}>
+            <View style={{ alignItems: 'center' }}>
               {/* {console.warn('Rendering "Search" text')}
               <Text style={{textAlign: 'center'}}>Search</Text> */}
               <Image

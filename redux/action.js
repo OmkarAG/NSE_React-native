@@ -61,7 +61,7 @@ export function sortPortfolioStocks(payload) {
   };
 }
 
-export function getAllIndices(payload){
+export function getAllIndices(){
   return{
     type:GET_ALL_INDICES,
   }

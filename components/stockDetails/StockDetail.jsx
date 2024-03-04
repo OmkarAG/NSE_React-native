@@ -7,7 +7,7 @@ import { useEffect, useState } from 'react';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { SingleCandleChart } from '../candleChart/CandleChart';
 import { LineChartComponent } from '../lineChart/LineChart';
-import { allCandleData, allData, dailyCandleData, dailyData, hourlyCandleData, hourlyData, monthlyCandleData, monthlyData, yearlyCandleData, yearlyData } from './graphData';
+import { allCandleData, allData, dailyCandleData, dailyData, hourlyCandleData, hourlyData, monthlyCandleData, monthlyData, yearlyCandleData, yearlyData } from '../lineChart/graphData';
 import { StockDetailsTabs } from '../Tabs/stockDetailsTabs/StockDetailsTabs';
 
 
@@ -48,7 +48,7 @@ export const StockDetails = ({ navigation, route }) => {
       <ScrollView>
         <View style={{ padding: 10, flex: 1, }}>
           <View style={styles.stockNameWrapper}>
-            <Text style={styles.stockName}>{`${stock.name}`}</Text>
+            <Text style={styles.stockName}>{`${stock.name || stock.index}`}</Text>
             {/* <Text style={styles.price}>{`RS. ${stock.price}`}</Text> */}
           </View>
 

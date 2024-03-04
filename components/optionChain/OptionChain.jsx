@@ -1,10 +1,23 @@
 import { useNavigation } from "@react-navigation/native";
-import { useEffect } from "react";
-import { ScrollView, Text, View } from "react-native"
+import { useEffect, useRef } from "react";
+import { ScrollView, Text, View } from "react-native";
 
 export const OptionChain = () => {
+    const navigation = useNavigation();
+    const targetScrollRef = useRef();
+    const scrollViewRef = useRef();
 
-    const navigation = useNavigation()
+    const scrollToTargetText = (targetTextRef) => {
+        if (targetTextRef.current && scrollViewRef.current) {
+            // targetTextRef.current.measure((fx, fy, width, height, px, py) => {
+                scrollViewRef.current.scrollTo({ y: 500, animated: true });
+            // });
+        }
+    };
+
+    useEffect(() => {
+        scrollToTargetText(scrollViewRef);
+    }, []);
 
     useEffect(() => {
         navigation.setOptions({
@@ -22,8 +35,8 @@ export const OptionChain = () => {
                 <Text style={{ color: 'white', fontWeight: 'bold' }}>STRIKE</Text>
                 <Text style={{ color: 'white', fontWeight: 'bold' }}>PUT PRICE</Text>
             </View>
-            <ScrollView>
-                <View style={{ flexDirection: 'row', justifyContent: 'space-around', padding: 10, borderBottomColor: "#E3E3E3", borderBottomWidth: 1, alignItems:'center' }}>
+            <ScrollView ref={scrollViewRef}>
+                <View style={{ flexDirection: 'row', justifyContent: 'space-around', padding: 10, borderBottomColor: "#E3E3E3", borderBottomWidth: 1, alignItems: 'center' }}>
                     <View>
                         <Text>55</Text>
                         <Text>(4%)</Text>
@@ -34,7 +47,7 @@ export const OptionChain = () => {
                         <Text>(4%)</Text>
                     </View>
                 </View>
-                <View style={{ flexDirection: 'row', justifyContent: 'space-around', padding: 10, borderBottomColor: "#E3E3E3", borderBottomWidth: 1, alignItems:'center' }}>
+                <View style={{ flexDirection: 'row', justifyContent: 'space-around', padding: 10, borderBottomColor: "#E3E3E3", borderBottomWidth: 1, alignItems: 'center' }}>
                     <View>
                         <Text>55</Text>
                         <Text>(4%)</Text>
@@ -45,7 +58,7 @@ export const OptionChain = () => {
                         <Text>(4%)</Text>
                     </View>
                 </View>
-                <View style={{ flexDirection: 'row', justifyContent: 'space-around', padding: 10, borderBottomColor: "#E3E3E3", borderBottomWidth: 1, alignItems:'center' }}>
+                <View style={{ flexDirection: 'row', justifyContent: 'space-around', padding: 10, borderBottomColor: "#E3E3E3", borderBottomWidth: 1, alignItems: 'center' }}>
                     <View>
                         <Text>55</Text>
                         <Text>(4%)</Text>
@@ -56,7 +69,7 @@ export const OptionChain = () => {
                         <Text>(4%)</Text>
                     </View>
                 </View>
-                <View style={{ flexDirection: 'row', justifyContent: 'space-around', padding: 10, borderBottomColor: "#E3E3E3", borderBottomWidth: 1, alignItems:'center' }}>
+                <View style={{ flexDirection: 'row', justifyContent: 'space-around', padding: 10, borderBottomColor: "#E3E3E3", borderBottomWidth: 1, alignItems: 'center' }}>
                     <View>
                         <Text>55</Text>
                         <Text>(4%)</Text>
@@ -67,7 +80,7 @@ export const OptionChain = () => {
                         <Text>(4%)</Text>
                     </View>
                 </View>
-                <View style={{ flexDirection: 'row', justifyContent: 'space-around', padding: 10, borderBottomColor: "#E3E3E3", borderBottomWidth: 1, alignItems:'center' }}>
+                <View style={{ flexDirection: 'row', justifyContent: 'space-around', padding: 10, borderBottomColor: "#E3E3E3", borderBottomWidth: 1, alignItems: 'center' }}>
                     <View>
                         <Text>55</Text>
                         <Text>(4%)</Text>
@@ -78,7 +91,7 @@ export const OptionChain = () => {
                         <Text>(4%)</Text>
                     </View>
                 </View>
-                <View style={{ flexDirection: 'row', justifyContent: 'space-around', padding: 10, borderBottomColor: "#E3E3E3", borderBottomWidth: 1, alignItems:'center' }}>
+                <View style={{ flexDirection: 'row', justifyContent: 'space-around', padding: 10, borderBottomColor: "#E3E3E3", borderBottomWidth: 1, alignItems: 'center' }}>
                     <View>
                         <Text>55</Text>
                         <Text>(4%)</Text>
@@ -89,7 +102,7 @@ export const OptionChain = () => {
                         <Text>(4%)</Text>
                     </View>
                 </View>
-                <View style={{ flexDirection: 'row', justifyContent: 'space-around', padding: 10, borderBottomColor: "#E3E3E3", borderBottomWidth: 1, alignItems:'center' }}>
+                <View style={{ flexDirection: 'row', justifyContent: 'space-around', padding: 10, borderBottomColor: "#E3E3E3", borderBottomWidth: 1, alignItems: 'center' }}>
                     <View>
                         <Text>55</Text>
                         <Text>(4%)</Text>
@@ -100,7 +113,7 @@ export const OptionChain = () => {
                         <Text>(4%)</Text>
                     </View>
                 </View>
-                <View style={{ flexDirection: 'row', justifyContent: 'space-around', padding: 10, borderBottomColor: "#E3E3E3", borderBottomWidth: 1, alignItems:'center' }}>
+                <View style={{ flexDirection: 'row', justifyContent: 'space-around', padding: 10, borderBottomColor: "#E3E3E3", borderBottomWidth: 1, alignItems: 'center' }}>
                     <View>
                         <Text>55</Text>
                         <Text>(4%)</Text>
@@ -111,7 +124,7 @@ export const OptionChain = () => {
                         <Text>(4%)</Text>
                     </View>
                 </View>
-                <View style={{ flexDirection: 'row', justifyContent: 'space-around', padding: 10, borderBottomColor: "#E3E3E3", borderBottomWidth: 1, alignItems:'center' }}>
+                <View style={{ flexDirection: 'row', justifyContent: 'space-around', padding: 10, borderBottomColor: "#E3E3E3", borderBottomWidth: 1, alignItems: 'center' }}>
                     <View>
                         <Text>55</Text>
                         <Text>(4%)</Text>
@@ -122,7 +135,7 @@ export const OptionChain = () => {
                         <Text>(4%)</Text>
                     </View>
                 </View>
-                <View style={{ flexDirection: 'row', justifyContent: 'space-around', padding: 10, borderBottomColor: "#E3E3E3", borderBottomWidth: 1, alignItems:'center' }}>
+                <View style={{ flexDirection: 'row', justifyContent: 'space-around', padding: 10, borderBottomColor: "#E3E3E3", borderBottomWidth: 1, alignItems: 'center' }}>
                     <View>
                         <Text>55</Text>
                         <Text>(4%)</Text>
@@ -133,7 +146,7 @@ export const OptionChain = () => {
                         <Text>(4%)</Text>
                     </View>
                 </View>
-                <View style={{ flexDirection: 'row', justifyContent: 'space-around', padding: 10, borderBottomColor: "#E3E3E3", borderBottomWidth: 1, alignItems:'center' }}>
+                <View style={{ flexDirection: 'row', justifyContent: 'space-around', padding: 10, borderBottomColor: "#E3E3E3", borderBottomWidth: 1, alignItems: 'center' }}>
                     <View>
                         <Text>55</Text>
                         <Text>(4%)</Text>
@@ -144,7 +157,7 @@ export const OptionChain = () => {
                         <Text>(4%)</Text>
                     </View>
                 </View>
-                <View style={{ flexDirection: 'row', justifyContent: 'space-around', padding: 10, borderBottomColor: "#E3E3E3", borderBottomWidth: 1, alignItems:'center' }}>
+                <View style={{ flexDirection: 'row', justifyContent: 'space-around', padding: 10, borderBottomColor: "#E3E3E3", borderBottomWidth: 1, alignItems: 'center' }}>
                     <View>
                         <Text>55</Text>
                         <Text>(4%)</Text>
@@ -155,7 +168,7 @@ export const OptionChain = () => {
                         <Text>(4%)</Text>
                     </View>
                 </View>
-                <View style={{ flexDirection: 'row', justifyContent: 'space-around', padding: 10, borderBottomColor: "#E3E3E3", borderBottomWidth: 1, alignItems:'center' }}>
+                <View style={{ flexDirection: 'row', justifyContent: 'space-around', padding: 10, borderBottomColor: "#E3E3E3", borderBottomWidth: 1, alignItems: 'center' }}>
                     <View>
                         <Text>55</Text>
                         <Text>(4%)</Text>
@@ -166,7 +179,7 @@ export const OptionChain = () => {
                         <Text>(4%)</Text>
                     </View>
                 </View>
-                <View style={{ flexDirection: 'row', justifyContent: 'space-around', padding: 10, borderBottomColor: "#E3E3E3", borderBottomWidth: 1, alignItems:'center' }}>
+                <View style={{ flexDirection: 'row', justifyContent: 'space-around', padding: 10, borderBottomColor: "#E3E3E3", borderBottomWidth: 1, alignItems: 'center' }}>
                     <View>
                         <Text>55</Text>
                         <Text>(4%)</Text>
@@ -177,7 +190,7 @@ export const OptionChain = () => {
                         <Text>(4%)</Text>
                     </View>
                 </View>
-                <View style={{ flexDirection: 'row', justifyContent: 'space-around', padding: 10, borderBottomColor: "#E3E3E3", borderBottomWidth: 1, alignItems:'center' }}>
+                <View style={{ flexDirection: 'row', justifyContent: 'space-around', padding: 10, borderBottomColor: "#E3E3E3", borderBottomWidth: 1, alignItems: 'center' }}>
                     <View>
                         <Text>55</Text>
                         <Text>(4%)</Text>
@@ -188,7 +201,7 @@ export const OptionChain = () => {
                         <Text>(4%)</Text>
                     </View>
                 </View>
-                <View style={{ flexDirection: 'row', justifyContent: 'space-around', padding: 10, borderBottomColor: "#E3E3E3", borderBottomWidth: 1, alignItems:'center' }}>
+                <View style={{ flexDirection: 'row', justifyContent: 'space-around', padding: 10, borderBottomColor: "#E3E3E3", borderBottomWidth: 1, alignItems: 'center' }}>
                     <View>
                         <Text>55</Text>
                         <Text>(4%)</Text>
@@ -199,7 +212,7 @@ export const OptionChain = () => {
                         <Text>(4%)</Text>
                     </View>
                 </View>
-                <View style={{ flexDirection: 'row', justifyContent: 'space-around', padding: 10, borderBottomColor: "#E3E3E3", borderBottomWidth: 1, alignItems:'center' }}>
+                <View style={{ flexDirection: 'row', justifyContent: 'space-around', padding: 10, borderBottomColor: "#E3E3E3", borderBottomWidth: 1, alignItems: 'center' }}>
                     <View>
                         <Text>55</Text>
                         <Text>(4%)</Text>
@@ -210,7 +223,7 @@ export const OptionChain = () => {
                         <Text>(4%)</Text>
                     </View>
                 </View>
-                <View style={{ flexDirection: 'row', justifyContent: 'space-around', padding: 10, borderBottomColor: "#E3E3E3", borderBottomWidth: 1, alignItems:'center' }}>
+                <View style={{ flexDirection: 'row', justifyContent: 'space-around', padding: 10, borderBottomColor: "#E3E3E3", borderBottomWidth: 1, alignItems: 'center' }}>
                     <View>
                         <Text>55</Text>
                         <Text>(4%)</Text>
@@ -221,7 +234,7 @@ export const OptionChain = () => {
                         <Text>(4%)</Text>
                     </View>
                 </View>
-                <View style={{ flexDirection: 'row', justifyContent: 'space-around', padding: 10, borderBottomColor: "#E3E3E3", borderBottomWidth: 1, alignItems:'center' }}>
+                <View style={{ flexDirection: 'row', justifyContent: 'space-around', padding: 10, borderBottomColor: "#E3E3E3", borderBottomWidth: 1, alignItems: 'center' }}>
                     <View>
                         <Text>55</Text>
                         <Text>(4%)</Text>
@@ -232,7 +245,7 @@ export const OptionChain = () => {
                         <Text>(4%)</Text>
                     </View>
                 </View>
-                <View style={{ flexDirection: 'row', justifyContent: 'space-around', padding: 10, borderBottomColor: "#E3E3E3", borderBottomWidth: 1, alignItems:'center' }}>
+                <View style={{ flexDirection: 'row', justifyContent: 'space-around', padding: 10, borderBottomColor: "#E3E3E3", borderBottomWidth: 1, alignItems: 'center' }}>
                     <View>
                         <Text>55</Text>
                         <Text>(4%)</Text>
@@ -243,7 +256,7 @@ export const OptionChain = () => {
                         <Text>(4%)</Text>
                     </View>
                 </View>
-                <View style={{ flexDirection: 'row', justifyContent: 'space-around', padding: 10, borderBottomColor: "#E3E3E3", borderBottomWidth: 1, alignItems:'center' }}>
+                <View style={{ flexDirection: 'row', justifyContent: 'space-around', padding: 10, borderBottomColor: "#E3E3E3", borderBottomWidth: 1, alignItems: 'center' }}>
                     <View>
                         <Text>55</Text>
                         <Text>(4%)</Text>
@@ -254,7 +267,7 @@ export const OptionChain = () => {
                         <Text>(4%)</Text>
                     </View>
                 </View>
-                <View style={{ flexDirection: 'row', justifyContent: 'space-around', padding: 10, borderBottomColor: "#E3E3E3", borderBottomWidth: 1, alignItems:'center' }}>
+                <View style={{ flexDirection: 'row', justifyContent: 'space-around', padding: 10, borderBottomColor: "#E3E3E3", borderBottomWidth: 1, alignItems: 'center' }}>
                     <View>
                         <Text>55</Text>
                         <Text>(4%)</Text>
@@ -265,7 +278,7 @@ export const OptionChain = () => {
                         <Text>(4%)</Text>
                     </View>
                 </View>
-                <View style={{ flexDirection: 'row', justifyContent: 'space-around', padding: 10, borderBottomColor: "#E3E3E3", borderBottomWidth: 1, alignItems:'center' }}>
+                <View style={{ flexDirection: 'row', justifyContent: 'space-around', padding: 10, borderBottomColor: "#E3E3E3", borderBottomWidth: 1, alignItems: 'center' }}>
                     <View>
                         <Text>55</Text>
                         <Text>(4%)</Text>
@@ -276,7 +289,7 @@ export const OptionChain = () => {
                         <Text>(4%)</Text>
                     </View>
                 </View>
-                <View style={{ flexDirection: 'row', justifyContent: 'space-around', padding: 10, borderBottomColor: "#E3E3E3", borderBottomWidth: 1, alignItems:'center' }}>
+                <View style={{ flexDirection: 'row', justifyContent: 'space-around', padding: 10, borderBottomColor: "#E3E3E3", borderBottomWidth: 1, alignItems: 'center' }}>
                     <View>
                         <Text>55</Text>
                         <Text>(4%)</Text>
@@ -287,7 +300,7 @@ export const OptionChain = () => {
                         <Text>(4%)</Text>
                     </View>
                 </View>
-                <View style={{ flexDirection: 'row', justifyContent: 'space-around', padding: 10, borderBottomColor: "#E3E3E3", borderBottomWidth: 1, alignItems:'center' }}>
+                <View style={{ flexDirection: 'row', justifyContent: 'space-around', padding: 10, borderBottomColor: "#E3E3E3", borderBottomWidth: 1, alignItems: 'center' }}>
                     <View>
                         <Text>55</Text>
                         <Text>(4%)</Text>
@@ -298,7 +311,7 @@ export const OptionChain = () => {
                         <Text>(4%)</Text>
                     </View>
                 </View>
-                <View style={{ flexDirection: 'row', justifyContent: 'space-around', padding: 10, borderBottomColor: "#E3E3E3", borderBottomWidth: 1, alignItems:'center' }}>
+                <View style={{ flexDirection: 'row', justifyContent: 'space-around', padding: 10, borderBottomColor: "#E3E3E3", borderBottomWidth: 1, alignItems: 'center' }}>
                     <View>
                         <Text>55</Text>
                         <Text>(4%)</Text>
@@ -309,7 +322,7 @@ export const OptionChain = () => {
                         <Text>(4%)</Text>
                     </View>
                 </View>
-                <View style={{ flexDirection: 'row', justifyContent: 'space-around', padding: 10, borderBottomColor: "#E3E3E3", borderBottomWidth: 1, alignItems:'center' }}>
+                <View style={{ flexDirection: 'row', justifyContent: 'space-around', padding: 10, borderBottomColor: "#E3E3E3", borderBottomWidth: 1, alignItems: 'center' }}>
                     <View>
                         <Text>55</Text>
                         <Text>(4%)</Text>
@@ -320,415 +333,18 @@ export const OptionChain = () => {
                         <Text>(4%)</Text>
                     </View>
                 </View>
-                <View style={{ flexDirection: 'row', justifyContent: 'space-around', padding: 10, borderBottomColor: "#E3E3E3", borderBottomWidth: 1, alignItems:'center' }}>
+                <View style={{ flexDirection: 'row', justifyContent: 'space-around', padding: 10, borderBottomColor: "#E3E3E3", borderBottomWidth: 1, alignItems: 'center' }}>
                     <View>
                         <Text>55</Text>
                         <Text>(4%)</Text>
                     </View>
                     <Text>7687</Text>
                     <View>
-                        <Text>55</Text>
-                        <Text>(4%)</Text>
-                    </View>
-                </View>
-                <View style={{ flexDirection: 'row', justifyContent: 'space-around', padding: 10, borderBottomColor: "#E3E3E3", borderBottomWidth: 1, alignItems:'center' }}>
-                    <View>
-                        <Text>55</Text>
-                        <Text>(4%)</Text>
-                    </View>
-                    <Text>7687</Text>
-                    <View>
-                        <Text>55</Text>
-                        <Text>(4%)</Text>
-                    </View>
-                </View>
-                <View style={{ flexDirection: 'row', justifyContent: 'space-around', padding: 10, borderBottomColor: "#E3E3E3", borderBottomWidth: 1, alignItems:'center' }}>
-                    <View>
-                        <Text>55</Text>
-                        <Text>(4%)</Text>
-                    </View>
-                    <Text>7687</Text>
-                    <View>
-                        <Text>55</Text>
-                        <Text>(4%)</Text>
-                    </View>
-                </View>
-                <View style={{ flexDirection: 'row', justifyContent: 'space-around', padding: 10, borderBottomColor: "#E3E3E3", borderBottomWidth: 1, alignItems:'center' }}>
-                    <View>
-                        <Text>55</Text>
-                        <Text>(4%)</Text>
-                    </View>
-                    <Text>7687</Text>
-                    <View>
-                        <Text>55</Text>
-                        <Text>(4%)</Text>
-                    </View>
-                </View>
-                <View style={{ flexDirection: 'row', justifyContent: 'space-around', padding: 10, borderBottomColor: "#E3E3E3", borderBottomWidth: 1, alignItems:'center' }}>
-                    <View>
-                        <Text>55</Text>
-                        <Text>(4%)</Text>
-                    </View>
-                    <Text>7687</Text>
-                    <View>
-                        <Text>55</Text>
-                        <Text>(4%)</Text>
-                    </View>
-                </View>
-                <View style={{ flexDirection: 'row', justifyContent: 'space-around', padding: 10, borderBottomColor: "#E3E3E3", borderBottomWidth: 1, alignItems:'center' }}>
-                    <View>
-                        <Text>55</Text>
-                        <Text>(4%)</Text>
-                    </View>
-                    <Text>7687</Text>
-                    <View>
-                        <Text>55</Text>
-                        <Text>(4%)</Text>
-                    </View>
-                </View>
-                <View style={{ flexDirection: 'row', justifyContent: 'space-around', padding: 10, borderBottomColor: "#E3E3E3", borderBottomWidth: 1, alignItems:'center' }}>
-                    <View>
-                        <Text>55</Text>
-                        <Text>(4%)</Text>
-                    </View>
-                    <Text>7687</Text>
-                    <View>
-                        <Text>55</Text>
-                        <Text>(4%)</Text>
-                    </View>
-                </View>
-                <View style={{ flexDirection: 'row', justifyContent: 'space-around', padding: 10, borderBottomColor: "#E3E3E3", borderBottomWidth: 1, alignItems:'center' }}>
-                    <View>
-                        <Text>55</Text>
-                        <Text>(4%)</Text>
-                    </View>
-                    <Text>7687</Text>
-                    <View>
-                        <Text>55</Text>
-                        <Text>(4%)</Text>
-                    </View>
-                </View>
-                <View style={{ flexDirection: 'row', justifyContent: 'space-around', padding: 10, borderBottomColor: "#E3E3E3", borderBottomWidth: 1, alignItems:'center' }}>
-                    <View>
-                        <Text>55</Text>
-                        <Text>(4%)</Text>
-                    </View>
-                    <Text>7687</Text>
-                    <View>
-                        <Text>55</Text>
-                        <Text>(4%)</Text>
-                    </View>
-                </View>
-                <View style={{ flexDirection: 'row', justifyContent: 'space-around', padding: 10, borderBottomColor: "#E3E3E3", borderBottomWidth: 1, alignItems:'center' }}>
-                    <View>
-                        <Text>55</Text>
-                        <Text>(4%)</Text>
-                    </View>
-                    <Text>7687</Text>
-                    <View>
-                        <Text>55</Text>
-                        <Text>(4%)</Text>
-                    </View>
-                </View>
-                <View style={{ flexDirection: 'row', justifyContent: 'space-around', padding: 10, borderBottomColor: "#E3E3E3", borderBottomWidth: 1, alignItems:'center' }}>
-                    <View>
-                        <Text>55</Text>
-                        <Text>(4%)</Text>
-                    </View>
-                    <Text>7687</Text>
-                    <View>
-                        <Text>55</Text>
-                        <Text>(4%)</Text>
-                    </View>
-                </View>
-                <View style={{ flexDirection: 'row', justifyContent: 'space-around', padding: 10, borderBottomColor: "#E3E3E3", borderBottomWidth: 1, alignItems:'center' }}>
-                    <View>
-                        <Text>55</Text>
-                        <Text>(4%)</Text>
-                    </View>
-                    <Text>7687</Text>
-                    <View>
-                        <Text>55</Text>
-                        <Text>(4%)</Text>
-                    </View>
-                </View>
-                <View style={{ flexDirection: 'row', justifyContent: 'space-around', padding: 10, borderBottomColor: "#E3E3E3", borderBottomWidth: 1, alignItems:'center' }}>
-                    <View>
-                        <Text>55</Text>
-                        <Text>(4%)</Text>
-                    </View>
-                    <Text>7687</Text>
-                    <View>
-                        <Text>55</Text>
-                        <Text>(4%)</Text>
-                    </View>
-                </View>
-                <View style={{ flexDirection: 'row', justifyContent: 'space-around', padding: 10, borderBottomColor: "#E3E3E3", borderBottomWidth: 1, alignItems:'center' }}>
-                    <View>
-                        <Text>55</Text>
-                        <Text>(4%)</Text>
-                    </View>
-                    <Text>7687</Text>
-                    <View>
-                        <Text>55</Text>
-                        <Text>(4%)</Text>
-                    </View>
-                </View>
-                <View style={{ flexDirection: 'row', justifyContent: 'space-around', padding: 10, borderBottomColor: "#E3E3E3", borderBottomWidth: 1, alignItems:'center' }}>
-                    <View>
-                        <Text>55</Text>
-                        <Text>(4%)</Text>
-                    </View>
-                    <Text>7687</Text>
-                    <View>
-                        <Text>55</Text>
-                        <Text>(4%)</Text>
-                    </View>
-                </View>
-                <View style={{ flexDirection: 'row', justifyContent: 'space-around', padding: 10, borderBottomColor: "#E3E3E3", borderBottomWidth: 1, alignItems:'center' }}>
-                    <View>
-                        <Text>55</Text>
-                        <Text>(4%)</Text>
-                    </View>
-                    <Text>7687</Text>
-                    <View>
-                        <Text>55</Text>
-                        <Text>(4%)</Text>
-                    </View>
-                </View>
-                <View style={{ flexDirection: 'row', justifyContent: 'space-around', padding: 10, borderBottomColor: "#E3E3E3", borderBottomWidth: 1, alignItems:'center' }}>
-                    <View>
-                        <Text>55</Text>
-                        <Text>(4%)</Text>
-                    </View>
-                    <Text>7687</Text>
-                    <View>
-                        <Text>55</Text>
-                        <Text>(4%)</Text>
-                    </View>
-                </View>
-                <View style={{ flexDirection: 'row', justifyContent: 'space-around', padding: 10, borderBottomColor: "#E3E3E3", borderBottomWidth: 1, alignItems:'center' }}>
-                    <View>
-                        <Text>55</Text>
-                        <Text>(4%)</Text>
-                    </View>
-                    <Text>7687</Text>
-                    <View>
-                        <Text>55</Text>
-                        <Text>(4%)</Text>
-                    </View>
-                </View>
-                <View style={{ flexDirection: 'row', justifyContent: 'space-around', padding: 10, borderBottomColor: "#E3E3E3", borderBottomWidth: 1, alignItems:'center' }}>
-                    <View>
-                        <Text>55</Text>
-                        <Text>(4%)</Text>
-                    </View>
-                    <Text>7687</Text>
-                    <View>
-                        <Text>55</Text>
-                        <Text>(4%)</Text>
-                    </View>
-                </View>
-                <View style={{ flexDirection: 'row', justifyContent: 'space-around', padding: 10, borderBottomColor: "#E3E3E3", borderBottomWidth: 1, alignItems:'center' }}>
-                    <View>
-                        <Text>55</Text>
-                        <Text>(4%)</Text>
-                    </View>
-                    <Text>7687</Text>
-                    <View>
-                        <Text>55</Text>
-                        <Text>(4%)</Text>
-                    </View>
-                </View>
-                <View style={{ flexDirection: 'row', justifyContent: 'space-around', padding: 10, borderBottomColor: "#E3E3E3", borderBottomWidth: 1, alignItems:'center' }}>
-                    <View>
-                        <Text>55</Text>
-                        <Text>(4%)</Text>
-                    </View>
-                    <Text>7687</Text>
-                    <View>
-                        <Text>55</Text>
-                        <Text>(4%)</Text>
-                    </View>
-                </View>
-                <View style={{ flexDirection: 'row', justifyContent: 'space-around', padding: 10, borderBottomColor: "#E3E3E3", borderBottomWidth: 1, alignItems:'center' }}>
-                    <View>
-                        <Text>55</Text>
-                        <Text>(4%)</Text>
-                    </View>
-                    <Text>7687</Text>
-                    <View>
-                        <Text>55</Text>
-                        <Text>(4%)</Text>
-                    </View>
-                </View>
-                <View style={{ flexDirection: 'row', justifyContent: 'space-around', padding: 10, borderBottomColor: "#E3E3E3", borderBottomWidth: 1, alignItems:'center' }}>
-                    <View>
-                        <Text>55</Text>
-                        <Text>(4%)</Text>
-                    </View>
-                    <Text>7687</Text>
-                    <View>
-                        <Text>55</Text>
-                        <Text>(4%)</Text>
-                    </View>
-                </View>
-                <View style={{ flexDirection: 'row', justifyContent: 'space-around', padding: 10, borderBottomColor: "#E3E3E3", borderBottomWidth: 1, alignItems:'center' }}>
-                    <View>
-                        <Text>55</Text>
-                        <Text>(4%)</Text>
-                    </View>
-                    <Text>7687</Text>
-                    <View>
-                        <Text>55</Text>
-                        <Text>(4%)</Text>
-                    </View>
-                </View>
-                <View style={{ flexDirection: 'row', justifyContent: 'space-around', padding: 10, borderBottomColor: "#E3E3E3", borderBottomWidth: 1, alignItems:'center' }}>
-                    <View>
-                        <Text>55</Text>
-                        <Text>(4%)</Text>
-                    </View>
-                    <Text>7687</Text>
-                    <View>
-                        <Text>55</Text>
-                        <Text>(4%)</Text>
-                    </View>
-                </View>
-                <View style={{ flexDirection: 'row', justifyContent: 'space-around', padding: 10, borderBottomColor: "#E3E3E3", borderBottomWidth: 1, alignItems:'center' }}>
-                    <View>
-                        <Text>55</Text>
-                        <Text>(4%)</Text>
-                    </View>
-                    <Text>7687</Text>
-                    <View>
-                        <Text>55</Text>
-                        <Text>(4%)</Text>
-                    </View>
-                </View>
-                <View style={{ flexDirection: 'row', justifyContent: 'space-around', padding: 10, borderBottomColor: "#E3E3E3", borderBottomWidth: 1, alignItems:'center' }}>
-                    <View>
-                        <Text>55</Text>
-                        <Text>(4%)</Text>
-                    </View>
-                    <Text>7687</Text>
-                    <View>
-                        <Text>55</Text>
-                        <Text>(4%)</Text>
-                    </View>
-                </View>
-                <View style={{ flexDirection: 'row', justifyContent: 'space-around', padding: 10, borderBottomColor: "#E3E3E3", borderBottomWidth: 1, alignItems:'center' }}>
-                    <View>
-                        <Text>55</Text>
-                        <Text>(4%)</Text>
-                    </View>
-                    <Text>7687</Text>
-                    <View>
-                        <Text>55</Text>
-                        <Text>(4%)</Text>
-                    </View>
-                </View>
-                <View style={{ flexDirection: 'row', justifyContent: 'space-around', padding: 10, borderBottomColor: "#E3E3E3", borderBottomWidth: 1, alignItems:'center' }}>
-                    <View>
-                        <Text>55</Text>
-                        <Text>(4%)</Text>
-                    </View>
-                    <Text>7687</Text>
-                    <View>
-                        <Text>55</Text>
-                        <Text>(4%)</Text>
-                    </View>
-                </View>
-                <View style={{ flexDirection: 'row', justifyContent: 'space-around', padding: 10, borderBottomColor: "#E3E3E3", borderBottomWidth: 1, alignItems:'center' }}>
-                    <View>
-                        <Text>55</Text>
-                        <Text>(4%)</Text>
-                    </View>
-                    <Text>7687</Text>
-                    <View>
-                        <Text>55</Text>
-                        <Text>(4%)</Text>
-                    </View>
-                </View>
-                <View style={{ flexDirection: 'row', justifyContent: 'space-around', padding: 10, borderBottomColor: "#E3E3E3", borderBottomWidth: 1, alignItems:'center' }}>
-                    <View>
-                        <Text>55</Text>
-                        <Text>(4%)</Text>
-                    </View>
-                    <Text>7687</Text>
-                    <View>
-                        <Text>55</Text>
-                        <Text>(4%)</Text>
-                    </View>
-                </View>
-                <View style={{ flexDirection: 'row', justifyContent: 'space-around', padding: 10, borderBottomColor: "#E3E3E3", borderBottomWidth: 1, alignItems:'center' }}>
-                    <View>
-                        <Text>55</Text>
-                        <Text>(4%)</Text>
-                    </View>
-                    <Text>7687</Text>
-                    <View>
-                        <Text>55</Text>
-                        <Text>(4%)</Text>
-                    </View>
-                </View>
-                <View style={{ flexDirection: 'row', justifyContent: 'space-around', padding: 10, borderBottomColor: "#E3E3E3", borderBottomWidth: 1, alignItems:'center' }}>
-                    <View>
-                        <Text>55</Text>
-                        <Text>(4%)</Text>
-                    </View>
-                    <Text>7687</Text>
-                    <View>
-                        <Text>55</Text>
-                        <Text>(4%)</Text>
-                    </View>
-                </View>
-                <View style={{ flexDirection: 'row', justifyContent: 'space-around', padding: 10, borderBottomColor: "#E3E3E3", borderBottomWidth: 1, alignItems:'center' }}>
-                    <View>
-                        <Text>55</Text>
-                        <Text>(4%)</Text>
-                    </View>
-                    <Text>7687</Text>
-                    <View>
-                        <Text>55</Text>
-                        <Text>(4%)</Text>
-                    </View>
-                </View>
-                <View style={{ flexDirection: 'row', justifyContent: 'space-around', padding: 10, borderBottomColor: "#E3E3E3", borderBottomWidth: 1, alignItems:'center' }}>
-                    <View>
-                        <Text>55</Text>
-                        <Text>(4%)</Text>
-                    </View>
-                    <Text>7687</Text>
-                    <View>
-                        <Text>55</Text>
-                        <Text>(4%)</Text>
-                    </View>
-                </View>
-                <View style={{ flexDirection: 'row', justifyContent: 'space-around', padding: 10, borderBottomColor: "#E3E3E3", borderBottomWidth: 1, alignItems:'center' }}>
-                    <View>
-                        <Text>55</Text>
-                        <Text>(4%)</Text>
-                    </View>
-                    <Text>7687</Text>
-                    <View>
-                        <Text>55</Text>
-                        <Text>(4%)</Text>
-                    </View>
-                </View>
-                <View style={{ flexDirection: 'row', justifyContent: 'space-around', padding: 10, borderBottomColor: "#E3E3E3", borderBottomWidth: 1, alignItems:'center' }}>
-                    <View>
-                        <Text>55</Text>
-                        <Text>(4%)</Text>
-                    </View>
-                    <Text>7687</Text>
-                    <View>
-                        <Text>55</Text>
+                        <Text ref={targetScrollRef}>55</Text>
                         <Text>(4%)</Text>
                     </View>
                 </View>
-                
             </ScrollView>
         </View>
-    )
-}
+    );
+};
