@@ -27,6 +27,11 @@ export const styles = StyleSheet.create({
     marginTop: 20,
     tintColor: '#daa520',
   },
+  // logo:{
+  //   width:120,
+  //   height:37,
+  //   alignItems:'center'
+  // },
   // modalContainer: {
   //   flex: 1,
   //   justifyContent: 'top',
@@ -70,6 +75,7 @@ export const styles = StyleSheet.create({
   switch: {
     marginTop: 170,
     marginLeft: 60,
+    width:50
   },
   customizeHome: {
     position: 'absolute',

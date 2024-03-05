@@ -7,3 +7,4 @@ export const SET_PORTFOLIO_STOCK = 'set_portfolio_stock';
 export const REMOVE_PORTFOLIO_STOCK = 'remove_portfolio_stock';
 export const SORT_PORTFOLIO_STOCKS = 'sort_portfolio_stocks';
 export const GET_ALL_INDICES = 'get_all_indices';
+export const GET_ALL_EQUITY_DERIVATIVES = 'get_all_equity_derivatives';

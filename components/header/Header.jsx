@@ -26,7 +26,12 @@ export const Header = ({ navigation, componentName }) => {
                             style={styles.image}
                         />
                     </TouchableOpacity>
-                    <Text style={styles.homeText}>{componentName}</Text>
+                    {/* {
+                        componentName == 'Home' ?
+                            <Image source={require('../../assets/NSE_logo2022.png')} style={styles.logo}></Image>
+                            : */}
+                            <Text style={styles.homeText}>{componentName}</Text>
+                    {/* } */}
                     <TouchableOpacity onPress={() => handleSettingClick()}>
                         <Image
                             source={require('../../assets/settings.png')}
@@ -44,7 +49,7 @@ export const Header = ({ navigation, componentName }) => {
                     <TouchableWithoutFeedback onPress={() => { setShowModal(false) }}>
                         <View style={styles.modalContainer}>
                             <View style={styles.modalContent}>
-                            <Text style={[styles.stream, { top: 20 }]} onPress={() => { navigation.navigate('AboutUs') }}>Stream</Text>
+                                <Text style={[styles.stream, { top: 20 }]} onPress={() => { navigation.navigate('AboutUs') }}>Stream</Text>
                                 <Switch
                                     style={styles.switch}
                                     trackColor={{ false: '#767577', true: '#81b0ff' }}

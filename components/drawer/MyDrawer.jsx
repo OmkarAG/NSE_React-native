@@ -18,7 +18,7 @@ export function MyDrawer() {
       <Drawer.Screen name="HeatMap" component={Heatmap} options={{ headerShown: false }} />
       <Drawer.Screen name="Indices" component={Indices} options={{ headerShown: false }} />
       <Drawer.Screen name="Equities" component={Equities} options={{ headerShown: false }} />
-      <Drawer.Screen name="Derivatives" component={Derivatives} />
+      <Drawer.Screen name="Derivatives" component={Derivatives} options={{ headerShown: false }} />
       <Drawer.Screen name="Reference Rates" component={ReferenceRates} />
       <Drawer.Screen name="MarketTurnOver" component={MarketTurnOver} />
       <Drawer.Screen name="Market Data" component={MarketData} />

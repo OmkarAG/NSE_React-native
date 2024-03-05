@@ -67,7 +67,7 @@ export const Indices = () => {
         <ScrollView contentContainerStyle={{ padding: 10, paddingBottom:200 }} >
           {
             indices[0].data.map((indices, index) => (
-              <View style={styles.indices}>
+              <View style={styles.indices} key={index}>
                 {/* <ScrollView horizontal> */}
                 <TouchableOpacity style={{ padding: 5, width: '60%' }} onPress={() => handleStockPress(indices)}>
                   <Text style={{ color: 'blue', fontSize:20 }}>{indices.index}</Text>

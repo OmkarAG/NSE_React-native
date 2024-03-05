@@ -7,6 +7,7 @@ import {
   REMOVE_PORTFOLIO_STOCK,
   SORT_PORTFOLIO_STOCKS,
   GET_ALL_INDICES,
+  GET_ALL_EQUITY_DERIVATIVES,
 } from './constants';
 
 export function getStocks() {
@@ -64,5 +65,11 @@ export function sortPortfolioStocks(payload) {
 export function getAllIndices(){
   return{
     type:GET_ALL_INDICES,
+  }
+}
+
+export function getAllEquityDerivatives(){
+  return{
+    type:GET_ALL_EQUITY_DERIVATIVES,
   }
 }
