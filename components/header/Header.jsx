@@ -44,6 +44,7 @@ export const Header = ({ navigation, componentName }) => {
                     <TouchableWithoutFeedback onPress={() => { setShowModal(false) }}>
                         <View style={styles.modalContainer}>
                             <View style={styles.modalContent}>
+                            <Text style={[styles.stream, { top: 20 }]} onPress={() => { navigation.navigate('AboutUs') }}>Stream</Text>
                                 <Switch
                                     style={styles.switch}
                                     trackColor={{ false: '#767577', true: '#81b0ff' }}
@@ -51,6 +52,7 @@ export const Header = ({ navigation, componentName }) => {
                                     onValueChange={toggleSwitch}
                                     value={isEnabled}
                                 />
+                                <Text style={[styles.customizeHome, { top: 20 }]} onPress={() => { navigation.navigate('AboutUs') }}>Customize Home</Text>
                                 <Text style={[styles.modalText, { top: 20 }]} onPress={() => { navigation.navigate('AboutUs') }}>About Us</Text>
                                 <Text style={styles.modalText} onPress={() => { navigation.navigate('HelpCenter') }}>Help Center</Text>
 

@@ -24,7 +24,7 @@ export const styles = StyleSheet.create({
     alignItems: 'flex-end',
   },
   scrollViewContent: {
-    padding: 20,
+    // padding: 20,
     // marginTop: 10,
     // paddingBottom:64,
   },
@@ -59,7 +59,16 @@ export const styles = StyleSheet.create({
     height: 100,
   },
   highCloseWrapper: {
-    flexDirection:'row',
-    justifyContent:'space-around'
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+  },
+  textViewContainer: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  itemText: {
+    color: 'white',
+    fontWeight: 'bold',
   },
 });

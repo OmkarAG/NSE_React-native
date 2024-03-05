@@ -21,7 +21,7 @@ export const StockDetails = ({ navigation, route }) => {
   const [isPositive, setIsPositive] = useState(true)
 
   const stock = route.params.stock;
-
+console.log("stock -", stock)
   useEffect(() => {
     navigation.setOptions({
       title: stock.symbol,
@@ -48,7 +48,7 @@ export const StockDetails = ({ navigation, route }) => {
       <ScrollView>
         <View style={{ padding: 10, flex: 1, }}>
           <View style={styles.stockNameWrapper}>
-            <Text style={styles.stockName}>{`${stock.name || stock.index}`}</Text>
+            <Text style={styles.stockName}>{`${stock?.name || stock?.index}`}</Text>
             {/* <Text style={styles.price}>{`RS. ${stock.price}`}</Text> */}
           </View>
 

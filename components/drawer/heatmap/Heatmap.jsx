@@ -58,25 +58,6 @@ export const Heatmap = () => {
 
 
   const renderItem = ({ item, index }) => {
-    // console.log("change", parseFloat(item.changeInPercent))
-    // console.log("change", typeof(parseFloat(item.changeInPercent)))
-    // let ii = parseFloat(item.changeInPercent)
-    // console.log("change", 
-
-    // if(ii<0)
-    // )
-    // if (item.changeInPercent>10) {
-    //   backgroundColor = "#00ab41"
-    // }
-    // else if(item.changeInPercent>5&&item.changeInPercent<10){
-    //     backgroundColor = "#5ced73"
-    // }
-    // else if(ii<0 &&ii>-5){
-    //     backgroundColor = "#ffb09c"
-    // }
-    // else if(ii<-5){
-    //     backgroundColor = "#ee2400"
-    // }
 
     return (
       <TouchableOpacity
@@ -86,19 +67,22 @@ export const Heatmap = () => {
           backgroundColor: backgroundColor(item.changeInPercent),
           margin: 5,
           borderRadius: 10,
-        }}>
+        }}
+        onPress={() => navigation.navigate('StockDetails', { stock: item }, navigation)
+        }
+      >
         <View style={styles.textViewContainer}>
           <Text style={styles.itemText}>{item.symbol}</Text>
           <Text style={styles.itemText}>{item.price}</Text>
           <Text style={styles.itemText}>{item.change}</Text>
         </View>
-      </TouchableOpacity>
+      </TouchableOpacity >
     );
   };
 
   return (
     <View style={{ flex: 1 }}>
-      <Header componentName="HeatMap" navigation={navigation}/>
+      <Header componentName="HeatMap" navigation={navigation} />
       <FlatList
         data={stocks}
         renderItem={renderItem}

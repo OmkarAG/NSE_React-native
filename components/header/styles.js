@@ -12,7 +12,7 @@ export const styles = StyleSheet.create({
     alignItems: 'center',
     width: '100%',
     paddingHorizontal: 16,
-    marginBottom:10
+    marginBottom: 10,
   },
   homeText: {
     fontWeight: 'bold',
@@ -57,7 +57,7 @@ export const styles = StyleSheet.create({
     borderRadius: 10,
     justifyContent: 'center',
     alignItems: 'center',
-    flexDirection:'row',
+    flexDirection: 'row',
   },
   modalText: {
     position: 'absolute',
@@ -65,8 +65,27 @@ export const styles = StyleSheet.create({
     fontSize: 20,
     // color: '#daa520',
     color: 'white',
+    left: 8,
   },
   switch: {
-    marginTop: 100,
+    marginTop: 170,
+    marginLeft: 60,
+  },
+  customizeHome: {
+    position: 'absolute',
+    fontWeight: 'bold',
+    fontSize: 20,
+    // color: '#daa520',
+    color: 'white',
+    marginTop: 85,
+  },
+  stream: {
+    position: 'absolute',
+    fontWeight: 'bold',
+    fontSize: 20,
+    // color: '#daa520',
+    color: 'white',
+    marginTop: 125,
+    left: 8,
   },
 });

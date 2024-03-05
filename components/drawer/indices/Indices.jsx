@@ -141,52 +141,7 @@ export const Indices = () => {
                     </TouchableOpacity>
                   ))
                 }
-
-
-                {/* <TouchableOpacity
-                  style={[styles.option, selectedOption === 'ZtoA' && styles.selectedOption]}
-                  onPress={() => handleOptionPress('ZtoA')}
-                >
-                  <Text style={styles.optionText}>Z to A</Text>
-                </TouchableOpacity>
-                <TouchableOpacity
-                  style={[styles.option, selectedOption === 'ZtoA' && styles.selectedOption]}
-                  onPress={() => handleOptionPress('ZtoA')}
-                >
-                  <Text style={styles.optionText}>Z to A</Text>
-                </TouchableOpacity>
-                <TouchableOpacity
-                  style={[styles.option, selectedOption === 'ZtoA' && styles.selectedOption]}
-                  onPress={() => handleOptionPress('ZtoA')}
-                >
-                  <Text style={styles.optionText}>Z to A</Text>
-                </TouchableOpacity>
-                <TouchableOpacity
-                  style={[styles.option, selectedOption === 'ZtoA' && styles.selectedOption]}
-                  onPress={() => handleOptionPress('ZtoA')}
-                >
-                  <Text style={styles.optionText}>Z to A</Text>
-                </TouchableOpacity>
-                <TouchableOpacity
-                  style={[styles.option, selectedOption === 'ZtoA' && styles.selectedOption]}
-                  onPress={() => handleOptionPress('ZtoA')}
-                >
-                  <Text style={styles.optionText}>Z to A</Text>
-                </TouchableOpacity>
-                <TouchableOpacity
-                  style={[styles.option, selectedOption === 'ZtoA' && styles.selectedOption]}
-                  onPress={() => handleOptionPress('ZtoA')}
-                >
-                  <Text style={styles.optionText}>Z to A</Text>
-                </TouchableOpacity>
-                <TouchableOpacity
-                  style={[styles.option, selectedOption === 'ZtoA' && styles.selectedOption]}
-                  onPress={() => handleOptionPress('ZtoA')}
-                >
-                  <Text style={styles.optionText}>Z to A</Text>
-                </TouchableOpacity> */}
               </View>
-
             </View>
           </View>
         </Modal>
@@ -194,64 +149,3 @@ export const Indices = () => {
     </View>
   );
 }
-
-
-
-
-// import React from 'react';
-// import { ScrollView, FlatList, View, Text, StyleSheet } from 'react-native';
-
-// export const Indices = () => {
-//   const data = [
-//     { key: '1', text: 'Item 1' },
-//     { key: '2', text: 'Item 2' },
-//     { key: '3', text: 'Item 3' },
-//     // Add more items as needed
-//   ];
-
-//   return (
-//     <ScrollView style={styles.container}>
-//       <View style={styles.horizontalScroll}>
-//         <FlatList
-//           horizontal
-//           data={data}
-//           renderItem={({ item }) => (
-//             <View style={styles.item}>
-//               <Text>{item.text}</Text>
-//             </View>
-//           )}
-//         />
-//       </View>
-
-//       {/* Vertical ScrollView */}
-//       <ScrollView>
-//         {data.map(item => (
-//           <View key={item.key} style={styles.item}>
-//             <Text>{item.text}</Text>
-//           </View>
-//         ))}
-//       </ScrollView>
-//     </ScrollView>
-//   );
-// };
-
-// const styles = StyleSheet.create({
-//   container: {
-//     flex: 1,
-//   },
-//   horizontalScroll: {
-//     flexDirection: 'row',
-//     paddingHorizontal: 16,
-//   },
-//   item: {
-//     width: 100,
-//     height: 100,
-//     marginRight: 16,
-//     marginBottom: 16,
-//     backgroundColor: '#e0e0e0',
-//     justifyContent: 'center',
-//     alignItems: 'center',
-//   },
-// });
-
-// // export default VerticalHorizontalScrollExample;

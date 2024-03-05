@@ -2,10 +2,10 @@ import {CandlestickChart} from 'react-native-wagmi-charts';
 
 
 
-export const SingleCandleChart = ({data}) => {
+export const SingleCandleChart = ({data, height}) => {
   return (
     <CandlestickChart.Provider data={data}>
-      <CandlestickChart>
+      <CandlestickChart height={height}>
         <CandlestickChart.Candles />
         <CandlestickChart.Crosshair>
           <CandlestickChart.Tooltip />

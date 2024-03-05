@@ -10,7 +10,7 @@ import { useNavigation } from '@react-navigation/native';
 
 
 
-export const LineChartComponent = () => {
+export const LineChartComponent = ({ homePage }) => {
 
   const [chartData, setChartData] = useState(hourlyData)
   const [activeBtn, setActiveBtn] = useState('1H')
@@ -31,18 +31,19 @@ export const LineChartComponent = () => {
     });
   }, [navigation]);
 
+  const height = homePage ? 200 : 400
   return (
     <GestureHandlerRootView>
       {candleChart ? (
 
-        <SingleCandleChart data={candleChartData} />
+        <SingleCandleChart data={candleChartData} height={height} />
       ) : (
 
 
 
         <LineChart.Provider data={chartData}>
-          <LineChart>
-            <LineChart.Path />
+          <LineChart height={height}>
+            <LineChart.Path color='green' width={1} />
             <LineChart.CursorCrosshair>
               <LineChart.Tooltip />
               <LineChart.Tooltip position="bottom">
