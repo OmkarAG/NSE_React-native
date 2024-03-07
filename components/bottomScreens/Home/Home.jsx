@@ -189,7 +189,7 @@ export const Home = () => {
 
 
       <View>
-        <ScrollView contentContainerStyle={{ paddingBottom: 290 }}>
+        <ScrollView contentContainerStyle={{ paddingBottom: 300 }}>
           <View style={{margin:10, borderRadius:10, backgroundColor:'white'}}>
             <Text style={{ fontWeight: 'bold', fontSize: 25, color: '#3A2D7D', margin: 10 }}>Nifty 50 </Text>
             <LineChartComponent homePage={true} />
@@ -217,7 +217,7 @@ export const Home = () => {
               </View>
             </ScrollView>
             {/* <View > */}
-            <TouchableOpacity style={{ position: 'absolute', right: 10, top: 5, padding: 5, borderRadius: 10, backgroundColor: '#B0B0B040' }} onPress={() => { navigation.navigate("Equities") }}>
+            <TouchableOpacity style={{ position: 'absolute', right: 10, top: 5, padding: 5, borderRadius: 10, backgroundColor: 'white', elevation:5 }} onPress={() => { navigation.navigate("Equities") }}>
               {/* <Image source={require('../../../assets/right-arrow.png')} style={{width:20,height:20}}></Image> */}
               <Text style={{ fontWeight: 'bold', color: '#3A2D7D' }}>See More</Text>
             </TouchableOpacity>
@@ -234,7 +234,7 @@ export const Home = () => {
                 <GainerLosers />
               </View>
             </ScrollView>
-            <TouchableOpacity style={{ position: 'absolute', right: 30, top: 9, padding: 5, borderRadius: 10, backgroundColor: '#B0B0B040' }} onPress={() => { navigation.navigate("Equities") }}>
+            <TouchableOpacity style={{ position: 'absolute', right: 30, top: 9, padding: 5, borderRadius: 10, backgroundColor: 'white', elevation:5 }} onPress={() => { navigation.navigate("Equities") }}>
               {/* <Image source={require('../../../assets/right-arrow.png')} style={{width:20,height:20}}></Image> */}
               <Text style={{ fontWeight: 'bold', color: '#3A2D7D' }}>See More</Text>
             </TouchableOpacity>
@@ -253,7 +253,7 @@ export const Home = () => {
                 contentContainerStyle={{ padding: 15 }}
               />
             </View>
-            <TouchableOpacity style={{ position: 'absolute', right: 30, top: 15, padding: 5, borderRadius: 10, backgroundColor: '#B0B0B040' }} onPress={() => { navigation.navigate("HeatMap") }}>
+            <TouchableOpacity style={{ position: 'absolute', right: 30, top: 15, padding: 5, borderRadius: 10, backgroundColor: 'white', elevation:5 }} onPress={() => { navigation.navigate("HeatMap") }}>
               {/* <Image source={require('../../../assets/right-arrow.png')} style={{width:20,height:20}}></Image> */}
               <Text style={{ fontWeight: 'bold', color: '#3A2D7D' }}>See More</Text>
             </TouchableOpacity>

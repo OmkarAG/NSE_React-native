@@ -20,7 +20,7 @@ export const Gainers = () => {
         <View>
             {/* <ScrollView contentContainerStyle={styles.scrollViewContent}> */}
             <ScrollView>
-                <View style={styles.shadowContainer}>
+                <View style={[styles.shadowContainer, {padding:10}]}>
                     {stocks.map((stock, index) => (
                         <TouchableOpacity
                             key={index}

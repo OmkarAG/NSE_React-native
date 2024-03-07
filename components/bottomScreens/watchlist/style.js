@@ -7,14 +7,13 @@ export const styles = StyleSheet.create({
     margin: 10,
   },
   indicator: {
-    borderColor: 'black',
-    borderWidth: 1,
-    borderRadius: 10,
     overflow: 'hidden',
     flex: 1,
-    backgroundColor: '#B0B0B040',
+    backgroundColor: 'white',
     flexDirection: 'row',
     padding: 10,
+    borderRadius:10,
+    elevation:10,
   },
   leftColumn: {
     flex: 1,

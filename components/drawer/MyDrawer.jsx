@@ -13,7 +13,16 @@ const Drawer = createDrawerNavigator();
 
 export function MyDrawer() {
   return (
-    <Drawer.Navigator>
+    <Drawer.Navigator
+      screenOptions={{
+        drawerStyle: {
+          // backgroundColor: '#c6cbef',
+          width: 200,
+        },
+        drawerLabelStyle:{color:"black"},
+        drawerActiveTintColor:"blue",
+      }}
+    >
       <Drawer.Screen name="Home" component={Main} options={{ headerShown: false }} />
       <Drawer.Screen name="HeatMap" component={Heatmap} options={{ headerShown: false }} />
       <Drawer.Screen name="Indices" component={Indices} options={{ headerShown: false }} />

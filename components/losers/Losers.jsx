@@ -19,7 +19,7 @@ export const Losers = () => {
     return (
         <View>
             <ScrollView>
-                <View style={styles.shadowContainer}>
+                <View style={[styles.shadowContainer, {padding:10}]}>
                     {stocks.map((stock, index) => (
                         <TouchableOpacity
                             key={index}

@@ -12,7 +12,10 @@ export const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'flex-start',
     gap: 40,
-    marginBottom:10
+    marginBottom:5,
+    backgroundColor:'white',
+    padding:8,
+    borderRadius:10,
   },
   modalContainer: {
     flex: 1,

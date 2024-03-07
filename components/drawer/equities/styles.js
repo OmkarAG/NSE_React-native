@@ -10,12 +10,17 @@ export const style = StyleSheet.create({
     padding: 10,
     marginHorizontal: 10,
     marginVertical: 5,
+    backgroundColor:'white',
+    borderRadius:10,
+    elevation:10
   },
   activeTab: {
-    borderBottomColor: 'blue',
-    borderBottomWidth: 2,
+    borderBottomColor: '#daa520',
+    borderBottomWidth: 3,
+    
   },
   activeTabText: {
     color: '#daa520',
+    fontWeight:'bold',
   },
 });
