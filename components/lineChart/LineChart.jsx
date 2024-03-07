@@ -24,6 +24,9 @@ export const LineChartComponent = ({ homePage }) => {
 
   const navigation = useNavigation()
 
+  var i = 0;
+  var j = 0;
+
   // useEffect(() => {
   //   console.warn('Connecting to socket...');
   //   const socket = io.connect('http://192.168.29.5:3000');
@@ -45,6 +48,45 @@ export const LineChartComponent = ({ homePage }) => {
   //   };
   // }, []);
 
+  var data = [
+    {
+      timestamp: 1625946300000,
+      value: 1,
+    },
+  ];
+
+  useEffect(() => {
+    const intervalId = setInterval(() => {
+      const val = {
+        timestamp: 1625946300000,
+        value: i,
+      };
+
+      i++;
+
+      setDataArray(prevData => [...prevData, val]);
+
+      if (i == 5 || j == 21 || j == 2) {
+        i = 2;
+      }
+      if (j == 10) {
+        i = 0;
+      }
+
+      if (j == 30) {
+        setDataArray([val])
+        j = 0
+        i = 0
+      }
+
+      j++
+    }, 2000);
+
+    return () => clearInterval(intervalId);
+  }, []);
+
+  console.log("data", dataArray)
+
   useEffect(() => {
     navigation.setOptions({
       title: "Graph",
@@ -55,27 +97,41 @@ export const LineChartComponent = ({ homePage }) => {
     });
   }, [navigation]);
 
-  const height = homePage ? 200 : 400
+  const height = homePage ? 200 : 260
   return (
     <GestureHandlerRootView>
       {candleChart ? (
 
-        <SingleCandleChart data={candleChartData} height={height} />
+        <SingleCandleChart data={candleChartData} height={height} isHome={homePage} />
       ) : (
 
+        homePage ? (
+          <LineChart.Provider data={dataArray}>
+            <LineChart height={height}>
+              <LineChart.Path color='green' width={2} />
+              <LineChart.CursorCrosshair>
+                <LineChart.Tooltip />
+                <LineChart.Tooltip position="bottom">
+                  <LineChart.DatetimeText />
+                </LineChart.Tooltip>
+              </LineChart.CursorCrosshair>
+            </LineChart>
+          </LineChart.Provider>
+        ) : (
+          <LineChart.Provider data={chartData}>
+            <LineChart height={height}>
+              <LineChart.Path color='green' width={2} />
+              <LineChart.CursorCrosshair>
+                <LineChart.Tooltip />
+                <LineChart.Tooltip position="bottom">
+                  <LineChart.DatetimeText />
+                </LineChart.Tooltip>
+              </LineChart.CursorCrosshair>
+            </LineChart>
+          </LineChart.Provider>
+        )
 
 
-        <LineChart.Provider data={chartData}>
-          <LineChart height={height}>
-            <LineChart.Path color='green' width={1} />
-            <LineChart.CursorCrosshair>
-              <LineChart.Tooltip />
-              <LineChart.Tooltip position="bottom">
-                <LineChart.DatetimeText />
-              </LineChart.Tooltip>
-            </LineChart.CursorCrosshair>
-          </LineChart>
-        </LineChart.Provider>
       )}
       <View style={{ flexDirection: 'row', justifyContent: 'space-around', padding: 5, marginTop: 20 }}>
         <Text style={[activeBtn == "1H" ? styles.activeBtn : null, { width: 35, textAlign: 'center' }]} onPress={() => { setActiveBtn("1H"), setChartData(hourlyData), setCandleChartData(hourlyCandleData) }}>1H</Text>
