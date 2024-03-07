@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import {
   Dimensions,
   FlatList,
@@ -18,10 +18,32 @@ import { Header } from '../../header/Header';
 import { GainerLosers } from '../../Tabs/gainerLoser/GainerLoser';
 import { LineChartComponent } from '../../lineChart/LineChart';
 const { width } = Dimensions.get('window');
+// import io from 'socket.io-client';
+
 
 export const Home = () => {
+
+  const [nseVal, setNseVal] = useState(0)
   const dispatch = useDispatch();
   const navigation = useNavigation();
+
+  // useEffect(() => {
+  //   console.warn('Connecting to socket...');
+  //   const socket = io.connect('http://192.168.29.5:3000');
+  //   console.warn('Socket connected:', socket.id);
+
+  //   socket.on('nseVal', (data) => {
+  //     // console.log('Received data:', data);
+  //     setNseVal(data)
+  //     // setDataArray(data);
+  //   });
+
+  //   return () => {
+  //     console.warn('Disconnecting from socket...');
+  //     socket.disconnect();
+  //   };
+  // }, []);
+
   useEffect(() => {
     dispatch(getStocks());
   }, [dispatch]);
@@ -93,11 +115,19 @@ export const Home = () => {
           }>
 
           <View style={styles.leftColumn}>
-            <Text>NIFTY 50</Text>
+            <Text style={{ fontWeight: 'bold', fontSize: 18 }}>NIFTY 50</Text>
           </View>
           <View style={styles.rightColumn}>
-            <Text style={{ color: 'green' }}>27,000</Text>
-            <Text style={{ color: 'green' }}>500(0.12%)</Text>
+            <Text style={{ color: 'green', fontSize: 25, fontWeight: 'bold' }}>27000</Text>
+            <Text style={{ color: 'green', fontSize: 16 }}>
+              112 (1.2%)
+            </Text>
+            {/* <View style={styles.rightColumn}>
+            <Text style={{ color: 'green', fontSize: 25, fontWeight: 'bold' }}>{nseVal}</Text>
+            <Text style={{ color: 'green', fontSize: 16 }}>
+              {`${(nseVal / 500).toFixed(2)} (${(nseVal / 700).toFixed(2)}%)`}
+            </Text> */}
+
           </View>
         </TouchableOpacity>
 
@@ -125,18 +155,30 @@ export const Home = () => {
             })
           }>
           <View style={styles.leftColumn}>
-            <Text>NIFTY BANK</Text>
+            <Text style={{ fontWeight: 'bold', fontSize: 18 }}>NIFTY BANK</Text>
           </View>
           <View style={styles.rightColumn}>
-            <Text style={{ color: 'red' }}>20,000</Text>
-            <Text style={{ color: 'red' }}>-988(0.12%)</Text>
+            <Text style={[{ color: 'green', fontSize: 25, fontWeight: 'bold' }]}>
+              17000
+            </Text>
+            <Text style={{ color: 'green', fontSize: 16 }}>
+              55 (0.7%)
+            </Text>
           </View>
+          {/* <View style={styles.rightColumn}>
+            <Text style={[{ color: nseVal - 10000 < 0 ? 'red' : 'green', fontSize: 25, fontWeight: 'bold' }]}>
+              {nseVal - 10000}
+            </Text>
+            <Text style={{ color: 'green', fontSize: 16 }}>
+              {`${(nseVal / 575).toFixed(2)} (${(nseVal / 760).toFixed(2)}%)`}
+            </Text>
+          </View> */}
         </TouchableOpacity>
       </View>
 
 
       <View>
-        <ScrollView contentContainerStyle={{ paddingBottom: 260 }}>
+        <ScrollView contentContainerStyle={{ paddingBottom: 290 }}>
           <View style={{ margin: 20 }}>
             <Text style={{ fontWeight: 'bold', fontSize: 25, color: '#3A2D7D', marginBottom: 10 }}>Nifty 50 </Text>
             <LineChartComponent homePage={true} />

@@ -7,6 +7,7 @@ import { styles } from './styles';
 import { SingleCandleChart } from '../candleChart/CandleChart';
 import { useNavigation } from '@react-navigation/native';
 // import * as haptics from 'expo-haptics';
+import io from 'socket.io-client';
 
 
 
@@ -18,8 +19,31 @@ export const LineChartComponent = ({ homePage }) => {
   const [candleChart, setCandleChart] = useState(false)
 
   const [candleChartData, setCandleChartData] = useState(hourlyCandleData)
+  const [dataArray, setDataArray] = useState([]);
+  const [candleDataArray, setCandleDataArray] = useState([]);
 
   const navigation = useNavigation()
+
+  // useEffect(() => {
+  //   console.warn('Connecting to socket...');
+  //   const socket = io.connect('http://192.168.29.5:3000');
+  //   console.warn('Socket connected:', socket.id);
+
+  //   socket.on('updateData', (data) => {
+  //     // console.log('Received data:', data);
+  //     setDataArray(data);
+  //   });
+
+  //   // socket.on('updateCandleData', (data) => {
+  //   //   console.log('Received data:', data);
+  //   //   setCandleDataArray(data);
+  //   // });
+
+  //   return () => {
+  //     console.warn('Disconnecting from socket...');
+  //     socket.disconnect();
+  //   };
+  // }, []);
 
   useEffect(() => {
     navigation.setOptions({

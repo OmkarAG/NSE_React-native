@@ -21,7 +21,7 @@ export const StockDetails = ({ navigation, route }) => {
   const [isPositive, setIsPositive] = useState(true)
 
   const stock = route.params.stock;
-console.log("stock -", stock)
+  console.log("stock -", stock)
   useEffect(() => {
     navigation.setOptions({
       title: stock.symbol,
@@ -238,11 +238,11 @@ console.log("stock -", stock)
         </View>
       </ScrollView>
       <View style={styles.BottomButtonsWrapper}>
-        <TouchableOpacity style={[styles.bottomButton, { flex: 1 }]}>
-          <Text style={styles.buttonText} onPress={() => navigation.navigate('LineChart')}>Graph</Text>
+        <TouchableOpacity style={[styles.bottomButton, { flex: 1 }]} onPress={() => navigation.navigate('LineChart')}>
+          <Text style={styles.buttonText} >Graph</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={[styles.bottomButton, { flex: 1 }]}>
-          <Text style={styles.buttonText} onPress={() => navigation.navigate('OptionChain')}>Option Chain</Text>
+        <TouchableOpacity style={[styles.bottomButton, { flex: 1 }]} onPress={() => navigation.navigate('OptionChain')}>
+          <Text style={styles.buttonText} >Option Chain</Text>
         </TouchableOpacity>
       </View>
       {/* </GestureHandlerRootView> */}

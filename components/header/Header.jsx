@@ -1,7 +1,8 @@
 import { Image, View, Text, TouchableOpacity, Modal, TouchableWithoutFeedback, Switch } from "react-native"
 import { styles } from "./styles"
-import { useState } from "react";
+import { useEffect, useState } from "react";
 // import { useNavigation } from "@react-navigation/native";
+import io from 'socket.io-client';
 
 export const Header = ({ navigation, componentName }) => {
     const [showModal, setShowModal] = useState(false);
@@ -15,6 +16,21 @@ export const Header = ({ navigation, componentName }) => {
         // console.warn("handling")
         setShowModal(!showModal)
     }
+
+    useEffect(() => {
+        console.warn("data clear")
+
+        const socket = io.connect('http://192.168.29.5:3000');
+
+        // Emit an event to the server
+        socket.emit('clearData', {both:"ok"});
+
+        // Cleanup: disconnect from the socket when the component unmounts or when the dependencies change
+        return () => {
+            console.warn("Disconnecting from socket...");
+            socket.disconnect();
+        };
+    }, [isEnabled])
 
     return (
         <View>
@@ -30,7 +46,7 @@ export const Header = ({ navigation, componentName }) => {
                         componentName == 'Home' ?
                             <Image source={require('../../assets/NSE_logo2022.png')} style={styles.logo}></Image>
                             : */}
-                            <Text style={styles.homeText}>{componentName}</Text>
+                    <Text style={styles.homeText}>{componentName}</Text>
                     {/* } */}
                     <TouchableOpacity onPress={() => handleSettingClick()}>
                         <Image

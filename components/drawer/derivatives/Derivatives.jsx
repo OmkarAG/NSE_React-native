@@ -9,7 +9,7 @@ import { Gainers } from "../../gainers/Gainers";
 import { EquityDerivatives } from "../../equityDerivatives/EquityDerivatives";
 import { CurrencyDerivatives } from "../../currencyDerivatives/CurrencyDerivatives";
 import { CommodityDerivatives } from "../../commodityDerivatives/CommodityDerivatives";
-import { InterestRateDerivatives } from "../../interestRateDerivatives/interestRateDerivatives";
+import { InterestRateDerivatives } from "../../interestRateDerivatives/InterestRateDerivatives";
 
 export const Derivatives = () => {
   const [activeTab, setActiveTab] = useState('Equity')

@@ -7,7 +7,6 @@ import { style } from "./styles";
 import { Gainers } from "../../gainers/Gainers";
 import { Losers } from "../../losers/Losers";
 import { CommodityDerivatives } from "../../commodityDerivatives/CommodityDerivatives";
-import { InterestRateDerivatives } from "../../interestRateDerivatives/interestRateDerivatives";
 
 export const Equities = () => {
   const [activeTab, setActiveTab] = useState('Gainers')
@@ -53,15 +52,15 @@ export const Equities = () => {
         }
         {
           activeTab=='Top Turnover'?
-          <CommodityDerivatives/>:null
+          <Losers/>:null
         }
         {
           activeTab=='52 weeks high'?
-          <InterestRateDerivatives/>:null
+          <Losers/>:null
         }
         {
           activeTab=='52 weeks low'?
-          <InterestRateDerivatives/>:null
+          <Losers/>:null
         }
       </View>
 

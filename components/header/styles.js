@@ -17,7 +17,7 @@ export const styles = StyleSheet.create({
   homeText: {
     fontWeight: 'bold',
     color: '#daa520',
-    fontSize: 24,
+    fontSize: 28,
     marginTop: 8,
   },
   image: {
