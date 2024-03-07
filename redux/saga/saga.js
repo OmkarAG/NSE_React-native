@@ -30,7 +30,7 @@ function* getAllIndices() {
 
 function* sagaData() {
   yield takeEvery(GET_STOCKS, StocksList);
-  yield takeEvery(GET_WATCHLIST_STOCKS, WatchlistStocks);
+  // yield takeEvery(GET_WATCHLIST_STOCKS, WatchlistStocks);
   yield takeEvery(GET_ALL_INDICES, getAllIndices);
 }
 

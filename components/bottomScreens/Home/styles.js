@@ -7,14 +7,15 @@ export const styles = StyleSheet.create({
     margin: 10,
   },
   indicator: {
-    borderColor: 'black',
+    borderColor: '#B0B0B040',
     borderWidth: 1,
     borderRadius: 10,
     overflow: 'hidden',
     flex: 1,
-    backgroundColor: '#B0B0B040',
+    backgroundColor: 'white',
     flexDirection: 'row',
     padding: 10,
+    elevation:10
   },
   leftColumn: {
     flex: 1,
@@ -31,10 +32,11 @@ export const styles = StyleSheet.create({
   stockContainer: {
     flexDirection: 'row',
     alignItems: 'center',
-    // marginBottom: 16,
-    borderBottomWidth: 1,
-    borderBottomColor: '#B0B0B0',
-    padding: 10,
+    marginBottom: 5,
+    padding: 8,
+    backgroundColor:'white',
+    elevation:5,
+    borderRadius:10
   },
   stockIcon: {
     width: 50,

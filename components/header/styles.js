@@ -2,9 +2,9 @@ import {StyleSheet} from 'react-native';
 
 export const styles = StyleSheet.create({
   container: {
-    justifyContent: 'flex-start',
-    alignItems: 'center',
-    paddingTop: 10,
+    // justifyContent: 'flex-start',
+    // alignItems: 'center',
+    // paddingTop: 10,
   },
   header: {
     flexDirection: 'row',
@@ -12,7 +12,10 @@ export const styles = StyleSheet.create({
     alignItems: 'center',
     width: '100%',
     paddingHorizontal: 16,
-    marginBottom: 10,
+    paddingBottom:15,
+    backgroundColor:'white',
+    borderRadius:10,
+    elevation:10
   },
   homeText: {
     fontWeight: 'bold',

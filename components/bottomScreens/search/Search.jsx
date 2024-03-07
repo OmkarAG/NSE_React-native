@@ -4,7 +4,7 @@ import { Header } from '../../header/Header';
 import { styles } from './style';
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { getStocks, setWatchlistStocks } from '../../../redux/action';
+import { getStocks, removeStock, setWatchlistStocks } from '../../../redux/action';
 import { useNavigation } from '@react-navigation/native';
 
 export const Search = () => {
@@ -27,6 +27,10 @@ export const Search = () => {
 
   const stocks = useSelector(state => state.stocks);
   // console.warn(stocks);
+
+  const watchlistStocks = useSelector(state => state.watchlistStocks);
+console.log("watchlist stocks", watchlistStocks)
+
   useEffect(() => {
     // console.warn(searchInput);
     if (!searchInput) {
@@ -42,6 +46,11 @@ export const Search = () => {
   const addWatchlist = stock => {
     // console.warn('adding', stock);
     dispatch(setWatchlistStocks([stock]));
+  };
+
+  const removeWatchlistStock = stock => {
+    console.warn('removing', stock);
+    dispatch(removeStock(stock));
   };
 
   return (
@@ -105,13 +114,26 @@ export const Search = () => {
                   <Text>{`${stock.change}`}</Text>
                 </View>
                 <View>
-                  <Text
+                  {
+                    watchlistStocks.includes(stock)?(
+                      <Text
+                    style={styles.removeWatchlistText}
+                    onPress={() => {
+                      removeWatchlistStock(stock);
+                    }}>
+                    -
+                  </Text>
+                    ):
+                    (
+                      <Text
                     style={styles.addWatchlistText}
                     onPress={() => {
                       addWatchlist(stock);
                     }}>
                     +
                   </Text>
+                    )
+                  }
                 </View>
               </TouchableOpacity>
             ))

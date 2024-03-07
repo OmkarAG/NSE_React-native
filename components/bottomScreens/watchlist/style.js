@@ -36,9 +36,11 @@ export const styles = StyleSheet.create({
   stockContainer: {
     flexDirection: 'row',
     alignItems: 'center',
-    marginBottom: 16,
-    borderBottomWidth: 1,
-    borderBottomColor: '#B0B0B0',
+    marginBottom: 5,
+    padding:10,
+    backgroundColor:'white',
+    elevation:10,
+    borderRadius:10
   },
   stockIcon: {
     width: 50,
@@ -59,6 +61,12 @@ export const styles = StyleSheet.create({
     fontWeight: 'bold',
     fontSize: 30,
     margin: 10,
-    width: 25,
+    width: 25,  
+    height: 25,
+    backgroundColor: 'red',
+    borderRadius: 25,  
+    textAlign: 'center',
+    color: 'white',
+    lineHeight: 31,  
   },
 });

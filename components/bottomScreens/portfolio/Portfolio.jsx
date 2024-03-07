@@ -46,7 +46,7 @@ export const Portfolio = () => {
   }, [dispatch])
 
   var portfolioStocks = useSelector(state => state.portfolioStocks);
-  // console.log("portfolio stocks = ", portfolioStocks)
+  console.log("portfolio stocks = ", portfolioStocks)
 
 
   const addPortfolioStock = (stock) => {
@@ -158,13 +158,26 @@ export const Portfolio = () => {
                     <Text>{`${stock.change}`}</Text>
                   </View>
                   <View>
-                    <Text
+                    {
+                      portfolioStocks.includes(stock)?(
+                        <Text
                       style={styles.removeWatchlistText}
+                      onPress={() => {
+                        removefromPortfolio(stock);
+                      }}>
+                      -
+                    </Text>
+                      ):
+                      (
+                        <Text
+                      style={styles.addWatchlistText}
                       onPress={() => {
                         addPortfolioStock(stock);
                       }}>
                       +
                     </Text>
+                      )
+                    }
                   </View>
                 </TouchableOpacity>
               ))
@@ -189,7 +202,7 @@ export const Portfolio = () => {
         <ScrollView contentContainerStyle={styles.scrollViewContent}>
           <View>
             <Text style={{ fontWeight: 'bold', fontSize: 25, marginBottom: 10 }}>Holdings ({portfolioStocks.length})</Text>
-            <View style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between', marginBottom: 15, borderWidth: 1, borderBlockColor: '#B0B0B0', borderRadius: 5, padding: 10 }}>
+            <View style={styles.portfolioBox}>
               <View>
                 <Text style={{ fontWeight: 'bold', color: "#B0B0B0", padding: 2, fontSize: 20 }}>Current Value: </Text>
                 <Text style={{ color: 'black', fontWeight: 'bold', fontSize: 20, textAlign: 'center' }}>{currentValue}</Text>
@@ -241,7 +254,7 @@ export const Portfolio = () => {
               {/* {console.warn('Rendering "Search" text')}
               <Text style={{textAlign: 'center'}}>Search</Text> */}
               <Image
-                source={require('../../../assets/search.png')}
+                source={require('../../../assets/portfolio.png')}
                 style={styles.image}
               />
             </View>

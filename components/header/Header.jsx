@@ -34,7 +34,7 @@ export const Header = ({ navigation, componentName }) => {
 
     return (
         <View>
-            <View style={styles.contaianer}>
+            <View style={styles.container}>
                 <View style={styles.header}>
                     <TouchableOpacity onPress={navigation.openDrawer}>
                         <Image

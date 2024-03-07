@@ -16,6 +16,16 @@ export const styles = StyleSheet.create({
     // borderRightWidth:0,
     backgroundColor: 'white',
   },
+  portfolioBox: {
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    marginBottom: 15,
+    borderRadius: 5,
+    padding: 10,
+    backgroundColor:'white',
+    elevation:10
+  },
   clear: {
     fontWeight: 'bold',
     margin: 5,
@@ -29,9 +39,11 @@ export const styles = StyleSheet.create({
     flexDirection: 'row',
     gap: 10,
     alignItems: 'center',
-    marginBottom: 20,
-    borderBottomWidth: 1,
-    borderBottomColor: '#B0B0B0',
+    marginBottom: 5,
+    padding: 10,
+    backgroundColor: 'white',
+    elevation: 10,
+    borderRadius: 10,
   },
   stockIcon: {
     width: 50,
@@ -46,14 +58,33 @@ export const styles = StyleSheet.create({
     width: 200,
     height: 200,
     opacity: 0.2,
-    marginTop: 100,
+    marginTop: 70,
   },
   removeWatchlistText: {
     fontWeight: 'bold',
     fontSize: 30,
     margin: 10,
     width: 25,
+    height: 25,
+    backgroundColor: 'red',
+    borderRadius: 25,
+    textAlign: 'center',
+    color: 'white',
+    lineHeight: 31,
   },
+  addWatchlistText: {
+    fontWeight: 'bold',
+    fontSize: 30,
+    margin: 10,
+    width: 25,
+    height: 25,
+    backgroundColor: 'green',
+    borderRadius: 25,
+    textAlign: 'center',
+    color: 'white',
+    lineHeight: 31,
+  },
+
   searchStocks: {
     marginTop: 100,
     // marginHorizontal:20,
@@ -110,15 +141,15 @@ export const styles = StyleSheet.create({
   optionText: {
     fontSize: 20,
   },
-  searchStockContainer:{
+  searchStockContainer: {
     // padding:5,
-    paddingLeft:15,
+    paddingLeft: 15,
     flexDirection: 'row',
-    width:250,
+    width: 250,
     gap: 10,
     alignItems: 'center',
     // marginBottom: 20,
     borderBottomWidth: 1,
     borderBottomColor: '#B0B0B0',
-  }
+  },
 });

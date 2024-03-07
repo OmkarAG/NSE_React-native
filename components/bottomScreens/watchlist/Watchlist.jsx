@@ -84,7 +84,7 @@ export const Watchlist = () => {
             {/* {console.warn('Rendering "Search" text')}
               <Text style={{textAlign: 'center'}}>Search</Text> */}
             <Image
-              source={require('../../../assets/search.png')}
+              source={require('../../../assets/watchlist.png')}
               style={styles.image}
             />
           </View>

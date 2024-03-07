@@ -133,7 +133,7 @@ export const LineChartComponent = ({ homePage }) => {
 
 
       )}
-      <View style={{ flexDirection: 'row', justifyContent: 'space-around', padding: 5, marginTop: 20 }}>
+      <View style={{ flexDirection: 'row', justifyContent: 'space-around', padding: 5, marginTop: 20, backgroundColor:'white', borderRadius:10, elevation:5 }}>
         <Text style={[activeBtn == "1H" ? styles.activeBtn : null, { width: 35, textAlign: 'center' }]} onPress={() => { setActiveBtn("1H"), setChartData(hourlyData), setCandleChartData(hourlyCandleData) }}>1H</Text>
         <Text style={[activeBtn == "1D" ? styles.activeBtn : null, { width: 35, textAlign: 'center' }]} onPress={() => { setActiveBtn("1D"), setChartData(dailyData), setCandleChartData(dailyCandleData) }}>1D</Text>
         <Text style={[activeBtn == "1M" ? styles.activeBtn : null, { width: 35, textAlign: 'center' }]} onPress={() => { setActiveBtn("1M"), setChartData(monthlyData), setCandleChartData(monthlyCandleData) }}>1M</Text>

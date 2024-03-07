@@ -190,8 +190,8 @@ export const Home = () => {
 
       <View>
         <ScrollView contentContainerStyle={{ paddingBottom: 290 }}>
-          <View style={{ margin: 20 }}>
-            <Text style={{ fontWeight: 'bold', fontSize: 25, color: '#3A2D7D', marginBottom: 10 }}>Nifty 50 </Text>
+          <View style={{margin:10, borderRadius:10, backgroundColor:'white'}}>
+            <Text style={{ fontWeight: 'bold', fontSize: 25, color: '#3A2D7D', margin: 10 }}>Nifty 50 </Text>
             <LineChartComponent homePage={true} />
           </View>
           <View style={{ height: 250, marginHorizontal: 20, }}>

@@ -92,7 +92,7 @@ export const StockDetails = ({ navigation, route }) => {
             </View>
           </View>
 
-          <View style={{marginVertical:15, borderRadius:5}}>
+          <View style={{marginVertical:15, borderRadius:10, backgroundColor:'white'}}>
             <LineChartComponent />
           </View>
 
