@@ -58,7 +58,7 @@ export const styles = StyleSheet.create({
     width: 200,
     height: 200,
     opacity: 0.2,
-    marginTop: 70,
+    marginTop: 10,
   },
   removeWatchlistText: {
     fontWeight: 'bold',

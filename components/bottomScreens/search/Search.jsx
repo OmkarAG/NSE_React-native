@@ -54,7 +54,7 @@ console.log("watchlist stocks", watchlistStocks)
   };
 
   return (
-    <View>
+    <View style={{backgroundColor:'white', height:'100%'}}>
       <Header componentName="Search" navigation={navigation} />
       {/* <View>
         <TextInput

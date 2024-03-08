@@ -75,7 +75,7 @@ export const Portfolio = () => {
   }
 
   return (
-    <View>
+    <View style={{backgroundColor:'white'}}>
       <SafeAreaView style={{ flex: 1 }}>
         <View style={styles.container}>
           <Modal

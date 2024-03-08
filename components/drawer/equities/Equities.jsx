@@ -14,7 +14,7 @@ export const Equities = () => {
   const navigation = useNavigation()
 
   return (
-    <View>
+    <View style={{backgroundColor:'white'}}>
       <Header componentName="Equities" navigation={navigation} />
       {/* <View style={{height:'100%'}}>
         <EquitiesTabs/>
@@ -24,19 +24,19 @@ export const Equities = () => {
         <ScrollView horizontal showsHorizontalScrollIndicator={false} contentContainerStyle={{ backgroundColor: "#B0B0B040", }}>
           {/* <DerivativesTabs /> */}
           <TouchableOpacity style={[style.tab, activeTab == "Gainers" ? style.activeTab : null]} onPress={() => setActiveTab('Gainers')}>
-            <Text style={[ activeTab == "Gainers" ? style.activeTabText : null]}>Gainers</Text>
+            <Text style={[ activeTab == "Gainers" ? style.activeTabText : null, style.tabTex]}>Gainers</Text>
           </TouchableOpacity>
           <TouchableOpacity style={[style.tab, activeTab == "Losers" ? style.activeTab : null]} onPress={() => setActiveTab('Losers')}>
-            <Text style={[ activeTab == "Losers" ? style.activeTabText : null]}>Losers</Text>
+            <Text style={[ activeTab == "Losers" ? style.activeTabText : null, style.tabTex]}>Losers</Text>
           </TouchableOpacity>
           <TouchableOpacity style={[style.tab, activeTab == "Top Turnover" ? style.activeTab : null]} onPress={() => setActiveTab('Top Turnover')}>
-            <Text style={[ activeTab == "Top Turnover" ? style.activeTabText : null]}>Top Turnover</Text>
+            <Text style={[ activeTab == "Top Turnover" ? style.activeTabText : null, style.tabTex]}>Top Turnover</Text>
           </TouchableOpacity>
           <TouchableOpacity style={[style.tab, activeTab == "52 weeks high" ? style.activeTab : null]} onPress={() => setActiveTab('52 weeks high')}>
-            <Text style={[ activeTab == "52 weeks high" ? style.activeTabText : null]}>52 weeks high</Text>
+            <Text style={[ activeTab == "52 weeks high" ? style.activeTabText : null, style.tabTex]}>52 weeks high</Text>
           </TouchableOpacity>
           <TouchableOpacity style={[style.tab, activeTab == "52 weeks low" ? style.activeTab : null]} onPress={() => setActiveTab('52 weeks low')}>
-            <Text style={[ activeTab == "52 weeks low" ? style.activeTabText : null]}>52 weeks low</Text>
+            <Text style={[ activeTab == "52 weeks low" ? style.activeTabText : null, style.tabTex]}>52 weeks low</Text>
           </TouchableOpacity>
         </ScrollView>
       </View>

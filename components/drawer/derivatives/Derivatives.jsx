@@ -17,7 +17,7 @@ export const Derivatives = () => {
   const navigation = useNavigation()
 
   return (
-    <View>
+    <View style={{backgroundColor:'white'}}>
       <Header componentName="Derivatives" navigation={navigation} />
       <View style={style.tabsContainer}>
         <ScrollView horizontal showsHorizontalScrollIndicator={false} contentContainerStyle={{backgroundColor:"#B0B0B040",}}>

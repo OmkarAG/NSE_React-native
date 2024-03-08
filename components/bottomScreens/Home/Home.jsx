@@ -230,7 +230,7 @@ export const Home = () => {
                 <Text style={{ fontWeight: 'bold', fontSize: 25, marginVertical: 5 }}> / </Text>
                 <Text style={{ fontWeight: 'bold', fontSize: 25, color: 'red', marginVertical: 5 }}>Losers </Text>
               </View>
-              <View style={{ height: 260 }}>
+              <View style={{ height: 270 }}>
                 <GainerLosers />
               </View>
             </ScrollView>

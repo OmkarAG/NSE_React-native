@@ -28,7 +28,7 @@ export const Watchlist = () => {
   };
 
   return (
-    <View>
+    <View style={{backgroundColor:'white', height:'100%'}}>
       <Header componentName="Watchlist" navigation={navigation} />
       <View style={styles.indicatorContainer}>
         <TouchableOpacity style={styles.indicator}>
