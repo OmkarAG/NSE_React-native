@@ -52,7 +52,7 @@ export const SingleCandleChart = ({data, height, isHome}) => {
       if (isred) {
         // candleData.push(red);
         setCandleDataArray(prev => [...prev, red]);
-        console.log('red');
+        // console.log('red');
         isred = false;
       } else {
         // candleData.push(green);

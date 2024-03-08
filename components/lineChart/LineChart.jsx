@@ -85,7 +85,7 @@ export const LineChartComponent = ({ homePage }) => {
     return () => clearInterval(intervalId);
   }, []);
 
-  console.log("data", dataArray)
+  // console.log("data", dataArray)
 
   useEffect(() => {
     navigation.setOptions({

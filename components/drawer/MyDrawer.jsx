@@ -8,6 +8,7 @@ import { Derivatives } from './derivatives/Derivatives';
 import { ReferenceRates } from './referenceRates/ReferenceRates';
 import { MarketTurnOver } from './marketTurnover/MarketTurnover';
 import { MarketData } from './marketData/MarketData';
+import { Image } from 'react-native';
 
 const Drawer = createDrawerNavigator();
 
@@ -19,8 +20,14 @@ export function MyDrawer() {
           // backgroundColor: '#c6cbef',
           width: 200,
         },
-        drawerLabelStyle:{color:"black"},
-        drawerActiveTintColor:"blue",
+        drawerLabelStyle: { color: "black" },
+        drawerActiveTintColor: "blue",
+        // drawerIcon: ({ color }) => (
+        //   <Image
+        //     source={require('../../assets/stocks.png')}
+        //     style={{ width: 24, height: 24, tintColor: color }}
+        //   />
+        // ),
       }}
     >
       <Drawer.Screen name="Home" component={Main} options={{ headerShown: false }} />
