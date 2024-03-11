@@ -44,15 +44,15 @@ export const Home = () => {
   //   };
   // }, []);
 
-  useEffect(() => {
-    const intervalId = setInterval(() => {
-      // console.log("price change");
-      // console.log(nseVal);
-      setNseVal(prevNseVal => prevNseVal + 22);
-    }, 2000);
+  // useEffect(() => {
+  //   const intervalId = setInterval(() => {
+  //     // console.log("price change");
+  //     // console.log(nseVal);
+  //     setNseVal(prevNseVal => prevNseVal + 22);
+  //   }, 2000);
 
-    return () => clearInterval(intervalId);
-  }, []);
+  //   return () => clearInterval(intervalId);
+  // }, []);
 
 
   useEffect(() => {

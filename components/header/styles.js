@@ -12,10 +12,10 @@ export const styles = StyleSheet.create({
     alignItems: 'center',
     width: '100%',
     paddingHorizontal: 16,
-    paddingBottom:15,
-    backgroundColor:'white',
-    borderRadius:10,
-    elevation:10
+    paddingBottom: 15,
+    backgroundColor: 'white',
+    borderRadius: 10,
+    elevation: 10,
   },
   homeText: {
     fontWeight: 'bold',
@@ -78,7 +78,7 @@ export const styles = StyleSheet.create({
   switch: {
     marginTop: 170,
     marginLeft: 60,
-    width:50
+    width: 50,
   },
   customizeHome: {
     position: 'absolute',

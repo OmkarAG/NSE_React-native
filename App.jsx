@@ -5,8 +5,8 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import SplashScreen from './components/splash screen/SplashScreen';
 import { StockDetails } from './components/stockDetails/StockDetail';
 import { Heatmap } from './components/drawer/heatmap/Heatmap';
-import { MyDrawer } from './components/drawer/MyDrawer';
-import Home from './components/bottomScreens/CombineHome';
+import { MyDrawer } from './navigations/Drawer';
+import BottomNav from './navigations/BottomNav';
 import { AboutUs } from './components/aboutUs/AboutUs';
 import { HelpCenter } from './components/helpCenter/HelpCenter';
 import { LineChartComponent } from './components/lineChart/LineChart';
@@ -31,7 +31,7 @@ function App() {
         />
         <Stack.Screen
           name="Main"
-          component={Home}
+          component={BottomNav}
           options={{ headerShown: false }}
         />
         <Stack.Screen name="StockDetails" component={StockDetails} />

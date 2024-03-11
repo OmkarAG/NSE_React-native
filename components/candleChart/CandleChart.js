@@ -47,32 +47,32 @@ export const SingleCandleChart = ({data, height, isHome}) => {
     close: 33570.11,
   };
 
-  useEffect(() => {
-    const intervalId = setInterval(() => {
-      if (isred) {
-        // candleData.push(red);
-        setCandleDataArray(prev => [...prev, red]);
-        // console.log('red');
-        isred = false;
-      } else {
-        // candleData.push(green);
-        setCandleDataArray(prev => [...prev, green]);
-        console.log('green');
-        isred = true;
-      }
+  // useEffect(() => {
+  //   const intervalId = setInterval(() => {
+  //     if (isred) {
+  //       // candleData.push(red);
+  //       setCandleDataArray(prev => [...prev, red]);
+  //       // console.log('red');
+  //       isred = false;
+  //     } else {
+  //       // candleData.push(green);
+  //       setCandleDataArray(prev => [...prev, green]);
+  //       console.log('green');
+  //       isred = true;
+  //     }
 
-      i++;
-      j++;
+  //     i++;
+  //     j++;
 
-      if (j == 25) {
-        setCandleDataArray([green]);
-        j = 0;
-        i = 0;
-      }
-    }, 2000);
+  //     if (j == 25) {
+  //       setCandleDataArray([green]);
+  //       j = 0;
+  //       i = 0;
+  //     }
+  //   }, 2000);
 
-    // return () => clearInterval(intervalId);
-  }, []);
+  //   // return () => clearInterval(intervalId);
+  // }, []);
 
   return isHome ? (
     <CandlestickChart.Provider data={candleDataArray}>

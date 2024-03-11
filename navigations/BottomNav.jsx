@@ -3,17 +3,17 @@ import {Image} from 'react-native';
 // import { createDrawerNavigator } from '@react-navigation/drawer';
 import {createMaterialBottomTabNavigator} from '@react-navigation/material-bottom-tabs';
 
-import {Home} from './Home/Home';
-import {Search} from './search/Search';
-import {Watchlist} from './watchlist/Watchlist';
-import {Portfolio} from './portfolio/Portfolio';
-import {Profile} from './profile/Profile';
+import {Home} from '../components/bottomScreens/Home/Home';
+import {Search} from '../components/bottomScreens/search/Search';
+import {Watchlist} from '../components/bottomScreens/watchlist/Watchlist';
+import {Portfolio} from '../components/bottomScreens/portfolio/Portfolio';
+import {Profile} from '../components/bottomScreens/profile/Profile';
 import {Menu} from '../main/menu/Menu';
 
 const Tab = createMaterialBottomTabNavigator();
 // const Drawer = createDrawerNavigator();
 
-export default function CombineHome() {
+export default function BottomNav() {
   return (
     // <Drawer.Navigator>
     // <Drawer.Screen
@@ -27,7 +27,7 @@ export default function CombineHome() {
           tabBarLabel: 'Home',
           tabBarIcon: ({color}) => (
             <Image
-              source={require('../../assets/home.png')}
+              source={require('../assets/home.png')}
               style={{width: 24, height: 24, tintColor: color}}
             />
           ),
@@ -40,7 +40,7 @@ export default function CombineHome() {
           tabBarLabel: 'Search',
           tabBarIcon: ({color}) => (
             <Image
-              source={require('../../assets/search.png')}
+              source={require('../assets/search.png')}
               style={{width: 24, height: 24, tintColor: color}}
             />
           ),
@@ -53,7 +53,7 @@ export default function CombineHome() {
           tabBarLabel: 'Watchlist',
           tabBarIcon: ({color}) => (
             <Image
-              source={require('../../assets/plus.png')}
+              source={require('../assets/plus.png')}
               style={{width: 24, height: 24, tintColor: color}}
             />
           ),
@@ -66,7 +66,7 @@ export default function CombineHome() {
           tabBarLabel: 'Portfolio',
           tabBarIcon: ({color}) => (
             <Image
-              source={require('../../assets/stocks.png')}
+              source={require('../assets/stocks.png')}
               style={{width: 24, height: 24, tintColor: color}}
             />
           ),

@@ -55,35 +55,35 @@ export const LineChartComponent = ({ homePage }) => {
     },
   ];
 
-  useEffect(() => {
-    const intervalId = setInterval(() => {
-      const val = {
-        timestamp: 1625946300000,
-        value: i,
-      };
+  // useEffect(() => {
+  //   const intervalId = setInterval(() => {
+  //     const val = {
+  //       timestamp: 1625946300000,
+  //       value: i,
+  //     };
 
-      i++;
+  //     i++;
 
-      setDataArray(prevData => [...prevData, val]);
+  //     setDataArray(prevData => [...prevData, val]);
 
-      if (i == 5 || j == 21 || j == 2) {
-        i = 2;
-      }
-      if (j == 10) {
-        i = 0;
-      }
+  //     if (i == 5 || j == 21 || j == 2) {
+  //       i = 2;
+  //     }
+  //     if (j == 10) {
+  //       i = 0;
+  //     }
 
-      if (j == 30) {
-        setDataArray([val])
-        j = 0
-        i = 0
-      }
+  //     if (j == 30) {
+  //       setDataArray([val])
+  //       j = 0
+  //       i = 0
+  //     }
 
-      j++
-    }, 2000);
+  //     j++
+  //   }, 2000);
 
-    return () => clearInterval(intervalId);
-  }, []);
+  //   return () => clearInterval(intervalId);
+  // }, []);
 
   // console.log("data", dataArray)
 

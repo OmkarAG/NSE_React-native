@@ -1,0 +1,817 @@
+import { GET_ALL_CALL_AUCTION } from "../constants";
+
+const initialState = [{
+    "data": [
+        {
+            "symbol": "ELECTHERM",
+            "session1_price": 571.4,
+            "session1_qty": 20609,
+            "session2_price": 571.4,
+            "session2_qty": 5291,
+            "session3_price": 571.4,
+            "session3_qty": 7680,
+            "avg_price": 571.4,
+            "total_volume": 25900,
+            "total_turnover": 14799260
+        },
+        {
+            "symbol": "RSSOFTWARE",
+            "session1_price": 192.15,
+            "session1_qty": 13805,
+            "session2_price": 192.15,
+            "session2_qty": 41645,
+            "session3_price": 192.15,
+            "session3_qty": 300,
+            "avg_price": 192.15,
+            "total_volume": 55450,
+            "total_turnover": 10654717.5
+        },
+        {
+            "symbol": "TRF",
+            "session1_price": 461.15,
+            "session1_qty": 13185,
+            "session2_price": 460.85,
+            "session2_qty": 3985,
+            "session3_price": 461.15,
+            "session3_qty": 2170,
+            "avg_price": 461.08,
+            "total_volume": 17170,
+            "total_turnover": 7916743.6
+        },
+        {
+            "symbol": "KRITIKA",
+            "session1_price": 21.2,
+            "session1_qty": 285793,
+            "session2_price": 21.2,
+            "session2_qty": 61779,
+            "session3_price": 21.2,
+            "session3_qty": 2146,
+            "avg_price": 21.2,
+            "total_volume": 347572,
+            "total_turnover": 7368526.399999999
+        },
+        {
+            "symbol": "NITCO",
+            "session1_price": 64.3,
+            "session1_qty": 107998,
+            "session2_price": 64.3,
+            "session2_qty": 5715,
+            "session3_price": 64.3,
+            "session3_qty": 91,
+            "avg_price": 64.3,
+            "total_volume": 113713,
+            "total_turnover": 7311745.899999999
+        },
+        {
+            "symbol": "VARDMNPOLY",
+            "session1_price": 84.4,
+            "session1_qty": 37500,
+            "session2_price": 84.7,
+            "session2_qty": 48940,
+            "session3_price": 84.4,
+            "session3_qty": 1000,
+            "avg_price": 84.56,
+            "total_volume": 86440,
+            "total_turnover": 7309366.4
+        },
+        {
+            "symbol": "GLOBE",
+            "session1_price": 4.3,
+            "session1_qty": 303701,
+            "session2_price": 4.3,
+            "session2_qty": 406138,
+            "session3_price": 4.3,
+            "session3_qty": 75200,
+            "avg_price": 4.3,
+            "total_volume": 709839,
+            "total_turnover": 3052307.6999999997
+        },
+        {
+            "symbol": "RHL",
+            "session1_price": 224.8,
+            "session1_qty": 845,
+            "session2_price": 224.8,
+            "session2_qty": 10262,
+            "session3_price": 224.8,
+            "session3_qty": 100,
+            "avg_price": 224.8,
+            "total_volume": 11107,
+            "total_turnover": 2496853.6
+        },
+        {
+            "symbol": "SUPREMEINF",
+            "session1_price": 80.05,
+            "session1_qty": 2500,
+            "session2_price": 80.05,
+            "session2_qty": 24232,
+            "session3_price": 80.05,
+            "session3_qty": 1,
+            "avg_price": 80.05,
+            "total_volume": 26732,
+            "total_turnover": 2139896.6
+        },
+        {
+            "symbol": "CROWN",
+            "session1_price": 182.05,
+            "session1_qty": 2860,
+            "session2_price": 182.05,
+            "session2_qty": 4898,
+            "avg_price": 182.05,
+            "total_volume": 7758,
+            "total_turnover": 1412343.9000000001
+        },
+        {
+            "symbol": "HINDCON",
+            "session1_price": 53,
+            "session1_qty": 7179,
+            "session2_price": 53,
+            "session2_qty": 15314,
+            "session3_price": 53,
+            "session3_qty": 1556,
+            "avg_price": 53,
+            "total_volume": 22493,
+            "total_turnover": 1192129
+        },
+        {
+            "symbol": "ZODIAC",
+            "session1_price": 404,
+            "session1_qty": 1567,
+            "session2_price": 404,
+            "session2_qty": 1082,
+            "session3_price": 404,
+            "session3_qty": 13,
+            "avg_price": 404,
+            "total_volume": 2649,
+            "total_turnover": 1070196
+        },
+        {
+            "symbol": "VIJIFIN",
+            "session1_price": 3.7,
+            "session1_qty": 72705,
+            "session2_price": 3.7,
+            "session2_qty": 166058,
+            "session3_price": 3.7,
+            "session3_qty": 56924,
+            "avg_price": 3.7,
+            "total_volume": 238763,
+            "total_turnover": 883423.1000000001
+        },
+        {
+            "symbol": "E2E",
+            "session1_price": 898.75,
+            "session1_qty": 304,
+            "session2_price": 898.75,
+            "session2_qty": 604,
+            "session3_price": 898.75,
+            "session3_qty": 71,
+            "avg_price": 898.75,
+            "total_volume": 908,
+            "total_turnover": 816065
+        },
+        {
+            "symbol": "SPYL",
+            "session1_price": 1.9,
+            "session1_qty": 319489,
+            "session2_price": 1.9,
+            "session2_qty": 85782,
+            "session3_price": 1.9,
+            "session3_qty": 5019,
+            "avg_price": 1.9,
+            "total_volume": 405271,
+            "total_turnover": 770014.8999999999
+        },
+        {
+            "symbol": "ANTGRAPHIC",
+            "session1_price": 1.95,
+            "session1_qty": 258652,
+            "session2_price": 1.95,
+            "session2_qty": 126493,
+            "session3_price": 1.95,
+            "session3_qty": 61857,
+            "avg_price": 1.95,
+            "total_volume": 385145,
+            "total_turnover": 751032.75
+        },
+        {
+            "symbol": "PRITIKAUTO",
+            "session1_price": 33.75,
+            "session1_qty": 11389,
+            "session2_price": 33.75,
+            "session2_qty": 10269,
+            "session3_price": 33.75,
+            "session3_qty": 467,
+            "avg_price": 33.75,
+            "total_volume": 21658,
+            "total_turnover": 730957.5
+        },
+        {
+            "symbol": "GODHA",
+            "session1_price": 0.75,
+            "session1_qty": 682315,
+            "session2_price": 0.75,
+            "session2_qty": 253047,
+            "session3_price": 0.75,
+            "session3_qty": 21271,
+            "avg_price": 0.75,
+            "total_volume": 935362,
+            "total_turnover": 701521.5
+        },
+        {
+            "symbol": "TIL",
+            "session1_price": 581.4,
+            "session1_qty": 620,
+            "session2_price": 581.4,
+            "session2_qty": 510,
+            "session3_price": 581.4,
+            "session3_qty": 1000,
+            "avg_price": 581.4,
+            "total_volume": 1130,
+            "total_turnover": 656982
+        },
+        {
+            "symbol": "TIRUPATIFL",
+            "session1_price": 17.2,
+            "session1_qty": 12898,
+            "session2_price": 17,
+            "session2_qty": 25522,
+            "session3_price": 17.2,
+            "session3_qty": 4863,
+            "avg_price": 17.06,
+            "total_volume": 38420,
+            "total_turnover": 655445.2
+        },
+        {
+            "symbol": "TPHQ",
+            "session1_price": 1.25,
+            "session1_qty": 256146,
+            "session2_price": 1.2,
+            "session2_qty": 196032,
+            "session3_price": 1.25,
+            "session3_qty": 13176,
+            "avg_price": 1.22,
+            "total_volume": 452178,
+            "total_turnover": 551657.16
+        },
+        {
+            "symbol": "DUCON",
+            "session1_price": 10.1,
+            "session1_qty": 36356,
+            "session2_price": 10.1,
+            "session2_qty": 16257,
+            "session3_price": 10.1,
+            "session3_qty": 50,
+            "avg_price": 10.1,
+            "total_volume": 52613,
+            "total_turnover": 531391.2999999999
+        },
+        {
+            "symbol": "PRAENG",
+            "session1_price": 24.9,
+            "session1_qty": 15000,
+            "session2_price": 24.5,
+            "session2_qty": 291,
+            "avg_price": 24.89,
+            "total_volume": 15291,
+            "total_turnover": 380592.99
+        },
+        {
+            "symbol": "ZEELEARN",
+            "session1_price": 7.85,
+            "session1_qty": 35994,
+            "session2_price": 7.85,
+            "session2_qty": 7787,
+            "session3_price": 7.85,
+            "session3_qty": 150,
+            "avg_price": 7.85,
+            "total_volume": 43781,
+            "total_turnover": 343680.85
+        },
+        {
+            "symbol": "SALSTEEL",
+            "session1_price": 19.8,
+            "session1_qty": 13707,
+            "session2_price": 19.8,
+            "session2_qty": 2729,
+            "session3_price": 19.8,
+            "session3_qty": 119,
+            "avg_price": 19.8,
+            "total_volume": 16436,
+            "total_turnover": 325432.8
+        },
+        {
+            "symbol": "VISESHINFO",
+            "session1_price": 0.55,
+            "session1_qty": 307708,
+            "session2_price": 0.55,
+            "session2_qty": 164072,
+            "session3_price": 0.55,
+            "session3_qty": 211850,
+            "avg_price": 0.55,
+            "total_volume": 471780,
+            "total_turnover": 259479.00000000003
+        },
+        {
+            "symbol": "TREJHARA",
+            "session1_price": 154.95,
+            "session1_qty": 1501,
+            "session2_price": 157.75,
+            "session2_qty": 75,
+            "session3_price": 154.95,
+            "session3_qty": 15,
+            "avg_price": 155.08,
+            "total_volume": 1576,
+            "total_turnover": 244406.08000000002
+        },
+        {
+            "symbol": "NILASPACES",
+            "session1_price": 5.35,
+            "session1_qty": 25275,
+            "session2_price": 5.35,
+            "session2_qty": 19927,
+            "session3_price": 5.35,
+            "session3_qty": 8000,
+            "avg_price": 5.35,
+            "total_volume": 45202,
+            "total_turnover": 241830.69999999998
+        },
+        {
+            "symbol": "S&SPOWER",
+            "session1_price": 302.75,
+            "session1_qty": 405,
+            "session2_price": 302.75,
+            "session2_qty": 360,
+            "avg_price": 302.75,
+            "total_volume": 765,
+            "total_turnover": 231603.75
+        },
+        {
+            "symbol": "OMAXAUTO",
+            "session1_price": 104.8,
+            "session1_qty": 1180,
+            "session2_price": 102.9,
+            "session2_qty": 747,
+            "avg_price": 104.06,
+            "total_volume": 1927,
+            "total_turnover": 200523.62
+        },
+        {
+            "symbol": "SIMPLEXINF",
+            "session1_price": 94.25,
+            "session1_qty": 1012,
+            "session2_price": 94.25,
+            "session2_qty": 1104,
+            "avg_price": 94.25,
+            "total_volume": 2116,
+            "total_turnover": 199433
+        },
+        {
+            "symbol": "CCHHL",
+            "session1_price": 13.8,
+            "session1_qty": 4030,
+            "session2_price": 13.8,
+            "session2_qty": 8719,
+            "session3_price": 13.8,
+            "session3_qty": 1054,
+            "avg_price": 13.8,
+            "total_volume": 12749,
+            "total_turnover": 175936.2
+        },
+        {
+            "symbol": "CUBEXTUB",
+            "session1_price": 86,
+            "session1_qty": 618,
+            "session2_price": 86,
+            "session2_qty": 1412,
+            "session3_price": 86,
+            "session3_qty": 15,
+            "avg_price": 86,
+            "total_volume": 2030,
+            "total_turnover": 174580
+        },
+        {
+            "symbol": "ANIKINDS",
+            "session1_price": 46.6,
+            "session1_qty": 201,
+            "session2_price": 45.75,
+            "session2_qty": 3538,
+            "avg_price": 45.79,
+            "total_volume": 3739,
+            "total_turnover": 171208.81
+        },
+        {
+            "symbol": "AAKASH",
+            "session1_price": 10.1,
+            "session1_qty": 7345,
+            "session2_price": 10,
+            "session2_qty": 8922,
+            "session3_price": 10.1,
+            "session3_qty": 3482,
+            "avg_price": 10.04,
+            "total_volume": 16267,
+            "total_turnover": 163320.68
+        },
+        {
+            "symbol": "SECMARK",
+            "session2_price": 95.7,
+            "session2_qty": 1695,
+            "avg_price": 95.7,
+            "total_volume": 1695,
+            "total_turnover": 162211.5
+        },
+        {
+            "symbol": "PARASPETRO",
+            "session1_price": 3.4,
+            "session1_qty": 27242,
+            "session2_price": 3.4,
+            "session2_qty": 19335,
+            "session3_price": 3.4,
+            "session3_qty": 1138,
+            "avg_price": 3.4,
+            "total_volume": 46577,
+            "total_turnover": 158361.8
+        },
+        {
+            "symbol": "TCLCONS",
+            "session1_price": 40.35,
+            "session1_qty": 3597,
+            "session2_price": 40.35,
+            "session2_qty": 309,
+            "session3_price": 40.35,
+            "session3_qty": 180,
+            "avg_price": 40.35,
+            "total_volume": 3906,
+            "total_turnover": 157607.1
+        },
+        {
+            "symbol": "DIACABS",
+            "session1_price": 420.4,
+            "session1_qty": 222,
+            "session2_price": 420.4,
+            "session2_qty": 128,
+            "avg_price": 420.4,
+            "total_volume": 350,
+            "total_turnover": 147140
+        },
+        {
+            "symbol": "IL&FSTRANS",
+            "session1_price": 4.75,
+            "session1_qty": 12200,
+            "session2_price": 4.75,
+            "session2_qty": 17654,
+            "session3_price": 4.75,
+            "session3_qty": 1000,
+            "avg_price": 4.75,
+            "total_volume": 29854,
+            "total_turnover": 141806.5
+        },
+        {
+            "symbol": "ARSHIYA",
+            "session1_price": 8.35,
+            "session1_qty": 14191,
+            "session2_price": 8.35,
+            "session2_qty": 1260,
+            "session3_price": 8.35,
+            "session3_qty": 1511,
+            "avg_price": 8.35,
+            "total_volume": 15451,
+            "total_turnover": 129015.84999999999
+        },
+        {
+            "symbol": "VINNY",
+            "session1_price": 5.1,
+            "session1_qty": 16417,
+            "session2_price": 5.1,
+            "session2_qty": 7006,
+            "session3_price": 5.1,
+            "session3_qty": 1982,
+            "avg_price": 5.1,
+            "total_volume": 23423,
+            "total_turnover": 119457.29999999999
+        },
+        {
+            "symbol": "DOLPHIN",
+            "session1_price": 336.3,
+            "session1_qty": 351,
+            "avg_price": 336.3,
+            "total_volume": 351,
+            "total_turnover": 118041.3
+        },
+        {
+            "symbol": "A2ZINFRA",
+            "session1_price": 14.05,
+            "session1_qty": 4387,
+            "session2_price": 14.05,
+            "session2_qty": 3455,
+            "avg_price": 14.05,
+            "total_volume": 7842,
+            "total_turnover": 110180.1
+        },
+        {
+            "symbol": "GLFL",
+            "session1_price": 11.3,
+            "session1_qty": 7970,
+            "session2_price": 11.3,
+            "session2_qty": 1739,
+            "avg_price": 11.3,
+            "total_volume": 9709,
+            "total_turnover": 109711.70000000001
+        },
+        {
+            "symbol": "TIMESGTY",
+            "session1_price": 98.8,
+            "session1_qty": 1,
+            "session2_price": 98.8,
+            "session2_qty": 1000,
+            "avg_price": 98.8,
+            "total_volume": 1001,
+            "total_turnover": 98898.8
+        },
+        {
+            "symbol": "NOIDATOLL",
+            "session1_price": 9.5,
+            "session1_qty": 6780,
+            "session2_price": 9.5,
+            "session2_qty": 1904,
+            "avg_price": 9.5,
+            "total_volume": 8684,
+            "total_turnover": 82498
+        },
+        {
+            "symbol": "THOMASCOTT",
+            "session1_price": 336.65,
+            "session1_qty": 178,
+            "session2_price": 336.65,
+            "session2_qty": 34,
+            "avg_price": 336.65,
+            "total_volume": 212,
+            "total_turnover": 71369.79999999999
+        },
+        {
+            "symbol": "SUPERSPIN",
+            "session1_price": 7.95,
+            "session1_qty": 4525,
+            "session2_price": 7.95,
+            "session2_qty": 4010,
+            "session3_price": 7.95,
+            "session3_qty": 16,
+            "avg_price": 7.95,
+            "total_volume": 8535,
+            "total_turnover": 67853.25
+        },
+        {
+            "symbol": "DNAMEDIA",
+            "session1_price": 5,
+            "session1_qty": 10283,
+            "session2_price": 5,
+            "session2_qty": 3220,
+            "session3_price": 5,
+            "session3_qty": 37857,
+            "avg_price": 5,
+            "total_volume": 13503,
+            "total_turnover": 67515
+        },
+        {
+            "symbol": "SANGINITA",
+            "session1_price": 23.95,
+            "session1_qty": 1500,
+            "session2_price": 23.95,
+            "session2_qty": 1002,
+            "session3_price": 23.95,
+            "session3_qty": 20,
+            "avg_price": 23.95,
+            "total_volume": 2502,
+            "total_turnover": 59922.9
+        },
+        {
+            "symbol": "SILGO",
+            "session1_price": 26,
+            "session1_qty": 1046,
+            "session2_price": 26,
+            "session2_qty": 1000,
+            "session3_price": 26,
+            "session3_qty": 1253,
+            "avg_price": 26,
+            "total_volume": 2046,
+            "total_turnover": 53196
+        },
+        {
+            "symbol": "RKDL",
+            "session1_price": 21.45,
+            "session1_qty": 670,
+            "session2_price": 21.45,
+            "session2_qty": 1696,
+            "session3_price": 21.45,
+            "session3_qty": 1,
+            "avg_price": 21.45,
+            "total_volume": 2366,
+            "total_turnover": 50750.7
+        },
+        {
+            "symbol": "BLUECHIP",
+            "session1_price": 3.3,
+            "session1_qty": 9253,
+            "session2_price": 3.3,
+            "session2_qty": 4524,
+            "session3_price": 3.3,
+            "session3_qty": 2200,
+            "avg_price": 3.3,
+            "total_volume": 13777,
+            "total_turnover": 45464.1
+        },
+        {
+            "symbol": "MBECL",
+            "session1_price": 5.95,
+            "session1_qty": 6010,
+            "session2_price": 5.95,
+            "session2_qty": 1000,
+            "avg_price": 5.95,
+            "total_volume": 7010,
+            "total_turnover": 41709.5
+        },
+        {
+            "symbol": "SADBHIN",
+            "session1_price": 7.8,
+            "session1_qty": 4541,
+            "session2_price": 7.8,
+            "session2_qty": 734,
+            "session3_price": 7.8,
+            "session3_qty": 739,
+            "avg_price": 7.8,
+            "total_volume": 5275,
+            "total_turnover": 41145
+        },
+        {
+            "symbol": "21STCENMGM",
+            "session1_price": 49,
+            "session1_qty": 332,
+            "session2_price": 49,
+            "session2_qty": 384,
+            "session3_price": 49,
+            "session3_qty": 125,
+            "avg_price": 49,
+            "total_volume": 716,
+            "total_turnover": 35084
+        },
+        {
+            "symbol": "BLBLIMITED",
+            "session1_price": 45.25,
+            "session1_qty": 27,
+            "session2_price": 45.25,
+            "session2_qty": 551,
+            "avg_price": 45.25,
+            "total_volume": 578,
+            "total_turnover": 26154.5
+        },
+        {
+            "symbol": "HBSL",
+            "session1_price": 87.05,
+            "session1_qty": 58,
+            "session2_price": 87,
+            "session2_qty": 177,
+            "session3_price": 87.05,
+            "session3_qty": 15,
+            "avg_price": 87.01,
+            "total_volume": 235,
+            "total_turnover": 20447.350000000002
+        },
+        {
+            "symbol": "STARTECK",
+            "session2_price": 308.8,
+            "session2_qty": 50,
+            "avg_price": 308.8,
+            "total_volume": 50,
+            "total_turnover": 15440
+        },
+        {
+            "symbol": "KRIDHANINF",
+            "session1_price": 5.8,
+            "session1_qty": 1885,
+            "session2_price": 5.8,
+            "session2_qty": 296,
+            "avg_price": 5.8,
+            "total_volume": 2181,
+            "total_turnover": 12649.8
+        },
+        {
+            "symbol": "UMAEXPORTS",
+            "session1_price": 88.35,
+            "session1_qty": 57,
+            "session2_price": 88.35,
+            "session2_qty": 25,
+            "avg_price": 88.35,
+            "total_volume": 82,
+            "total_turnover": 7244.7
+        },
+        {
+            "symbol": "ALPSINDUS",
+            "session1_price": 2.1,
+            "session1_qty": 1193,
+            "session2_price": 2.1,
+            "session2_qty": 1306,
+            "avg_price": 2.1,
+            "total_volume": 2499,
+            "total_turnover": 5247.900000000001
+        },
+        {
+            "symbol": "ICDSLTD",
+            "session1_price": 46.1,
+            "session1_qty": 1,
+            "session2_price": 45.25,
+            "session2_qty": 111,
+            "avg_price": 45.25,
+            "total_volume": 112,
+            "total_turnover": 5068
+        },
+        {
+            "symbol": "BKMINDST",
+            "session1_price": 2.15,
+            "session1_qty": 1640,
+            "session2_price": 2.15,
+            "session2_qty": 586,
+            "avg_price": 2.15,
+            "total_volume": 2226,
+            "total_turnover": 4785.9
+        },
+        {
+            "symbol": "IMPEXFERRO",
+            "session1_price": 4.4,
+            "session1_qty": 46,
+            "session2_price": 4.4,
+            "session2_qty": 1007,
+            "avg_price": 4.4,
+            "total_volume": 1053,
+            "total_turnover": 4633.200000000001
+        },
+        {
+            "symbol": "CREATIVEYE",
+            "session1_price": 4.6,
+            "session1_qty": 129,
+            "session2_price": 4.6,
+            "session2_qty": 500,
+            "avg_price": 4.6,
+            "total_volume": 629,
+            "total_turnover": 2893.3999999999996
+        },
+        {
+            "symbol": "TNTELE",
+            "session1_price": 11.6,
+            "session1_qty": 1,
+            "session2_price": 11.6,
+            "session2_qty": 238,
+            "avg_price": 11.6,
+            "total_volume": 239,
+            "total_turnover": 2772.4
+        },
+        {
+            "symbol": "GUJRAFFIA",
+            "session1_price": 53.6,
+            "session1_qty": 5,
+            "session2_price": 53.6,
+            "session2_qty": 32,
+            "avg_price": 53.6,
+            "total_volume": 37,
+            "total_turnover": 1983.2
+        },
+        {
+            "symbol": "SHYAMTEL",
+            "session2_price": 12.5,
+            "session2_qty": 150,
+            "avg_price": 12.5,
+            "total_volume": 150,
+            "total_turnover": 1875
+        },
+        {
+            "symbol": "DCMFINSERV",
+            "session2_price": 5.9,
+            "session2_qty": 285,
+            "avg_price": 5.9,
+            "total_volume": 285,
+            "total_turnover": 1681.5
+        },
+        {
+            "symbol": "TECILCHEM",
+            "session1_price": 24,
+            "session1_qty": 5,
+            "avg_price": 24,
+            "total_volume": 5,
+            "total_turnover": 120
+        }
+    ],
+    "timestamp": "11-Mar-2024 11:36:47",
+    "final_volume": 4807076,
+    "final_turnover": 79066542.54,
+    "status": {
+        "timestamp": "11-Mar-2024 11:36:47",
+        "status": "OPEN",
+        "session": "session 3"
+    }
+}]
+
+export const CallAuction = (state = initialState, action) => {
+    switch (action.type) {
+      case GET_ALL_CALL_AUCTION:
+        return state;
+      default:
+        return state;
+    }
+  };
